@@ -1,0 +1,8 @@
+<?php if($block->getFeeds()): ?>
+    <h2 class='posts'>Fox Chapel Publishing News & Press Releases</h2>
+    <?php $feeds = $block->getFeeds(); ?>
+    <?php foreach ($feeds as $feed) :?>
+        <h3><a href="<?= $feed->getData('link'); ?>"><?= $feed->getTitle(); ?></a></h3>
+        <?= $feed->getShortDescription(); ?>
+    <?php endforeach; ?>
+<?php endif; ?>

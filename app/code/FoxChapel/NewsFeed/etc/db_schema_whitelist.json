@@ -1,0 +1,22 @@
+{
+    "news_feed": {
+        "column": {
+            "id": true,
+            "title": true,
+            "guid": true,
+            "link": true,
+            "short_description": true,
+            "published_date": true,
+            "created_at": true,
+            "updated_at": true,
+            "creator": true
+        },
+        "index": {
+            "NEWS_FEED_TITLE": true,
+            "NEWS_FEED_SHORT_DESCRIPTION": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
