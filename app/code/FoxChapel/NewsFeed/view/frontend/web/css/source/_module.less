@@ -1,0 +1,52 @@
+
+/**
+* Newsfeed styling
+*
+* @author karthikeyan Indran <kindran@ztech.io>
+* @package FoxChapel/NewsFeed
+*/
+
+& when (@media-common = true) {
+    .feed-wrapper {
+        .feed-inner {
+            margin-bottom: 100px;
+            position: relative;
+        }
+        .slick-slide {
+            padding: 0 15px;
+        }
+        .footer-container {
+            bottom: -80px;
+            box-sizing: border-box;
+            background-color: #fff;
+            left: 0;
+            margin: auto;
+            padding: 30px;
+            position: absolute;
+            right: 0;
+            width: ~"calc(100% - 50px)";
+            
+            h3 {
+                margin: 0;
+                min-height: 50px;
+
+                @media only screen and (max-width: 1280px) {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        .img-container {
+        font-size: 0;
+            
+            img {
+                height: auto;
+            }
+        }
+    }
+
+    body {
+        background-color: #f6fafd;
+    }
+}
