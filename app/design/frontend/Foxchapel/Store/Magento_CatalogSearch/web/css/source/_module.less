@@ -258,6 +258,12 @@
                     .lib-css(color, @color-gray20);
                 }
             }
+            &:hover {
+                background: @color_red;
+                &:before {
+                    color: #fff;
+                }
+            }
             background: @color_red;    
             width: 45px;
             height: 45px;
@@ -278,5 +284,21 @@
     }
     .search-autocomplete {
         margin-top: 0;
+    }
+    .account-wishlist-links {
+        display: flex;
+        align-items: center;
+        a {
+            font-size: 18px;
+        }
+        .header {
+            &.links {
+                display: flex;
+                align-items: center;
+                list-style-type: none;
+                margin-bottom: 0;
+            }
+
+        }
     }
 }

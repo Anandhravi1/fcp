@@ -3,6 +3,8 @@
 //  * See COPYING.txt for license details.
 //  */
 
+@import 'icon/_icons.less';
+
 //
 //  Theme variables
 //  _____________________________________________
@@ -61,7 +63,11 @@
     .page-main {
         .lib-vendor-prefix-flex-grow(1);
     }
-
+    .sections {
+      &.nav-sections,.navigation {
+           background: #000;
+        }
+}
     //
     //  Header
     //  ---------------------------------------------
@@ -78,8 +84,73 @@
             padding-top: @indent__s;
             position: relative;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between;     
+            align-items: center;      
            
+        }
+    }
+    .minicart-wrapper {
+        .action{
+            &.showcart {
+                &:before {
+                    content:'\e903';
+                    font-family:'foxchapel-icon';                    
+                    color: #000;
+                }
+            }
+        }
+    }
+    .home-slider-sec {
+        position: relative;
+        .slick-dots {
+            position: absolute;
+            list-style: none;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0;
+            width: auto;
+            li {
+                position: relative;
+                display: block;
+                float: left;
+                margin: 0 8px;
+                width: 8px;
+                height: 8px;
+                cursor: pointer;
+                border-radius: 50%;                
+                box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+                -webkit-transition: box-shadow 0.3s ease;
+                transition: box-shadow 0.3s ease;
+                button {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                    border-radius: 50%;
+                    border: none;                    
+                    text-indent: -999em;
+                    cursor: pointer;
+                    position: absolute;                    
+                    background: transparent;
+                    border: 2px solid #fff;
+                    -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
+                    transition: background-color 0.3s ease, transform 0.3s ease;
+                    &:hover {
+                      border: 2px solid #fff;
+                    }
+                }
+                &.slick-active {
+                    box-shadow: 0 0 0 .5em rgba(255,255,255,.3);
+                    background: #fff;
+                    button {
+                        -webkit-transform: scale(0.5);
+                        transform: scale(0.5);
+                        background: #fff;
+                    }
+                 }
+            }
         }
     }
     .page-header {
@@ -171,8 +242,53 @@
             margin-bottom: 0;
             text-align: center;
         }
+    }    
+    a{
+        color: #000;
+        &:hover {
+            text-decoration: none;
+        }
+    } 
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: 1.5rem 3rem;
+        font-size: 1.4rem;
+        line-height: 1;
+        letter-spacing: .5px;
+        border-radius: 0;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }  
+    .btn-dark {
+        color: #fff;
+        background-color: #0e0e0e;
+        border-color: #0e0e0e;
+        &:hover {
+            color: #fff;
+            background-color: #f62531;
+            border-color: #f62531;
+        }
     }
-
+    .btn-white {
+        color: #000;
+        background-color: #fff;
+        border-color: #fff;
+        &:hover {
+            color: #fff;
+            background-color: #f62531;
+            border-color: #f62531;
+        }
+    }
     //
     //  Footer
     //  ---------------------------------------------
@@ -410,5 +526,9 @@
         .copyright {
             &:extend(.abs-add-clearfix all);
         }
+    }
+    /********* pre-defiend class **********/
+    .text-white {
+        color: @color_white;
     }
 }
