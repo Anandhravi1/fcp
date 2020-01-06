@@ -8,7 +8,9 @@
                 <h3><?= $feed->getTitle(); ?></h3>
                 <a href="<?= $feed->getData('link'); ?>">Learn More</a>
             </div>
-            <div class="img-container"><?= $feed->getShortDescription(); ?></div>
+            <div class="img-container">
+            <span class="date"><span>15</span><span>Dec</span></span>
+            <?= $feed->getShortDescription(); ?></div>
         </div>
     <?php endforeach; ?>
         </div>

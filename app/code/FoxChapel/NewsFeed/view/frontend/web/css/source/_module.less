@@ -11,6 +11,12 @@
         .feed-inner {
             margin-bottom: 100px;
             position: relative;
+
+            &:hover {
+                .date {
+                    background-color: rgb(205, 23, 30);
+                }
+            }
         }
         .slick-slide {
             padding: 0 15px;
@@ -40,6 +46,24 @@
         .img-container {
         font-size: 0;
             
+            .date {
+                background: rgba(0, 0, 0, 0.5);
+                box-sizing: border-box;
+                color: rgb(255, 255, 255);
+                font-size: 13px;
+                height: 30px;
+                left: 0;
+                padding: 6px;
+                position: absolute;
+                top: 10px;
+                width: 65px;
+                z-index: 9;
+                
+                span {
+                    display: inline-block;
+                    padding: 0 2px;
+                }
+            }
             img {
                 height: auto;
             }
