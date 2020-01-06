@@ -5,6 +5,10 @@
 * @author karthikeyan Indran <kindran@ztech.io>
 * @package FoxChapel/NewsFeed
 */
+//variables
+@fox-red: rgb(205, 23, 30);
+@white: rgb(255, 255, 255);
+@black: rgb(0, 0, 0);
 
 & when (@media-common = true) {
     .feed-wrapper {
@@ -14,7 +18,14 @@
 
             &:hover {
                 .date {
-                    background-color: rgb(205, 23, 30);
+                    background-color: @fox-red;
+                }
+                .footer-container {
+                    border-bottom-color: @fox-red;
+
+                    a {
+                        color: @fox-red;
+                    }
                 }
             }
         }
@@ -23,8 +34,9 @@
         }
         .footer-container {
             bottom: -80px;
+            border-bottom: 2px solid @white;
             box-sizing: border-box;
-            background-color: #fff;
+            background-color: @white;
             left: 0;
             margin: auto;
             padding: 30px;
@@ -32,6 +44,9 @@
             right: 0;
             width: ~"calc(100% - 50px)";
             
+            a {
+                color: rgb(0, 0, 0);
+            }
             h3 {
                 margin: 0;
                 min-height: 50px;
@@ -49,7 +64,7 @@
             .date {
                 background: rgba(0, 0, 0, 0.5);
                 box-sizing: border-box;
-                color: rgb(255, 255, 255);
+                color: @white;
                 font-size: 13px;
                 height: 30px;
                 left: 0;
