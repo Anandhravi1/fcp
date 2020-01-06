@@ -13,6 +13,7 @@
                 <arguments>
                     <argument name="label" xsi:type="string" translate="true">My Account</argument>
                     <argument name="sortOrder" xsi:type="number">110</argument>
+                    <argument name="class" xsi:type="string">my-account</argument>
                 </arguments>
         </referenceBlock>
     </body>

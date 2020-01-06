@@ -211,19 +211,16 @@
         .label {
             &:extend(.abs-visually-hidden-desktop all);
         }
-
         .control {
             border-top: 0;
             margin: 0;
             padding: 0 0 25px;
         }
-
         .nested {
             display: block;
             padding-top: 5px;
             position: absolute;
         }
-
         input {
             .lib-input-placeholder(@form-element-input-placeholder__color);
             margin: 0;
@@ -234,10 +231,10 @@
                 border: 1px solid #092c4c;
                 &::placeholder {
                     color: @secondary__color;
+                    text-transform: capitalize;
                 }
             }
         }
-
         .action.search {
             display: inline-block;
             .lib-button-icon(
@@ -286,8 +283,7 @@
         margin-top: 0;
     }
     .account-wishlist-links {
-        display: flex;
-        align-items: center;
+        display: flex;        
         a {
             font-size: 18px;
         }

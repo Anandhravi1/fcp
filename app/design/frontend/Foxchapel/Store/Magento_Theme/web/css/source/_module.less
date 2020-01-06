@@ -86,20 +86,39 @@
             display: flex;
             justify-content: space-between;     
             align-items: center;      
-           
+           .icon-wishlist,.action.compare{               
+                .lib-icon-text-hide();               
+           }
+           .my-account {
+               font-size: 0;
+               position: relative;
+               &:before {
+                position: absolute;                
+                font-size: 18px;
+                font-family: 'foxchapel-icon';
+                content: "\e901";
+                bottom: -5px;
+                left: -20px;
+                color: #000;
+               }
+           }
         }
-    }
-    .minicart-wrapper {
-        .action{
-            &.showcart {
-                &:before {
-                    content:'\e903';
-                    font-family:'foxchapel-icon';                    
-                    color: #000;
+        .minicart-wrapper {
+            margin-left: 20px;
+            .action{
+                &.showcart {
+                    &:before {
+                        content:'\e903';
+                        font-family:'foxchapel-icon';                    
+                        color: #000;
+                        font-size: 18px;
+                        line-height: 20px;
+                    }
                 }
             }
         }
     }
+   
     .home-slider-sec {
         position: relative;
         .slick-dots {
@@ -158,6 +177,13 @@
             &.content {
                 &:before,&:after {
                     display: none;
+                }
+            }
+            .header {
+                &.links {
+                    li {
+                        margin-left: 20px;
+                    }
                 }
             }
         }
@@ -441,6 +467,7 @@
                 > li {
                     font-size: @font-size__base;
                     margin: 0 0 0 15px;
+
 
                     &.welcome,
                     a {
