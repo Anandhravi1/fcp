@@ -11,7 +11,7 @@
        <referenceBlock name="register-link" remove="true" />
        <referenceBlock  name="my-account-link">
                 <arguments>
-                    <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                    <argument name="label" xsi:type="string" translate="true">Account</argument>
                     <argument name="sortOrder" xsi:type="number">110</argument>
                     <argument name="class" xsi:type="string">my-account</argument>
                 </arguments>
