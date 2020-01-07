@@ -18,8 +18,10 @@ class Feeds extends Template implements BlockInterface {
 	public function __construct(
 		Context $context,
 		\FoxChapel\NewsFeed\Model\DataFactory $newsFeed,
+		\Magento\Framework\Stdlib\DateTime\TimezoneInterface $timezoneInterface,
 		array $data
 	) {
+		$this->timezoneInterface = $timezoneInterface;
 		$this->newsFeedFactory = $newsFeed;
 		parent::__construct($context, $data);
 	}
@@ -27,7 +29,25 @@ class Feeds extends Template implements BlockInterface {
 	public function getFeeds()
 	{
 		$newsModel = $this->newsFeedFactory->create();
-		$collection = $newsModel->getCollection();
+		$limit = $this->_scopeConfig->getValue(
+			'foxchapel_config/general/feed_count',
+			\Magento\Store\Model\ScopeInterface::SCOPE_STORE
+		);
+		$collection = $newsModel->getCollection()->setPageSize($limit);
 		return $collection;
+	}
+
+	public function isEnabled()
+	{
+		return $this->_scopeConfig->getValue(
+			'foxchapel_config/general/enable',
+			\Magento\Store\Model\ScopeInterface::SCOPE_STORE
+		);
+	}
+
+	public function getFormattedDate($pubDate)
+	{
+		$formattedDate = $this->timezoneInterface->date($pubDate)->format('d M');
+		return $formattedDate;
 	}
 }

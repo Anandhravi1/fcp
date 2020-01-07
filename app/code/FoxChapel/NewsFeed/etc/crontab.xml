@@ -8,7 +8,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="default">
         <job name="News_Feed_synchronize" instance="FoxChapel\NewsFeed\Cron\SynchronizeNewsFeeds" method="execute">
-            <schedule>*/5 * * * *</schedule>
+            <config_path>foxchapel_config/general/cron_time</config_path>
         </job>
     </group>
 </config>
