@@ -163,6 +163,9 @@
 
             &.showcart {
                 white-space: nowrap;
+                .text {
+                    &:extend(.abs-visually-hidden all);
+                }
                 .counter.qty {
                     .lib-css(background, @active__color);
                     .lib-css(color, @page__background-color);
