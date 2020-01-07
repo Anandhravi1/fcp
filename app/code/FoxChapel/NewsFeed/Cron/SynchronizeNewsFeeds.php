@@ -21,6 +21,8 @@ class SynchronizeNewsFeeds
         try {
             $channels = Feed\Reader::import('https://foxchapelpublishing.com/news/feed/');
 
+            $this->deleteFeeds();
+
             foreach ($channels as $item) {
                 $dateCreated = $item->getDateCreated();
                 $dateFormatted = $dateCreated->format('Y-m-d H:i:s');
@@ -38,5 +40,14 @@ class SynchronizeNewsFeeds
         } catch (\Exception $e) {
             $this->logger->debug($e->getMessage());
         }
+    }
+
+    /**
+     * Removes the existing feeds
+     */
+    public function deleteFeeds()
+    {
+        $collection = $this->newsFeed->getCollection();
+        $collection->walk('delete');
     }
 }
