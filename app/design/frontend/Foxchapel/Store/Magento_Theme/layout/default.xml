@@ -14,8 +14,12 @@
          <move element="wish-list-link" destination="account-wishlist-links" before="minicart" />   
         <move element="authorization-link" destination="account-wishlist-links" before="-" />
        <move element="catalog.compare.link" destination="account-wishlist-links" before="authorization-link" /> -->
-       <move element="minicart" destination="account-wishlist-links" after="-" />
+
+        <move element="header.links" destination="account-wishlist-links" after="-"/>
+
+       <move element="minicart" destination="top.links" after="-" />
         <move element="top.links" destination="account-wishlist-links" before="-" />
         <referenceContainer name="header.panel.wrapper" remove="true"/>
+        <referenceBlock name="invitation_link_top" remove="true"/>
     </body>
 </page>

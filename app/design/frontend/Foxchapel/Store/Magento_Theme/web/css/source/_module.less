@@ -103,20 +103,6 @@
                }
            }
         }
-        .minicart-wrapper {
-            margin-left: 20px;
-            .action{
-                &.showcart {
-                    &:before {
-                        content:'\e903';
-                        font-family:'foxchapel-icon';                    
-                        color: #000;
-                        font-size: 18px;
-                        line-height: 20px;
-                    }
-                }
-            }
-        }
     }
    
     .home-slider-sec {
@@ -182,7 +168,13 @@
             .header {
                 &.links {
                     li {
-                        margin-left: 20px;
+                        a {
+                            margin-left: 20px;
+                        }
+                    }
+
+                    > .authorization-link {
+                        display: none;
                     }
                 }
             }
