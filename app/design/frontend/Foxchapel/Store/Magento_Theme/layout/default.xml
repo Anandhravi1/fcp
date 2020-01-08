@@ -9,13 +9,30 @@
     <body>
          <referenceContainer name="header-wrapper">                
                 <container name="account-wishlist-links" htmlTag="div" htmlClass="account-wishlist-links" after="-"/>
-         </referenceContainer>
-        <!-- <move element="minicart" destination="account-wishlist-links" after="-" />     
-         <move element="wish-list-link" destination="account-wishlist-links" before="minicart" />   
-        <move element="authorization-link" destination="account-wishlist-links" before="-" />
-       <move element="catalog.compare.link" destination="account-wishlist-links" before="authorization-link" /> -->
+         </referenceContainer>        
+
+        <referenceContainer name="footer-container">
+         <container name="footer-links" htmlTag="div" htmlClass="footer-links" before="-">
+          <block class="Magento\Cms\Block\Block" name="footer.links" >
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">footer_links</argument>
+                            </arguments>
+          </block>
+          </container>
+        </referenceContainer>
+          <referenceContainer name="footer">
+          <referenceBlock  name="copyright" remove="true" />
+                <block class="Magento\Cms\Block\Block" name="footer_copyright" after="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_copyright</argument>
+                    </arguments>
+                </block>
+          </referenceContainer>
        <move element="minicart" destination="account-wishlist-links" after="-" />
         <move element="top.links" destination="account-wishlist-links" before="-" />
-        <referenceContainer name="header.panel.wrapper" remove="true"/>
+        <referenceContainer name="header.panel.wrapper" remove="true"/>         
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock  name="footer_links" remove="true" /> 
+        <referenceBlock name="report.bugs" remove="true" />
     </body>
 </page>

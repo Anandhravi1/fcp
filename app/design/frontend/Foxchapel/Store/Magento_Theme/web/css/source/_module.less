@@ -68,6 +68,11 @@
            background: #000;
         }
 }
+    .display-content-item(@display,@content,@item) {
+        display:@display;
+        justify-content: @content;
+        align-items: @item;
+    }
     //
     //  Header
     //  ---------------------------------------------
@@ -323,35 +328,86 @@
         .lib-css(background-color, @footer__background-color);
         margin-top: auto;
     }
-
+    .footer-links {
+        border-bottom: 1px solid #000;
+    }
+    .footer-part.row {
+           margin-left: 0;
+           margin-right: 0;
+           padding-top: 75px;           
+        .footer-list {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+       
+    }
     .footer {
-        &.content {
-            border-top: 1px solid @border-color__base;
-            margin-top: 25px;
+        &.content {                      
             padding-bottom: 25px;
             padding-top: 25px;
-
+            color: @color_white;
+            .connect-with-us {
+                text-transform: uppercase;            
+            }
+            .copyright-media-sec {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                small,span {
+                    font-size: 13px;
+                }                
+                .social-media-sec {
+                    .display-content-item(flex, space-between,start);
+                }
+                .media-links{                    
+                    a{
+                    margin-left: 20px;
+                    font-size: 18px;
+                }
+            }
+        }
             ul {
                 &:extend(.abs-reset-list all);
             }
-
+            a {
+                color: @color_white;
+            }
             .links {
                 > li {
                     margin: 0 0 8px;
+                }
+                a {
+                    color: @color_white;
                 }
             }
 
             .switcher-store {
                 margin: 0 0 30px;
             }
+           
         }
-
+       
         .copyright,
         .bugs {
-            display: block;
-            margin: 20px 0 0;
+            text-transform: uppercase;
+            display: block;           
+            color: @color_white;
         }
     }
+    .footer-list {
+        ul {
+            padding-left: 0;
+        }
+        h6 {
+            margin-top: 0;
+            margin-bottom: 30px;  
+            letter-spacing: 1px;
+            font-weight: bold;          
+        }
+        h6, a {
+            color: @color_white;
+        }
+    } 
 
     .page-header,
     .page-footer {
@@ -437,11 +493,57 @@
         }
     }
 }
-
+//
+//  mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .footer-part {  
+        &.row {
+            display: block;
+        }     
+ }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .footer-part {  
+        .footer-customer,.footer-connected,.footer-magazines,
+       .footer-imprints,.footer-authors,.footer-category {
+            width: 50%;
+        } 
+ }
+}
+//
+//  tablet
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .footer-part {  
+       .footer-customer,.footer-connected,.footer-magazines,
+       .footer-imprints,.footer-authors,.footer-category {
+            width: 33.3%;
+        }  
+ }
+}
 //
 //  Desktop
 //  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .footer-part {  
+       .footer-customer {
+            width: 15%;
+        }    
+      .footer-connected,.footer-magazines {
+         width: 18%;
+     }
+     .footer-imprints,.footer-authors {
+         width: 13%;
+     }
+     .footer-category {
+         width: 23%;
+     }
+ }
 
+
+
+}
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-wrapper {
         > .breadcrumbs,
@@ -558,4 +660,5 @@
     .text-white {
         color: @color_white;
     }
+
 }
