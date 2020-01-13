@@ -10,6 +10,9 @@
          <referenceContainer name="header-wrapper">                
                 <container name="account-wishlist-links" htmlTag="div" htmlClass="account-wishlist-links" after="-"/>
          </referenceContainer>
+        <referenceBlock name="top.links">
+            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="my.accounts.links" template="Magento_Theme::html/header/my_account.phtml"/>
+        </referenceBlock>
         <!-- <move element="minicart" destination="account-wishlist-links" after="-" />     
          <move element="wish-list-link" destination="account-wishlist-links" before="minicart" />   
         <move element="authorization-link" destination="account-wishlist-links" before="-" />
@@ -17,8 +20,13 @@
 
         <move element="header.links" destination="account-wishlist-links" after="-"/>
 
-       <move element="minicart" destination="top.links" after="-" />
+        <move element="minicart" destination="top.links" after="-" />
         <move element="top.links" destination="account-wishlist-links" before="-" />
+
+        <move element="my-account-link"  destination="my.accounts.links"/>
+        <move element="wish-list-link"  destination="my.accounts.links" after='my-account-link'/>
+        <move element="authorization-link"  destination="my.accounts.links" after='wish-list-link'/>
+        <move element="header" destination="my.accounts.links" before="my-account-link" />
         <referenceContainer name="header.panel.wrapper" remove="true"/>
         <referenceBlock name="invitation_link_top" remove="true"/>
     </body>
