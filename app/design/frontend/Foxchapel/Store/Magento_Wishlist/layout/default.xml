@@ -8,7 +8,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="top.links">
-            <block class="Magento\Wishlist\Block\Link" name="wish-list-link" before="my-account-link">
+            <block class="Magento\Wishlist\Block\Link" name="wish-list-link" after="my-accounts-link">
                 <arguments>
                     <argument name="sortOrder" xsi:type="number">60</argument>
                 </arguments>

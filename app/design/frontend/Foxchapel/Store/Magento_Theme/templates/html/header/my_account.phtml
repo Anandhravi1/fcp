@@ -10,7 +10,7 @@ if ($block->isLoggedIn()) {
 ?>
 <li class="customer-welcome dropdown">
     <?php if ($block->isLoggedIn()) : ?>
-        <span class="customer-name dropdown-toggle"
+        <span class="my-account customer-name dropdown-toggle"
               role="link"
               tabindex="0"
               data-mage-init='{"dropdown":{}}'
@@ -28,6 +28,6 @@ if ($block->isLoggedIn()) {
             <?= $block->getChildHtml(); ?>
         </ul>
     <?php else : ?>
-        <a <?= /* @noEscape */ $block->getLinkAttributes() ?><?= /* @noEscape */ $dataPostParam ?>><?= $block->escapeHtml(__('Login / Sign Up')); ?></a>
+        <a <?= /* @noEscape */ $block->getLinkAttributes() ?><?= /* @noEscape */ $dataPostParam ?> class="my-account" title="<?= $block->escapeHtml(__('Login / Sign Up')); ?>"><span><?= $block->escapeHtml(__('Login / Sign Up')); ?></span></a>
     <?php endif; ?>
 </li>

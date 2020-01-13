@@ -86,22 +86,60 @@
             display: flex;
             justify-content: space-between;     
             align-items: center; 
-            .icon-wishlist,.action.compare{               
+            .icon-wishlist,.action.compare, .my-account {
                     .lib-icon-text-hide();                                   
                 }                
            .my-account {              
                position: relative;
-               font-size: 0;
                &:before {
-                position: absolute;                
                 font-size: 18px;
                 font-family: 'foxchapel-icon';
                 content: "\e901";
-                bottom: -5px;
-                left: -20px;
-                color: #000;
                }
            }
+        }
+
+        .customer-welcome {
+            position: relative;
+            .my-account {
+                cursor: pointer;
+            }
+            .action.switch {
+                display: none;
+            }
+            .customer-menu {
+                display: none;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                min-width: 175px;
+                z-index: 1000;
+                background: @color_white;
+                padding: 0;
+                list-style: none;
+                box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2);
+
+                li {
+                    padding: 5px 15px;
+                    font-size: 14px;
+
+                    &.welcome {
+                        font-weight: bold;
+                        text-transform: capitalize;
+                    }
+
+                    a {
+                        font-size: inherit;
+                    }
+
+                }
+            }
+
+            &.active {
+                .customer-menu {
+                    display: block;
+                }
+            }
         }
     }
    
@@ -167,8 +205,8 @@
             }
             .header {
                 &.links {
-                    li {
-                        a {
+                    > li {
+                       >  a, .my-account {
                             margin-left: 20px;
                         }
                     }
