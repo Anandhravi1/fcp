@@ -8,6 +8,7 @@
     'slick'
 ], function ($) {
     'use strict';
+    
     setTimeout(function(){
         $(".full-carousel ol.product-items").each(function() {
             $(this).slick({
