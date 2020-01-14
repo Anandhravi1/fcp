@@ -18,16 +18,25 @@
                                 <argument name="block_id" xsi:type="string">footer_links</argument>
                             </arguments>
           </block>
-          </container>
+          </container>     
+          <container name="newsletter-container" htmlTag="div" htmlClass="newsletter-container" before="footer-links">
+           <block class="Magento\Cms\Block\Block" name="newsletter_section">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">newsletter_section</argument>
+                    </arguments>
+            </block>
+            </container>
         </referenceContainer>
           <referenceContainer name="footer">
-          <referenceBlock  name="copyright" remove="true" />
+               <referenceBlock  name="copyright" remove="true" />               
                 <block class="Magento\Cms\Block\Block" name="footer_copyright" after="-">
                     <arguments>
                         <argument name="block_id" xsi:type="string">footer_copyright</argument>
                     </arguments>
-                </block>
-          </referenceContainer>
+                </block>                
+          </referenceContainer>  
+        
+        
        <move element="minicart" destination="account-wishlist-links" after="-" />
         <move element="top.links" destination="account-wishlist-links" before="-" />
         <referenceContainer name="header.panel.wrapper" remove="true"/>         
