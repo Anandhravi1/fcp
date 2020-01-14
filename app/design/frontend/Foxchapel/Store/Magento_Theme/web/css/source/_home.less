@@ -1,0 +1,121 @@
+// /**
+//  * Homepage Styling
+//  */
+//import
+@import '_reusables.less';
+//
+//  Common
+//  _____________________________________________
+
+
+& when (@media-common = true) {
+    .cms-index-index {
+        .page-wrapper {
+            &>.widget {
+                min-width: 100%;
+                padding: 0;
+            }
+        }
+    }
+    //Top Categories
+
+    .top-categories {
+        h3 {
+            .text-upper;
+            font-size: 18px;
+            font-weight: @font-weight__bold;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            color: #7f92a3;
+            font-size: 13px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+
+        .pagebuilder-column {
+            &:nth-child(3n+2) {
+                .category-inner{
+                    margin: 0 40px;
+                }
+            }
+            
+        }
+        
+        .category-inner {
+            padding: 30px 15px;
+        }
+    }
+    .full-carousel.ui-tabs{
+        position: relative;
+
+        .ui-tabs-panel{
+            padding: 0 !important;
+        }
+
+        .slick-slide {
+            padding: 0 20px;
+        }
+
+        .product-item {
+            margin: 0 !important;
+        }
+
+        .tabs-navigation {
+            .abs;
+            .full-width;
+            .trans-dur-5;
+            background: #ebebeb;
+            bottom: 0;
+            opacity: 1;
+            z-index: 99;
+
+            li {
+                &.tab-header {
+                    background: #ebebeb;
+
+                    a.tab-title {
+                        .text-upper;
+                        color: inherit;
+                        font-weight: @font-weight__light;
+                    }
+
+                    &.ui-tabs-active {
+                        background-color: @red-fox;
+
+                        &:before {
+                            .abs;
+                            content: '';
+                            border: 10px solid @red-fox;
+                            left: 0;
+                            margin: auto;
+                            right: 0;
+                            top: -7px;
+                            transform: rotate(45deg);
+                            width: 8px;
+                        }
+
+                        a.tab-title {
+                            color: @color-white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tabs-content {
+            margin: 0 auto 120px;
+            width: 1340px;
+            max-width: ~"calc(calc(100% - 100px))";
+            overflow: visible;
+        }
+    }
+}
