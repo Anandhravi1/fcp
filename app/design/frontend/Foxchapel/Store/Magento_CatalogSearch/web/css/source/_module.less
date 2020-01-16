@@ -48,6 +48,8 @@
                 + .control {
                     input {
                         position: static;
+                        background: @color_black;
+                        color: @color_white;
                     }
                 }
             }
@@ -68,6 +70,7 @@
             left: -300%;
             margin: 15px 0;
             position: absolute;
+            transition: all 0.5s ease 0s;
         }
 
         .nested {
@@ -281,20 +284,5 @@
     }
     .search-autocomplete {
         margin-top: 0;
-    }
-    .account-wishlist-links {
-        display: flex;        
-        a {
-            font-size: 18px;
-        }
-        .header {
-            &.links {
-                display: flex;
-                align-items: center;
-                list-style-type: none;
-                margin-bottom: 0;
-            }
-
-        }
     }
 }
