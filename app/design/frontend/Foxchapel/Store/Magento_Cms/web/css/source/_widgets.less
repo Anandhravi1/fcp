@@ -5,6 +5,13 @@
 
 & when (@media-common = true) {
     .cms-index-index { 
+           .columns {
+               .column {
+                   &.main {
+                       padding-bottom: 0;
+                   }
+               }
+           }
             .home-slider-sec  {
                 .pagebuilder-slide-button {
                     background: #000;
@@ -32,7 +39,8 @@
                     }
                 }
                 h6 {    
-                    position: relative;                                      
+                    position: relative;     
+                    font-size: 14px;                                  
                     &:before {
                         position: absolute;
                         content:'';
@@ -43,6 +51,9 @@
                         background: @color_white;
                     }
                 }
+                 p {
+                     font-size: 13px;
+                 }
                 >div:first-child {
                     h6 {
                         &:before{
@@ -53,6 +64,44 @@
                 }                
 
         }
+        .customer-service-section {
+            .icon-headphones {
+                font-size: 40px;
+                line-height: 40px;
+            }
+        }
+        /********* best sellect section*******/
+        .best-sellers-section {
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 15px;
+            .seller-content {
+                p {
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        /***** home page about us section********/
+        .about-us-content {
+            padding-left: 70px;
+            padding-right: 150px;
+            a {
+               &:hover {
+                   color: @color_red;
+               }
+            }
+        }        
         
     }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+    .cms-index-index {
+        .about-us-content {
+            padding: 30px;   
+        }
+    }    
 }
