@@ -94,6 +94,27 @@ class Data extends AbstractModel implements DataInterface
     }
 
     /**
+     * Get data image
+     *
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->getData(DataInterface::IMAGE_URL);
+    }
+
+    /**
+     * Set data image
+     *
+     * @param $imageUrl
+     * @return $this
+     */
+    public function setImageUrl($imageUrl)
+    {
+        return $this->setData(DataInterface::IMAGE_URL, $imageUrl);
+    }
+
+    /**
      * Get is active
      *
      * @return bool|int

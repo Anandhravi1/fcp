@@ -27,11 +27,18 @@ class SynchronizeNewsFeeds
                 $dateCreated = $item->getDateCreated();
                 $dateFormatted = $dateCreated->format('Y-m-d H:i:s');
                 $author = $item->getAuthor();
+                $fullDescription = $item->getDescription();
+
+                $last_chunk = strrpos($fullDescription, '>');
+                $image_url = substr($fullDescription, 0, $last_chunk + 1);
+
+                $shortDescription = substr($fullDescription, strrpos($fullDescription, '>' )+1);
 
                 $data = array('title'=> $item->getTitle(),
                             'guid' => $item->getId(),
                             'link' => $item->getLink(),
-                            'short_description'=>$item->getDescription(),
+                            'image_url' => $image_url,
+                            'short_description'=> $shortDescription,
                             'published_date' => $dateFormatted,
                             'creator' => $author['name']);
                 $this->newsFeed->setData($data);

@@ -11,6 +11,8 @@ class Index extends Data
      */
     public function execute()
     {
-        return $this->resultPageFactory->create();
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->getConfig()->getTitle()->prepend(__('News Feeds'));
+        return $resultPage;
     }
 }

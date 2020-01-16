@@ -10,6 +10,7 @@ interface DataInterface
     const GUID = 'guid';
     const link = 'link';
     const SHORT_DESCRIPTION  = 'short_description';
+    const IMAGE_URL = 'image_url';
     const PUBLISHED_DATE = 'published_date';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -68,6 +69,21 @@ interface DataInterface
      * @return mixed
      */
     public function setShortDescription($description);
+
+    /**
+     * Get data image
+     *
+     * @return string
+     */
+    public function getImageUrl();
+
+    /**
+     * Set data image
+     *
+     * @param $imageUrl
+     * @return $this
+     */
+    public function setImageUrl($imageUrl);
 
     /**
      * Get is active

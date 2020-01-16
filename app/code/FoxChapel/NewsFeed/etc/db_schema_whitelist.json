@@ -9,7 +9,8 @@
             "published_date": true,
             "created_at": true,
             "updated_at": true,
-            "creator": true
+            "creator": true,
+            "image_url": true
         },
         "index": {
             "NEWS_FEED_TITLE": true,

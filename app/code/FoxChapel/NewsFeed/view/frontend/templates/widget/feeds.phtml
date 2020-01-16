@@ -10,11 +10,13 @@
         <div class="feed-inner">
             <div class="footer-container">
                 <h3><?= $feed->getTitle(); ?></h3>
+                <span><?= $feed->getShortDescription() ?></span>
                 <a href="<?= $feed->getData('link'); ?>">Learn More</a>
             </div>
             <div class="img-container">
-            <span class="date"><span><?php echo $block->getFormattedDate($feed->getPublishedDate()) ?></span></span>
-            <?= $feed->getShortDescription(); ?></div>
+                <span class="date"><span><?php echo $block->getFormattedDate($feed->getPublishedDate()) ?></span></span>
+                <?= $feed->getImageUrl(); ?>
+            </div>
         </div>
     <?php endforeach; ?>
         </div>
