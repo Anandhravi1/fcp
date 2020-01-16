@@ -99,6 +99,22 @@
            }
         }
 
+        .account-wishlist-links {
+            display: flex;
+            a {
+                font-size: 18px;
+            }
+            .header {
+                &.links {
+                    display: flex;
+                    align-items: center;
+                    list-style-type: none;
+                    margin-bottom: 0;
+                }
+
+            }
+        }
+
         .customer-welcome {
             position: relative;
             .my-account {
@@ -118,18 +134,24 @@
                 padding: 0;
                 list-style: none;
                 box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2);
+                z-index: 5;
 
                 li {
-                    padding: 5px 15px;
-                    font-size: 14px;
+                    margin-bottom: 0;
 
                     &.welcome {
                         font-weight: bold;
                         text-transform: capitalize;
                     }
 
-                    a {
-                        font-size: inherit;
+                    & + li {
+                        border-top:  1px solid lighten(@color-gray-middle3, 45%);
+                    }
+
+                    a, span {
+                        padding: 10px 15px;
+                        font-size: 14px;
+                        display: block;
                     }
 
                 }
@@ -208,6 +230,7 @@
                     > li {
                        >  a, .my-account {
                             margin-left: 20px;
+                           color: @color_black;
                         }
                     }
 
