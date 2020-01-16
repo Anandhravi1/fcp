@@ -1,0 +1,75 @@
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .navigation {
+    > ul {
+      .level0 {
+        vertical-align: middle;
+        margin-right: 0;
+
+        &.active,
+        &.has-active{
+          > .level-top {
+            color: @color_red;
+            border-bottom: none;
+          }
+        }
+
+        & + .level0 {
+          border-right: 1px solid lighten(@color-black, 20%);
+        }
+
+        &.parent {
+          .level-top {
+            padding-right: 40px;
+            .ui-menu-icon {
+              display: none;
+            }
+          }
+        }
+
+        &.nav-1 {
+          background: @color_red;
+          .level-top {
+            padding-left: 20px;
+            padding-right: 20px;
+            &:before {
+              content: @icon-menu;
+              font-family: @icon-font;
+              margin-right: 10px;
+              display: inline-block;
+              vertical-align: middle;
+              color: @color-white;
+              transition: all 0.5s ease 0s;
+            }
+
+            &:hover, &.ui-state-focus {
+              .lib-css(color, @color-black);
+
+              &:before {
+                .lib-css(color, @color-black);
+              }
+            }
+          }
+        }
+
+        > .level-top {
+          color: @color-white;
+          text-transform: uppercase;
+          padding: 0 40px;
+          min-height: 50px;
+          line-height: 50px;
+          transition: all 0.5s ease 0s;
+
+          &:hover, &.ui-state-focus {
+            .lib-css(color, @color_red);
+          }
+        }
+      }
+    }
+
+  }
+}

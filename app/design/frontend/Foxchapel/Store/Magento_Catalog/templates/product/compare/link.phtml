@@ -7,10 +7,11 @@
 /** @var $block Magento\Framework\View\Element\Template */
 ?>
 <li class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
-    <a class="action compare icon-compare" title="<?= $block->escapeHtmlAttr(__('Compare Products')) ?>"
-       data-bind="attr: {'href': compareProducts().listUrl}"
-    ><span>
-        <?= $block->escapeHtml(__('Compare Products')) ?></span>
+    <a class="action compare no-display icon-compare" title="<?= $block->escapeHtmlAttr(__('Compare Products')) ?>"
+       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+    >
+        <span><?= $block->escapeHtml(__('Compare Products')) ?></span>
+        <i class="counter qty" data-bind="text: compareProducts().countCaption"></i>
     </a>
 </li>
 <script type="text/x-magento-init">
