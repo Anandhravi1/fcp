@@ -12,8 +12,12 @@
 
 & when (@media-common = true) {
     .feed-wrapper {
+        margin: auto;
+        max-width: ~"calc(100% - 100px)";
+        width: 1370px;
+
         .feed-inner {
-            margin-bottom: 100px;
+            margin-bottom: 150px;
             position: relative;
 
             &:hover {
@@ -29,11 +33,18 @@
                 }
             }
         }
+
+        .img-thumb {
+            display: block;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
         .slick-slide {
             padding: 0 15px;
         }
+
         .footer-container {
-            bottom: -80px;
             border-bottom: 2px solid @white;
             box-sizing: border-box;
             background-color: @white;
@@ -42,14 +53,28 @@
             padding: 30px;
             position: absolute;
             right: 0;
+            top: ~"calc(100% - 50px)";
             width: ~"calc(100% - 50px)";
             
-            a {
-                color: rgb(0, 0, 0);
+            span {
+                color: #7f92a3;
+                display: block;
+                font-size: 14px;
+                max-height: 58px;
+                overflow: hidden;
             }
+
+            a {
+                display: block;
+                margin-top: 10px;
+            }
+
             h3 {
-                margin: 0;
-                min-height: 50px;
+                font-size: 16px;
+                font-weight: @font-weight__bold;;
+                height: 35px;
+                overflow: hidden;
+                margin: 0 0 10px 0;
 
                 @media only screen and (max-width: 1280px) {
                     overflow: hidden;
@@ -83,6 +108,14 @@
                 height: auto;
             }
         }
+    }
+
+
+    h2.posts {
+        text-transform: uppercase;
+        font-size: 30px;
+        letter-spacing: 1px;
+        margin: 0 auto 50px;
     }
 
     body {
