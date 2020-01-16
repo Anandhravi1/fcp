@@ -1,0 +1,56 @@
+<?php $isEnabled = $block->isEnabled(); ?>
+<?php if ($isEnabled) : ?>
+
+<?php $feeds = $block->getFeeds(); ?>
+<?php if($block->getFeeds()): ?>
+    <h2 class='posts'>Fox Chapel Publishing News & Press Releases</h2>
+    <?php $feeds = $block->getFeeds(); ?>
+    <div class="feed-wrapper">
+    <?php foreach ($feeds as $feed) :?>
+        <div class="feed-inner">
+            <div class="footer-container">
+                <h3><?= $feed->getTitle(); ?></h3>
+                <span><?= $feed->getShortDescription() ?></span>
+                <a href="<?= $feed->getData('link'); ?>">Read More</a>
+            </div>
+            <div class="img-container">
+                <span class="date"><span><?php echo $block->getFormattedDate($feed->getPublishedDate()) ?></span></span>
+                <?= $feed->getImageUrl(); ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+        </div>
+    <script>
+    require([
+        'jquery',
+        'slick'
+    ], function ($) {
+        jQuery(document).ready(function () {
+            jQuery(".feed-wrapper").slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    });
+</script>   
+<?php endif; ?>
+<?php endif; ?>

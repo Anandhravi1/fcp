@@ -1,0 +1,124 @@
+
+/**
+* Newsfeed styling
+*
+* @author karthikeyan Indran <kindran@ztech.io>
+* @package FoxChapel/NewsFeed
+*/
+//variables
+@fox-red: rgb(205, 23, 30);
+@white: rgb(255, 255, 255);
+@black: rgb(0, 0, 0);
+
+& when (@media-common = true) {
+    .feed-wrapper {
+        margin: auto;
+        max-width: ~"calc(100% - 100px)";
+        width: 1370px;
+
+        .feed-inner {
+            margin-bottom: 150px;
+            position: relative;
+
+            &:hover {
+                .date {
+                    background-color: @fox-red;
+                }
+                .footer-container {
+                    border-bottom-color: @fox-red;
+
+                    a {
+                        color: @fox-red;
+                    }
+                }
+            }
+        }
+
+        .img-thumb {
+            display: block;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        .slick-slide {
+            padding: 0 15px;
+        }
+
+        .footer-container {
+            border-bottom: 2px solid @white;
+            box-sizing: border-box;
+            background-color: @white;
+            left: 0;
+            margin: auto;
+            padding: 30px;
+            position: absolute;
+            right: 0;
+            top: ~"calc(100% - 50px)";
+            width: ~"calc(100% - 50px)";
+            
+            span {
+                color: #7f92a3;
+                display: block;
+                font-size: 14px;
+                max-height: 58px;
+                overflow: hidden;
+            }
+
+            a {
+                display: block;
+                margin-top: 10px;
+            }
+
+            h3 {
+                font-size: 16px;
+                font-weight: @font-weight__bold;;
+                height: 35px;
+                overflow: hidden;
+                margin: 0 0 10px 0;
+
+                @media only screen and (max-width: 1280px) {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+        .img-container {
+        font-size: 0;
+            
+            .date {
+                background: rgba(0, 0, 0, 0.5);
+                box-sizing: border-box;
+                color: @white;
+                font-size: 13px;
+                height: 30px;
+                left: 0;
+                padding: 6px;
+                position: absolute;
+                top: 10px;
+                width: 65px;
+                z-index: 9;
+                
+                span {
+                    display: inline-block;
+                    padding: 0 2px;
+                }
+            }
+            img {
+                height: auto;
+            }
+        }
+    }
+
+
+    h2.posts {
+        text-transform: uppercase;
+        font-size: 30px;
+        letter-spacing: 1px;
+        margin: 0 auto 50px;
+    }
+
+    body {
+        background-color: #f6fafd;
+    }
+}

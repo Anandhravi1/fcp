@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="FoxChapel\NewsFeed\Api\DataRepositoryInterface" type="FoxChapel\NewsFeed\Model\DataRepository" />
+    <preference for="FoxChapel\NewsFeed\Api\Data\DataInterface" type="FoxChapel\NewsFeed\Model\Data" />
+    <virtualType name="NewsFeedDataGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="NewsFeedDataGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">FoxChapel\NewsFeed\Model\Resource\Data\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">NewsFeedDataGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="FoxChapel\NewsFeed\Model\ResourceModel\Data\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">news_feed</argument>
+            <argument name="resourceModel" xsi:type="string">FoxChapel\NewsFeed\Model\ResourceModel\Data</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="newsfeed_data_grid_data_source" xsi:type="string">FoxChapel\NewsFeed\Model\ResourceModel\Data\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="FoxChapel\NewsFeed\Controller\Adminhtml\Data\MassDelete">
+        <arguments>
+            <argument name="successMessage" xsi:type="string" translate="true">A total of %1 record(s) have been deleted.</argument>
+            <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while deleting record(s).</argument>
+        </arguments>
+    </type>
+</config>
