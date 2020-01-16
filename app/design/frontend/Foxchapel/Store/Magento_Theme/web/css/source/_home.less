@@ -24,6 +24,10 @@
             margin-bottom: 50px;
             margin-top: 0;
         }
+
+        .navigation {
+            z-index: 99;
+        }
     }
     //Top Categories
 
@@ -37,7 +41,6 @@
             margin-bottom: 20px;
         }
 
-
         ul {
             color: #7f92a3;
             font-size: 13px;
@@ -47,6 +50,10 @@
 
             li {
                 margin-bottom: 10px;
+
+                &:hover {
+                    color: @fox-red;
+                }
             }
         }
         
@@ -54,6 +61,12 @@
             background-color: @color-white;
             margin: 0 20px 40px;
             padding: 30px 15px;
+
+            &:hover {
+                h4 {
+                    color: @fox-red;
+                }
+            }
         }
     }
     .full-carousel.ui-tabs{

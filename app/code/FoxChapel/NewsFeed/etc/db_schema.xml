@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="news_feed" resource="default" engine="innodb" comment="News Feed">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="128" comment="News Feed Title"/>
+        <column xsi:type="varchar" name="guid" nullable="false" length="128" comment="Global Unique Identifier"/>
+        <column xsi:type="varchar" name="link" nullable="false" length="256" comment="News Feed Link"/>
+        <column xsi:type="varchar" name="creator" nullable="false" length="512" comment="Creator"/>
+        <column xsi:type="text" name="image_url" nullable="false" comment="Image URL"/>
+        <column xsi:type="text" name="short_description" nullable="false" comment="Short Description"/>
+        <column xsi:type="timestamp" name="published_date" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Published Date"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="NEWS_FEED_TITLE" indexType="btree">
+            <column name="title"/>
+        </index>
+    </table>
+</schema>
