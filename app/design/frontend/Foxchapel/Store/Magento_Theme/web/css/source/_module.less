@@ -50,9 +50,7 @@
 
 & when (@media-common = true) {
     body {
-        .lib-css(background-color, @page__background-color);   
-        .lib-css(color, @secondary__color);   
-        
+        .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
     }
 
     .page-wrapper {
@@ -650,6 +648,7 @@
     }
 
     .page-header {
+        background-color: @color-white;
         border: 0;
         margin-bottom: 0;
 

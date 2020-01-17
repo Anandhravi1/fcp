@@ -22,6 +22,10 @@
             letter-spacing: 1px;
             margin-bottom: 50px;
             margin-top: 0;
+
+            &.featured {
+                background-color: @color-white;
+            }
         }
         .customer-service-section {
             h3 {
@@ -64,8 +68,15 @@
         
         .category-inner {
             background-color: @color-white;
+            border-bottom: 3px solid @color-white;
             margin: 0 20px 40px;
             padding: 30px 15px;
+            transition-duration: 0.3s;
+
+            &:hover {
+                border-bottom-color: @fox-red;
+                transform: scale(1.03, 1.03);
+            }
 
             &:hover {
                 h4 {
@@ -74,68 +85,79 @@
             }
         }
     }
-    .full-carousel.ui-tabs{
-        position: relative;
+    .full-carousel {
+        background-color: @color-white;
 
-        .ui-tabs-panel{
-            padding: 0 !important;
-        }
+        &.ui-tabs{
+            position: relative;
+    
+            .ui-tabs-panel{
+                padding: 0 !important;
+            }
+    
+            .slick-slide {
+                padding: 0 20px;
+            }
+    
+            .product-item {
+                .trans-dur-5;
+                box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+                margin: 0 !important;
 
-        .slick-slide {
-            padding: 0 20px;
-        }
-
-        .product-item {
-            margin: 0 !important;
-        }
-
-        .tabs-navigation {
-            .abs;
-            .full-width;
-            .trans-dur-5;
-            background: #ebebeb;
-            bottom: 0;
-            opacity: 1;
-            z-index: 99;
-
-            li {
-                &.tab-header {
-                    background: #ebebeb;
-
-                    a.tab-title {
-                        .text-upper;
-                        color: inherit;
-                        font-weight: @font-weight__light;
-                    }
-
-                    &.ui-tabs-active {
-                        background-color: @red-fox;
-
-                        &:before {
-                            .abs;
-                            content: '';
-                            border: 10px solid @red-fox;
-                            left: 0;
-                            margin: auto;
-                            right: 0;
-                            top: -7px;
-                            transform: rotate(45deg);
-                            width: 8px;
-                        }
-
+                &:hover {
+                    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.1);
+                }
+            }
+    
+            .tabs-navigation {
+                .abs;
+                .full-width;
+                .trans-dur-5;
+                background: #ebebeb;
+                box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.2);
+                bottom: 0;
+                opacity: 1;
+                z-index: 99;
+    
+                li {
+                    &.tab-header {
+                        background: #ebebeb;
+    
                         a.tab-title {
-                            color: @color-white;
+                            .text-upper;
+                            color: inherit;
+                            font-weight: @font-weight__light;
+                        }
+    
+                        &.ui-tabs-active {
+                            background-color: @red-fox;
+    
+                            &:before {
+                                .abs;
+                                content: '';
+                                border: 10px solid @red-fox;
+                                left: 0;
+                                margin: auto;
+                                right: 0;
+                                top: -7px;
+                                transform: rotate(45deg);
+                                width: 8px;
+                            }
+    
+                            a.tab-title {
+                                color: @color-white;
+                            }
                         }
                     }
                 }
             }
-        }
-
-        .tabs-content {
-            margin: 0 auto 120px;
-            width: 1340px;
-            max-width: ~"calc(calc(100% - 100px))";
-            overflow: visible;
+    
+            .tabs-content {
+                margin: 0 auto 120px;
+                width: 1340px;
+                max-width: ~"calc(calc(100% - 100px))";
+                overflow: visible;
+            }
         }
     }
 }
