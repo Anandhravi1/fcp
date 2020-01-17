@@ -6,6 +6,13 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
   .navigation {
     > ul {
+
+      li {
+        a {
+          text-transform: uppercase;
+        }
+      }
+
       .level0 {
         vertical-align: middle;
         margin-right: 0;
@@ -58,8 +65,7 @@
 
         > .level-top {
           color: @color-white;
-          text-transform: uppercase;
-          padding: 0 40px;
+          padding: 0 20px;
           min-height: 50px;
           line-height: 50px;
           transition: all 0.5s ease 0s;
@@ -68,8 +74,64 @@
             .lib-css(color, @color_red);
           }
         }
+
+        
+        .submenu {
+          border: none;
+        }
+
+
+        > .submenu > li{
+          > a {
+            color: @primary__color;
+            &.ui-state-focus,
+            &:hover {
+              background: @color_zircon;
+              color: @color_red;
+            }
+          }
+
+          &.parent {
+            a {
+              .ui-menu-icon:after {
+                font-size: 30px;
+              }
+            }
+          }
+        }
+
+        .level1 {
+          .submenu {
+              min-width: 500px;
+
+              > li{
+                > a {
+                  color: @primary__color;
+      
+                  &:hover {
+                    background: none;
+                    color: @color_red;
+                  }
+                }
+              }
+          }
+        }
       }
     }
 
+  }
+}
+
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-desk-lg) {
+  nav.navigation {
+    > ul {
+      .level0 {
+        > .level-top {
+          padding: 0 40px;
+        }
+      }
+    }
   }
 }

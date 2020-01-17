@@ -160,4 +160,54 @@
             }
         }
     }
+
+
+    /* Best Seller */
+
+    .best-seller-wrap {
+       >  .pagebuilder-column-group {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .best-seller {
+            .products-grid {
+                max-width: 80%;
+                margin: 0 auto;
+                .product-item {
+                    margin-bottom: 0;
+                    text-align: center;
+                    &-info {
+                        border: none;
+                        display: inline-block;
+                    }
+
+                    &-photo {
+                        padding: 0;
+                    }
+
+                    &-actions {
+                        .actions-primary {
+                            width: 100%;
+                        }
+                    }
+                }
+
+
+            }
+            .product-item-details {
+                min-height: auto;
+                .product-item-name,
+                .price-box {
+                    display: none;
+                }
+            }
+        }
+    }
 }
