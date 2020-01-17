@@ -153,12 +153,13 @@
 
     &:hover {
         background: rgba(252, 252, 252, 1);
-        border: none;
+        border-color: rgb(206, 24, 31);
+
         &.slick-disabled {
             opacity: .2;
         }
         &:before {
-            color: @color-gray-darken4;
+            color: rgb(206, 24, 31);
         }
     }
 
@@ -174,7 +175,6 @@
     &:focus,
     &:not(.primary) {
         background: rgba(252, 252, 252, .7);
-        border: 1px solid @line-color;
         box-shadow: none;
 
         &:active {
