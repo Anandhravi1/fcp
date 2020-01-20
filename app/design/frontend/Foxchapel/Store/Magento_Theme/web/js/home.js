@@ -35,6 +35,34 @@
                 ]
             });
         });
+
+        $(".best-seller ol.product-items").each(function() {
+            $(this).slick({
+                infinite: true,
+                speed: 300,
+                lazyLoad: true,
+                slidesToShow: 3,
+                slidesToScroll: 2,
+                responsive: [
+                    {
+                        breakpoint: 1300,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    
+                ]
+            });
+        });
+
     }, 1000);
 
     $(".tabs-navigation").click(function() {

@@ -62,6 +62,11 @@
 
 & when (@media-target = 'desktop'), (@media-target = 'all') {
 
+    @media all and (min-width: @s-desk-lg),
+    print {
+        .media-width('min', @s-desk-lg);
+    }
+
     @media all and (min-width: @screen__m),
     print {
         .media-width('min', @screen__m);

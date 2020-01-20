@@ -52,38 +52,32 @@
                     }
                 }
                  p {
-                     font-size: 13px;
+                     font-size: 14px;                
+                     color: @color_white;
                  }
-                >div:first-child {
+                >div:first-child {                    
                     h6 {
                         &:before{
                             background: @primary__color;
                         }
                         
-                    }                    
+                    }     
+                    p {
+                        color: @primary__color;
+                    }               
                 }                
 
         }
         .customer-service-section {
+            h3,p {
+                color: @color_white;
+            }
             .icon-headphones {
                 font-size: 40px;
                 line-height: 40px;
             }
         }
-        /********* best sellect section*******/
-        .best-sellers-section {
-            max-width: 1600px;
-            margin: 0 auto;
-            width: 100%;
-            padding: 0 15px;
-            .seller-content {
-                p {
-                    font-size: 18px;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                }
-            }
-        }
+        
         /***** home page about us section********/
         .about-us-content {
             padding-left: 70px;
