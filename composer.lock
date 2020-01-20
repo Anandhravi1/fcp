@@ -4,8 +4,403 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4ff03a2159ddb235324bd2b16ef935c",
+    "content-hash": "1707f50fc13e325fd0f0144525bba3b8",
     "packages": [
+        {
+            "name": "amasty/advanced-review",
+            "version": "1.13.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/advanced-review-1.13.0-ee.zip"
+            },
+            "require": {
+                "amasty/aminvisiblecaptcha": ">=2.2.1",
+                "amasty/base": ">=1.9.7",
+                "amasty/cron-schedule-list": ">=1.0.3",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "suggest": {
+                "amasty/advanced-review-graphql": "Install advanced-review-graphql module to activate GraphQl and Advanced Review integration.",
+                "amasty/advanced-reviews-page-builder": "Install advanced-reviews-page-builder module to activate PageBuilder and Advanced Review integration."
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\AdvancedReview\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Advanced Review by Amasty"
+        },
+        {
+            "name": "amasty/aminvisiblecaptcha",
+            "version": "2.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/aminvisiblecaptcha-2.2.1-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.6",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\InvisibleCaptcha\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Amasty Google Invisible Captcha"
+        },
+        {
+            "name": "amasty/base",
+            "version": "1.9.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/base-1.9.7-ee.zip"
+            },
+            "require": {
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Base\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Amasty Base"
+        },
+        {
+            "name": "amasty/cron-schedule-list",
+            "version": "1.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/cron-schedule-list-1.0.4-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\CronScheduleList\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Cron Schedule List by Amasty"
+        },
+        {
+            "name": "amasty/module-advanced-conditions",
+            "version": "1.3.14",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-advanced-conditions-1.3.14-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.4",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Conditions\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Advanced Conditions by Amasty"
+        },
+        {
+            "name": "amasty/module-banners-lite",
+            "version": "1.0.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-banners-lite-1.0.9-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.5",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\BannersLite\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Promo Banners Lite by Amasty"
+        },
+        {
+            "name": "amasty/module-loyalty-program",
+            "version": "2.7.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-loyalty-program-2.7.10-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "amasty/module-special-promo-pro": ">=2.7.9",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\RulesLoyalty\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Loyalty Program by Amasty"
+        },
+        {
+            "name": "amasty/module-shippingarea",
+            "version": "1.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-shippingarea-1.0.3-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.4",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\ShippingArea\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Shipping Areas by Amasty"
+        },
+        {
+            "name": "amasty/module-special-promo",
+            "version": "2.7.12",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-special-promo-2.7.12-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "amasty/module-banners-lite": ">=1.0.9",
+                "amasty/rgrid": ">=1.0.7",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "suggest": {
+                "amasty/module-common-tests": "Install module-common-tests module to be able to run Special Promotions MFTF tests."
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Rules\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Special Promotions by Amasty"
+        },
+        {
+            "name": "amasty/module-special-promo-pro",
+            "version": "2.7.10",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-special-promo-pro-2.7.10-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "amasty/module-special-promo": ">=2.7.12",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\RulesPro\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Special Promotions Pro by Amasty"
+        },
+        {
+            "name": "amasty/quickview",
+            "version": "1.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/quickview-1.1.0-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.4",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Quickview\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Amasty Quickview by Amasty"
+        },
+        {
+            "name": "amasty/rgrid",
+            "version": "1.0.7",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/rgrid-1.0.7-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.4",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Rgrid\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Extended Rules Grid by Amasty"
+        },
+        {
+            "name": "amasty/shiprules",
+            "version": "2.6.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/shiprules-2.6.4-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "amasty/module-shippingarea": ">=1.0.3",
+                "amasty/system-common-rules": ">=2.4.8",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "suggest": {
+                "amasty/module-common-tests": "Install module-common-tests module to be able to run Shipping Rules MFTF tests."
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Shiprules\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Shipping Rules By Amasty"
+        },
+        {
+            "name": "amasty/social-login",
+            "version": "1.5.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/social-login-1.5.2-ee.zip"
+            },
+            "require": {
+                "amasty/aminvisiblecaptcha": ">=2.2.1",
+                "amasty/base": ">=1.9.7",
+                "hybridauth/hybridauth": "^2.15.1",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\SocialLogin\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Social Login by Amasty"
+        },
+        {
+            "name": "amasty/system-common-rules",
+            "version": "2.4.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/system-common-rules-2.4.8-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.4",
+                "amasty/module-advanced-conditions": ">=1.3.14",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\CommonRules\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Common Rules by Amasty"
+        },
         {
             "name": "amzn/amazon-pay-and-login-magento-2-module",
             "version": "3.2.13",
@@ -873,6 +1268,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -1243,6 +1639,64 @@
                 "symfony"
             ],
             "time": "2018-05-09T20:26:30+00:00"
+        },
+        {
+            "name": "facebook/graph-sdk",
+            "version": "5.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/php-graph-sdk.git",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "reference": "2d8250638b33d73e7a87add65f47fabf91f8ad9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client",
+                "paragonie/random_compat": "Provides a better CSPRNG option in PHP 5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                },
+                "files": [
+                    "src/Facebook/polyfills.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/php-graph-sdk/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/php-graph-sdk",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2018-12-11T22:56:31+00:00"
         },
         {
             "name": "fastly/magento2",
@@ -1671,6 +2125,63 @@
                 "stream"
             ],
             "time": "2014-10-12T19:18:40+00:00"
+        },
+        {
+            "name": "hybridauth/hybridauth",
+            "version": "v2.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hybridauth/hybridauth.git",
+                "reference": "06909cd8cbc1201f01db8a8d36bc8c06dd27223d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hybridauth/hybridauth/zipball/06909cd8cbc1201f01db8a8d36bc8c06dd27223d",
+                "reference": "06909cd8cbc1201f01db8a8d36bc8c06dd27223d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "facebook/graph-sdk": "^5.4",
+                "paypal/rest-api-sdk-php": "*",
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Hybrid": "hybridauth/"
+                },
+                "classmap": [
+                    "hybridauth/Hybrid"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "(MIT or GPL-3.0+)"
+            ],
+            "authors": [
+                {
+                    "name": "Miled",
+                    "email": "hybridauth@gmail.com"
+                }
+            ],
+            "description": "Open source social sign on PHP library.",
+            "homepage": "http://hybridauth.sourceforge.net",
+            "keywords": [
+                "OpenId",
+                "facebook",
+                "google",
+                "hybridauth",
+                "login",
+                "oauth",
+                "social",
+                "twitter",
+                "yahoo"
+            ],
+            "time": "2019-12-13T11:20:07+00:00"
         },
         {
             "name": "illuminate/config",
@@ -14681,6 +15192,510 @@
             "time": "2019-07-26T16:43:11+00:00"
         },
         {
+            "name": "mageplaza/layered-navigation-m2",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:mageplaza/poseidon/module-layered-navigation.git",
+                "reference": "cf69c0fbb170b1bd996ccda96e48fbe4a9ce0955"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.mageplaza.com/public/dist/mageplaza/layered-navigation-m2/mageplaza-layered-navigation-m2-cf69c0fbb170b1bd996ccda96e48fbe4a9ce0955-zip-ab241f.zip",
+                "reference": "cf69c0fbb170b1bd996ccda96e48fbe4a9ce0955",
+                "shasum": "db622eba7c8fb46e56f63e21847b74732c4a0a0e"
+            },
+            "require": {
+                "mageplaza/module-ajax-layered-navigation": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\LayeredNavigation\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento Layered Navigation extension",
+            "time": "2019-12-26T09:25:51+00:00"
+        },
+        {
+            "name": "mageplaza/layered-navigation-m2-pro",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:mageplaza/poseidon/module-layered-navigation-pro.git",
+                "reference": "493f80ab9bfe8659b940f20825bbad99ff062a15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.mageplaza.com/public/dist/mageplaza/layered-navigation-m2-pro/mageplaza-layered-navigation-m2-pro-493f80ab9bfe8659b940f20825bbad99ff062a15-zip-7da394.zip",
+                "reference": "493f80ab9bfe8659b940f20825bbad99ff062a15",
+                "shasum": "243914a2445fa59db489a6a40751bb09ef4a3163"
+            },
+            "require": {
+                "mageplaza/layered-navigation-m2": "^2.4.0",
+                "mageplaza/module-seo-url": "^2.2.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\LayeredNavigationPro\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Layered navigation Pro M2",
+            "time": "2019-12-05T10:04:34+00:00"
+        },
+        {
+            "name": "mageplaza/module-ajax-layered-navigation",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-ajax-layered-navigation.git",
+                "reference": "dbe40dffd158820c172f9b48dab5479ade8aca9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-ajax-layered-navigation/zipball/dbe40dffd158820c172f9b48dab5479ade8aca9c",
+                "reference": "dbe40dffd158820c172f9b48dab5479ade8aca9c",
+                "shasum": ""
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.4"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\AjaxLayer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Ajax Layered Navigation Extension",
+            "time": "2019-06-10T02:49:59+00:00"
+        },
+        {
+            "name": "mageplaza/module-core",
+            "version": "1.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/aa99d5aa974ec9bf799bcc9a2137095baf882093",
+                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "time": "2019-12-23T03:04:13+00:00"
+        },
+        {
+            "name": "mageplaza/module-seo-url",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:mageplaza/poseidon/module-seo-url.git",
+                "reference": "b8ebbf06732d88ed99b677b5a218040dd4210ca9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.mageplaza.com/public/dist/mageplaza/module-seo-url/mageplaza-module-seo-url-b8ebbf06732d88ed99b677b5a218040dd4210ca9-zip-45c97c.zip",
+                "reference": "b8ebbf06732d88ed99b677b5a218040dd4210ca9",
+                "shasum": "283562cf82283e7ae54971e25741ef1fa6f5ae43"
+            },
+            "require": {
+                "mageplaza/module-core": "^1.4.4"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\SeoUrl\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Seo Url Extension",
+            "time": "2019-10-29T11:23:00+00:00"
+        },
+        {
+            "name": "mirasvit/module-core",
+            "version": "1.2.106",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-core-1.2.106-5df057.tar",
+                "reference": "1bf19ba855b9ce919a2931fdcdb6f1a2692f5131"
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*|102.0.*"
+            },
+            "conflict": {
+                "mirasvit/module-helpdesk": "<1.1.83",
+                "mirasvit/module-rma": "<2.0.39"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Core/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Core\\": "src/Core"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Mirasvit Core",
+            "time": "2019-12-18T12:02:18+00:00"
+        },
+        {
+            "name": "mirasvit/module-misspell",
+            "version": "1.0.34",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-misspell-1.0.34-5d0d6b.tar",
+                "reference": "3178982a0e99ebbd00f622abfa4ee0e43263db0a"
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "magento/framework": "~100.0.0|~100.1.0|~100.2.0|101.0.*|102.0.*",
+                "mirasvit/module-core": "dev-master|>=1.2.75"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Misspell/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Misspell\\": "src/Misspell"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search Spell Correction",
+            "time": "2019-10-08T14:54:21+00:00"
+        },
+        {
+            "name": "mirasvit/module-report",
+            "version": "1.3.86",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-report-1.3.86-6cc51b.tar",
+                "reference": "d7b4fd56e61ba96b4ee7ced5b30f0c3c7df556e0"
+            },
+            "require": {
+                "magento/framework": "100.1.*|101.0.*|102.0.*",
+                "mirasvit/module-core": "dev-master|^1.2",
+                "mirasvit/module-report-api": "dev-master|>=1.0.18"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Report/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Report\\": "src/Report"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Reports Core",
+            "time": "2020-01-15T07:35:40+00:00"
+        },
+        {
+            "name": "mirasvit/module-report-api",
+            "version": "1.0.33",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-report-api-1.0.33-3e37bc.tar",
+                "reference": "4e0fd3ad34f7496b1c3b1c93c05fed2d498015b8"
+            },
+            "require": {
+                "magento/framework": "100.1.*|101.0.*|102.0.*",
+                "mirasvit/module-core": "dev-master|^1.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/ReportApi/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\ReportApi\\": "src/ReportApi"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Reports Core API",
+            "time": "2020-01-15T07:35:37+00:00"
+        },
+        {
+            "name": "mirasvit/module-search",
+            "version": "1.0.137",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-1.0.137-aec6cb.tar",
+                "reference": "2c30f41278a277c3daf653817d22042b72c3e7d1"
+            },
+            "require": {
+                "magento/framework": "100.1.*|100.2.*|101.0.*|102.0.*",
+                "mirasvit/module-core": "dev-master|>=1.2.75",
+                "mirasvit/module-search-mysql": "dev-master|1.0.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Search/registration.php",
+                    "src/SearchElasticNative/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Search\\": "src/Search",
+                    "Mirasvit\\SearchElasticNative\\": "src/SearchElasticNative"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search",
+            "time": "2019-12-17T12:48:46+00:00"
+        },
+        {
+            "name": "mirasvit/module-search-autocomplete",
+            "version": "1.1.105",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-autocomplete-1.1.105-1a2be6.tar",
+                "reference": "4dae3d8877ed919057a1730a0d66a028973ee541"
+            },
+            "require": {
+                "magento/framework": "100.1.*|100.2.*|101.0.*|102.0.*",
+                "mirasvit/module-core": "dev-master|>=1.2.75"
+            },
+            "conflict": {
+                "mirasvit/module-search-elastic": "<=1.2.37",
+                "mirasvit/module-search-sphinx": "1.0.*|<=1.1.43"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/SearchAutocomplete/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\SearchAutocomplete\\": "src/SearchAutocomplete"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search Autocomplete & Suggest",
+            "time": "2020-01-02T14:57:09+00:00"
+        },
+        {
+            "name": "mirasvit/module-search-elastic",
+            "version": "1.2.58",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-elastic-1.2.58-6f8569.tar",
+                "reference": "638e67c2ef16212b9f4fcc4a8b8420ef2549e242"
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "~2.0|~5.1|~6.1",
+                "magento/framework": "100.1.*|100.2.*|101.0.*|102.0.*",
+                "mirasvit/module-search": "dev-master|dev-develop|~1.0.10|>=1.0.122"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/SearchElastic/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\SearchElastic\\": "src/SearchElastic"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search Elastic",
+            "time": "2019-12-30T11:18:40+00:00"
+        },
+        {
+            "name": "mirasvit/module-search-elastic-ultimate",
+            "version": "1.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-elastic-ultimate-1.1.0-3c7923.tar",
+                "reference": "d98710587c0f46c319eaa65d511bb5a42299d6ac"
+            },
+            "require": {
+                "mirasvit/module-misspell": "1.0.*",
+                "mirasvit/module-search-autocomplete": "1.1.*",
+                "mirasvit/module-search-elastic": "1.2.*",
+                "mirasvit/module-search-landing": "1.0.*",
+                "mirasvit/module-search-report": "1.0.*"
+            },
+            "type": "magento2-module",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Elastic Search Ultimate",
+            "time": "2018-04-05T09:56:42+00:00"
+        },
+        {
+            "name": "mirasvit/module-search-landing",
+            "version": "1.0.8",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-landing-1.0.8-63990e.tar",
+                "reference": "339073e80a4a54b075b8050e7eee1b74e0ca4218"
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|101.0.*|102.0.*",
+                "mirasvit/module-search": "dev-master|1.0.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/SearchLanding/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\SearchLanding\\": "src/SearchLanding"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search Landing Page",
+            "time": "2019-09-09T12:43:30+00:00"
+        },
+        {
+            "name": "mirasvit/module-search-mysql",
+            "version": "1.0.36",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-mysql-1.0.36-26a5f7.tar",
+                "reference": "81d03bbccac2c2042ceb31e8e73aeb66e76ea2c3"
+            },
+            "require": {
+                "magento/framework": "100.1.*|100.2.*|101.0.*|102.0.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/SearchMysql/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\SearchMysql\\": "src/SearchMysql"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search Mysql",
+            "time": "2019-11-11T12:51:13+00:00"
+        },
+        {
+            "name": "mirasvit/module-search-report",
+            "version": "1.0.6",
+            "dist": {
+                "type": "tar",
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-report-1.0.6-52fb42.tar",
+                "reference": "1329aa9e84660973a6dbbf574404494fc044cf53"
+            },
+            "require": {
+                "mirasvit/module-core": "dev-master|^1.2",
+                "mirasvit/module-report": "dev-master|1.3.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/SearchReport/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\SearchReport\\": "src/SearchReport"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Search Report",
+            "time": "2019-11-14T15:46:29+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.25.2",
             "source": {
@@ -15131,6 +16146,55 @@
                 "side-channel resistant"
             ],
             "time": "2019-11-07T17:07:24+00:00"
+        },
+        {
+            "name": "paypal/rest-api-sdk-php",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/72e2f2466975bf128a31e02b15110180f059fc04",
+                "reference": "72e2f2466975bf128a31e02b15110180f059fc04",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PayPal": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "PayPal",
+                    "homepage": "https://github.com/paypal/rest-api-sdk-php/contributors"
+                }
+            ],
+            "description": "PayPal's PHP SDK for REST APIs",
+            "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+            "keywords": [
+                "payments",
+                "paypal",
+                "rest",
+                "sdk"
+            ],
+            "time": "2019-01-04T20:04:25+00:00"
         },
         {
             "name": "pelago/emogrifier",
@@ -17734,6 +18798,7 @@
                 "barcode",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-barcode",
             "time": "2019-09-21T09:11:41+00:00"
         },
         {
@@ -17792,6 +18857,7 @@
                 "captcha",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-captcha",
             "time": "2019-06-18T09:32:52+00:00"
         },
         {
@@ -17845,6 +18911,7 @@
                 "code",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2019-08-31T14:14:34+00:00"
         },
         {
@@ -17901,6 +18968,7 @@
                 "config",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-config",
             "time": "2016-02-04T23:01:10+00:00"
         },
         {
@@ -17954,6 +19022,7 @@
                 "console",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-console",
             "time": "2019-02-04T19:48:22+00:00"
         },
         {
@@ -18004,6 +19073,7 @@
                 "crypt",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-crypt",
             "time": "2016-02-03T23:46:30+00:00"
         },
         {
@@ -18062,6 +19132,7 @@
                 "db",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-db",
             "time": "2019-02-25T11:37:45+00:00"
         },
         {
@@ -18109,6 +19180,7 @@
                 "di",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-di",
             "time": "2016-04-25T20:58:11+00:00"
         },
         {
@@ -18171,6 +19243,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2019-08-06T17:53:53+00:00"
         },
         {
@@ -18216,6 +19289,7 @@
                 "escaper",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-escaper",
             "time": "2019-09-05T20:03:20+00:00"
         },
         {
@@ -18270,6 +19344,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         },
         {
@@ -18333,6 +19408,7 @@
                 "feed",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-feed",
             "time": "2019-03-05T20:08:49+00:00"
         },
         {
@@ -18398,6 +19474,7 @@
                 "filter",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-filter",
             "time": "2019-08-19T07:08:04+00:00"
         },
         {
@@ -18476,6 +19553,7 @@
                 "form",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-form",
             "time": "2019-10-04T10:46:36+00:00"
         },
         {
@@ -18531,6 +19609,7 @@
                 "zend",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-http",
             "time": "2019-02-19T18:58:14+00:00"
         },
         {
@@ -18591,6 +19670,7 @@
                 "hydrator",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-hydrator",
             "time": "2019-10-04T11:17:36+00:00"
         },
         {
@@ -18659,6 +19739,7 @@
                 "i18n",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-i18n",
             "time": "2019-09-30T12:04:37+00:00"
         },
         {
@@ -18716,6 +19797,7 @@
                 "inputfilter",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-inputfilter",
             "time": "2019-08-28T19:45:32+00:00"
         },
         {
@@ -18771,6 +19853,7 @@
                 "json",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-json",
             "time": "2016-02-04T21:20:26+00:00"
         },
         {
@@ -18816,6 +19899,7 @@
                 "loader",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-loader",
             "time": "2019-09-04T19:38:14+00:00"
         },
         {
@@ -18886,6 +19970,7 @@
                 "logging",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-log",
             "time": "2019-08-23T21:28:18+00:00"
         },
         {
@@ -18948,6 +20033,7 @@
                 "mail",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-mail",
             "time": "2018-06-07T13:37:07+00:00"
         },
         {
@@ -18998,6 +20084,7 @@
                 "math",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-math",
             "time": "2018-12-04T15:34:17+00:00"
         },
         {
@@ -19048,6 +20135,7 @@
                 "mime",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-mime",
             "time": "2019-10-16T19:30:37+00:00"
         },
         {
@@ -19107,6 +20195,7 @@
                 "modulemanager",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-modulemanager",
             "time": "2019-10-28T13:29:38+00:00"
         },
         {
@@ -19202,6 +20291,7 @@
                 "mvc",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-mvc",
             "time": "2018-05-03T13:13:41+00:00"
         },
         {
@@ -19251,6 +20341,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-psr7bridge",
             "time": "2016-05-10T21:44:39+00:00"
         },
         {
@@ -19308,6 +20399,7 @@
                 "serializer",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-serializer",
             "time": "2019-10-19T08:06:30+00:00"
         },
         {
@@ -19355,6 +20447,7 @@
                 "server",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-server",
             "time": "2019-10-16T18:27:05+00:00"
         },
         {
@@ -19407,6 +20500,7 @@
                 "servicemanager",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-servicemanager",
             "time": "2018-06-22T14:49:54+00:00"
         },
         {
@@ -19474,6 +20568,7 @@
                 "session",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-session",
             "time": "2019-10-28T19:40:43+00:00"
         },
         {
@@ -19527,6 +20622,7 @@
                 "soap",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-soap",
             "time": "2019-04-30T16:45:35+00:00"
         },
         {
@@ -19573,6 +20669,7 @@
                 "stdlib",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-stdlib",
             "time": "2018-08-28T21:34:05+00:00"
         },
         {
@@ -19621,6 +20718,7 @@
                 "text",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-text",
             "time": "2019-10-16T20:36:27+00:00"
         },
         {
@@ -19668,6 +20766,7 @@
                 "uri",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-uri",
             "time": "2019-10-07T13:35:33+00:00"
         },
         {
@@ -19741,6 +20840,7 @@
                 "validator",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-validator",
             "time": "2019-10-29T08:33:25+00:00"
         },
         {
@@ -19828,6 +20928,7 @@
                 "view",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-view",
             "time": "2019-10-11T21:10:04+00:00"
         }
     ],
