@@ -168,6 +168,7 @@
        >  .pagebuilder-column-group {
             max-width: 1600px;
             margin: 0 auto;
+            width: 100%;
         }
 
         h2 {
@@ -196,6 +197,16 @@
                         .actions-primary {
                             width: 100%;
                         }
+                    }
+                }
+                .slick-prev,.slick-next {
+                    background: #b7b7b7;
+                    &:before {
+                        color: @color-white;
+                    }
+                    &:hover {
+                        background: @color_red;
+                        border-color: @color_red;
                     }
                 }
 
