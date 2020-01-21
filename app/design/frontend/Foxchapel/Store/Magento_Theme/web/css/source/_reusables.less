@@ -17,4 +17,15 @@
 .abs {
     position: absolute;
 }
-
+.border-btm {
+    position: relative;
+        &:after {
+        position: absolute;        
+        content:'';
+        left:0;
+        bottom: -7px;
+        height: 1px;
+        width: 100%;
+        background: @color_white;
+        }    
+}
