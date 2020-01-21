@@ -54,7 +54,7 @@ define([
             link.attr('data-product-id', productId);
             link.html(this.options['text']);
 
-            hover.appendTo(element).hide();
+            hover.prependTo(element).hide();
             link.click(function( event ) {
                 self.showPopup( event )
             });
@@ -158,7 +158,7 @@ define([
         showLen : function(element) {
             if (!element) return false;
             element = $(element);
-            var parent = $(element).find('.product-image-container');
+            var parent = $(element).find('.actions-secondary');
             if (parent.length != 0) {
                 element = parent;
             }
