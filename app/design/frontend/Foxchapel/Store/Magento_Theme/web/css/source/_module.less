@@ -50,7 +50,9 @@
 
 & when (@media-common = true) {
     body {
-        .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
+        &.cms-index-index {
+            .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
+        }
     }
 
     .page-wrapper {
