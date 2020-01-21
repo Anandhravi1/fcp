@@ -89,6 +89,19 @@
     .full-carousel {
         background-color: @color-white;
 
+        .tabs-navigation,
+        .tabs-content {
+            opacity: 0;
+        }
+        .tabs-content {
+            transform: scale(0);
+            transition-duration: 0.3s;
+        }
+
+        .product-reviews-summary {
+            display: none;
+        }
+        
         &.ui-tabs{
             position: relative;
     
@@ -109,7 +122,12 @@
                     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.1);
                 }
             }
-    
+            
+            .tabs-content {
+                opacity: 1;
+                transform: scale(1);
+            }
+            
             .tabs-navigation {
                 .abs;
                 .full-width;
@@ -124,10 +142,19 @@
                     &.tab-header {
                         background: #ebebeb;
     
+                        &:hover {
+                            background-color: @red-fox;
+
+                            a.tab-title {
+                                color: @color-white;
+                            }
+                        }
+
                         a.tab-title {
                             .text-upper;
                             color: inherit;
                             font-weight: @font-weight__light;
+                            transition-duration: 0s;
                         }
     
                         &.ui-tabs-active {
