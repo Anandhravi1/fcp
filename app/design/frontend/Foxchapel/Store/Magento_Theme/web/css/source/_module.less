@@ -106,6 +106,7 @@
             display: flex;
             justify-content: space-between;     
             align-items: center; 
+            flex-wrap: wrap;            
             .icon-wishlist,.action.compare, .my-account {
                     .lib-icon-text-hide();                                   
                 }                
@@ -349,7 +350,7 @@
         color: #000;
         &:hover {
             text-decoration: none;
-        }
+        }        
     } 
     .btn {
         display: inline-block;
@@ -572,6 +573,16 @@
         } 
  }
 }
+
+@media only screen and (min-width: @s-tab){
+    .block-search {
+        order: 2;
+    }
+    .account-wishlist-links {
+        order: 3;
+    }
+}   
+
 //
 //  tablet
 //  _____________________________________________
@@ -748,5 +759,11 @@
                 margin-top: 20px;
             }
         }
+    }
+}
+
+@media only screen and (max-width: @s-tab){
+    .block-search {
+        display: block;
     }
 }

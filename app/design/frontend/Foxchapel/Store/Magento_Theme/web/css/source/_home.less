@@ -209,16 +209,19 @@
             .products-grid {
                 max-width: 80%;
                 margin: 0 auto;
+                .product-image-container {
+                    display: block;
+                }
                 .product-item {
                     margin-bottom: 0;
                     text-align: center;
                     &-info {
                         border: none;
-                        display: inline-block;
+                        display: inline-block;                       
                     }
 
                     &-photo {
-                        padding: 0;
+                        padding: 0;                        
                     }
 
                     &-actions {
@@ -230,6 +233,7 @@
             }
             .product-item-details {
                 min-height: auto;
+                margin-bottom: 0;
                 .product-item-name,
                 .price-box {
                     display: none;
