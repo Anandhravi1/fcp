@@ -1,0 +1,64 @@
+.amquickview-hover
+{
+    position: relative;
+    text-align: center;
+    z-index: 7000;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #fff;
+    max-height: 40px;
+    padding: 8px 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 50%;
+    border: 1px solid #dbe0e7;
+}
+
+.amquickview-hover::before{
+    background-image: url("../images/icon-view.svg");
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: '';
+    font-size: 12px;
+    height: 11px;
+    position: absolute;
+    left: 0;
+    margin: auto;
+    right: 0;
+    top: 0;
+    width: 16px;
+}
+
+.amquickview-hover a
+{
+    font-size: 0;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+}
+
+.amquickview-hover img.am-quickview-icon
+{
+    max-width: 100%;
+    vertical-align: middle;
+    display: none !important;
+}
+
+.amquickview-hover:hover
+{
+    /* background-color: #8898a9; */
+}
+
+.amquickview-fancybox-wrapper .fancybox-inner .fancybox-close-small {
+    background: transparent;
+    border: 0;
+}
+
+.amquickview-fancybox-wrapper .fancybox-inner .fancybox-close-small {
+    box-shadow: none;
+}
