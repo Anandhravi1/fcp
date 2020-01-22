@@ -3,7 +3,6 @@
 //  * See COPYING.txt for license details.
 //  */
 
-@import 'icon/_icons.less';
 @import '_home.less';
 //
 //  Theme variables
@@ -113,8 +112,8 @@
                position: relative;
                &:before {
                 font-size: 18px;
-                font-family: 'foxchapel-icon';
-                content: "\e901";
+                font-family: @icon-fox;
+                content: @user;
                }
            }
         }
@@ -344,13 +343,7 @@
             margin-bottom: 0;
             text-align: center;
         }
-    }    
-    a{
-        color: #000;
-        &:hover {
-            text-decoration: none;
-        }
-    } 
+    }
     .btn {
         display: inline-block;
         font-weight: 400;
