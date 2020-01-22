@@ -14,7 +14,7 @@
             $(this).slick({
                 infinite: true,
                 speed: 300,
-                lazyLoad: true,
+                lazyLoad: false,
                 slidesToShow: 4,
                 slidesToScroll: 3,
                 responsive: [

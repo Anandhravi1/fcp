@@ -43,10 +43,6 @@ define([
             });
             hover.attr("style", this.options['css']);
 
-            element.css({
-                position : 'relative'
-            });
-
             var link = $('<a />', {
                 class : 'amquickview-link',
                 id : 'amquickview-link-' + productId
@@ -168,7 +164,7 @@ define([
             }
 
             if (hover) {
-                hover.show();
+                hover.css('display','inline-block')
             }
         },
 
@@ -185,9 +181,6 @@ define([
         hideLen : function(element) {
             if (! element) return false;
             var hover = $(element).find('.amquickview-hover').first();
-            if (hover.length) {
-                hover.hide();
-            }
         },
 
         getProductId: function(parent) {
