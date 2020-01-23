@@ -28,6 +28,8 @@ class Topmenu implements ObserverInterface
      */
     public function __construct(
         \Psr\Log\LoggerInterface $logger,
+        \Magento\Cms\Model\Block $cmsBlock,
+        \Magento\Cms\Model\Template\FilterProvider $filter,
         CollectionFactory $categoryCollection,
         StoreManagerInterface $storeManager,
         Category $categoryModel,
@@ -35,6 +37,8 @@ class Topmenu implements ObserverInterface
     ) {
         $this->categoryModel = $categoryModel;
         $this->logger = $logger;
+        $this->cmsBlock = $cmsBlock;
+        $this->blockFilter = $filter;
         $this->_categoryCollection = $categoryCollection;
         $this->_storeManager = $storeManager;
         $this->categoryRepository = $categoryRepository;
@@ -57,48 +61,17 @@ class Topmenu implements ObserverInterface
 
         $menuId = $menuTree->getId();
 
+        $categoryIdElements = explode('-', $menuId);
+
+        $block = $this->cmsBlock->load('menu_image_'.end($categoryIdElements));
+        
         if ($childLevel == 2) {
-            $categoryImages = $this->getCategoryImage($menuId);
-            foreach ($categoryImages as $image) {
-                $html .= '<div class="category_image">'
-                    . '<img src="' . $image . '"/></div>';
+            if ($block->isActive()) {
+                $filterContent = $this->blockFilter->getPageFilter()->filter($block->getContent());
+                $html .= '<div class="category_image">' .  $filterContent . '</div>';
             }
         }
         $transport->setHtml($html);
     }
 
-    /**
-     * To get category image URL
-     * 
-     * @param int $categoryId
-     * @return string
-     */
-    protected function getCategoryImage($categoryId)
-    {   
-        $categoryIdElements = explode('-', $categoryId);
-       
-        $category = $this->categoryRepository->get(end($categoryIdElements));
-        $menuFirstImage = $category->getMenuFirstImage();
-        $menuSecondImage = $category->getMenuSecondImage();
-        $categoryImage = [];
-        $mediaUrl = $this->getMediaUrl();
-        if (!empty($menuFirstImage)) {
-            $categoryImage[] = $mediaUrl . SELF::CATEGORY_IMG_PATH . $menuFirstImage;
-        }
-        if (!empty($menuSecondImage)) {
-            $categoryImage[] = $mediaUrl . SELF::CATEGORY_IMG_PATH . $menuSecondImage;
-        }
-        return $categoryImage;
-    }
-
-    /**
-     * To get medial URL
-     * 
-     * @return string
-     */
-    public function getMediaUrl()
-    {
-        return $this->_storeManager->getStore()
-            ->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
-    }
 }
