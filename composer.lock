@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "5c0e9e149975aa48f79bb64059b33497",
-=======
-    "content-hash": "e166eba6e8ade46c6feb56c3c390facd",
->>>>>>> 5b6670ce2733b6c8e3582267c4d10bec47d9ea96
     "packages": [
         {
             "name": "amasty/advanced-review",
