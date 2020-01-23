@@ -10,7 +10,7 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
         \Magento\Framework\Data\Tree\Node $menuTree,
         $childrenWrapClass,
         $limit,
-        $colBrakes = []
+        array $colBrakes = []
     ) {
 
         $html = parent::_getHtml($menuTree, $childrenWrapClass, $limit, $colBrakes = []);

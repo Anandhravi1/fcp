@@ -28,7 +28,7 @@ class Topmenu implements ObserverInterface
      */
     public function __construct(
         \Psr\Log\LoggerInterface $logger,
-        \Magento\Cms\Model\Block $cmsBlock,
+        \Magento\Cms\Model\BlockFactory $cmsBlock,
         \Magento\Cms\Model\Template\FilterProvider $filter,
         CollectionFactory $categoryCollection,
         StoreManagerInterface $storeManager,
@@ -63,7 +63,7 @@ class Topmenu implements ObserverInterface
 
         $categoryIdElements = explode('-', $menuId);
 
-        $block = $this->cmsBlock->load('menu_image_'.end($categoryIdElements));
+        $block = $this->cmsBlock->create()->load('menu_image_'.end($categoryIdElements));
         
         if ($childLevel == 2) {
             if ($block->isActive()) {
