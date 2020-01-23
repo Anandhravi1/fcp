@@ -64,6 +64,12 @@
                 .products-grid & {
                     max-height: 40px;
                     overflow: hidden;
+
+                    @media only screen and (max-width: (@screen__m - 1)) {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
                 }
             }
 
@@ -104,6 +110,10 @@
                         margin: 0 auto;
                         right: 0;
                         top: -20px;
+
+                        @media only screen and (max-width: (@screen__m - 1)) {
+                            display: none;
+                        }    
                     }
 
                     a.action {
@@ -122,7 +132,7 @@
                     > .action {
                         line-height: 35px;
                         text-align: center;
-                        width: 35px;
+                        width: 37px;
 
                         &:extend(.abs-actions-addto-gridlist all);
                         &:before {
@@ -249,6 +259,7 @@
                     background-repeat: no-repeat;
                     background-size: cover;
                     content:'';
+                    opacity: 0.4;
                     height: 12px;
                     width: 10px;
                }
@@ -268,6 +279,12 @@
                     padding-top: 37px;
                     transform: translateY(~"calc(100% + 20px)");
                     z-index: 9;
+
+                    @media only screen and (max-width: (@screen__m - 1)) {
+                        padding-top: 10px;
+                        position: static;
+                        transform: translateY(0%);
+                    }
                 }
             }
 
@@ -275,12 +292,20 @@
                 .products-grid & {
                     display: block;
                     padding: 50px 55px 0;
+
+                    @media only screen and (max-width: (@screen__m - 1)) {
+                        padding: 15px 15px;
+                    }
                 }
             }
             &-details {
                 .products-grid & {
                     margin-bottom: @indent__s;
                     min-height: 70px;
+
+                    @media only screen and (max-width: (@screen__m - 1)) {
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
