@@ -37,7 +37,6 @@
         "amasty/shiprules": "^2.6",
         "amasty/social-login": "^1.5",
         "magento/magento-cloud-metapackage": ">=2.3.3 <2.3.4",
-        "mageplaza/layered-navigation-ee": "^2.3",
         "mageplaza/layered-navigation-m2-pro": "^2.4",
         "mirasvit/module-search-elastic-ultimate": "*",
         "mageplaza/layered-navigation-m2-ultimate": "^2.4",
