@@ -8,8 +8,35 @@
     'slick'
 ], function ($) {
     'use strict';
-    
-    setTimeout(function(){
+
+    $(".best-seller ol.product-items").each(function() {
+        $(this).slick({
+            infinite: true,
+            speed: 300,
+            lazyLoad: true,
+            slidesToShow: 3,
+            slidesToScroll: 2,
+            responsive: [
+                {
+                    breakpoint: 1300,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                
+            ]
+        });
+    });
+
+    if($('.full-carousel.sticky-foot').length) {
         $(".full-carousel ol.product-items").each(function() {
             $(this).slick({
                 infinite: true,
@@ -43,62 +70,48 @@
             });
         });
 
-        $(".best-seller ol.product-items").each(function() {
-            $(this).slick({
-                infinite: true,
-                speed: 300,
-                lazyLoad: true,
-                slidesToShow: 3,
-                slidesToScroll: 2,
-                responsive: [
-                    {
-                        breakpoint: 1300,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 900,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                    
-                ]
+        //set position refresh for slick as tab makes slick unresposive
+        setTimeout(function(){
+            $(".full-carousel ol.product-items").each(function() {
+                $(this).slick('setPosition');
+            });
+        }, 1000);
+
+        $( "h3.featured" ).one('mouseover', function() {
+            $(".full-carousel ol.product-items").each(function() {
+                $(this).slick('setPosition');
             });
         });
 
-    }, 1000);
+        $(".tabs-navigation").click(function() {
 
-    $(".tabs-navigation").click(function() {
-        $(".full-carousel ol.product-items").each(function() {
-            $(this).slick('refresh');
+            $(".full-carousel ol.product-items").each(function() {
+                $(this).slick('setPosition');
+            });
+            
+            $('html, body').animate({
+                scrollTop: $("h3.featured").offset().top - 50
+            }, 200);
         });
-        
-        $('html, body').animate({
-            scrollTop: $("h3.featured").offset().top - 50
-        }, 200);
-    });
 
-    $(window).scroll(function(){
-            var sticky_foot = $(".full-carousel.sticky-foot");
-            var win = $(window);
-            var a = sticky_foot.offset().top;
-            var b = sticky_foot.height();
-            var c = win.height();
-            var d = win.scrollTop();
-            var e = d + win.innerHeight();
-            var f = a + sticky_foot.outerHeight();
-            if ((e > a) && (d < f)){
-                $('.tabs-navigation').css('position','fixed').css('bottom','0').css('opacity', '1');
-            }
-            else {
-                $('.tabs-navigation').css('opacity', '0');
-            }
-            if ((c+d)>(a+b)) {
-                $('.tabs-navigation').css('position','absolute');
-            }
-    });
+        $(window).scroll(function(){
+                var sticky_foot = $(".full-carousel.sticky-foot");
+                var win = $(window);
+                var a = sticky_foot.offset().top;
+                var b = sticky_foot.height();
+                var c = win.height();
+                var d = win.scrollTop();
+                var e = d + win.innerHeight();
+                var f = a + sticky_foot.outerHeight();
+                if ((e > a) && (d < f)){
+                    $('.tabs-navigation').css('position','fixed').css('bottom','0').css('opacity', '1');
+                }
+                else {
+                    $('.tabs-navigation').css('opacity', '0');
+                }
+                if ((c+d)>(a+b)) {
+                    $('.tabs-navigation').css('position','absolute');
+                }
+        });
+    }
 });

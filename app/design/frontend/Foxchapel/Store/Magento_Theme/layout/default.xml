@@ -29,7 +29,7 @@
         <move element="header" destination="my.accounts.links" before="-" />
 
         <move element="top.links" destination="account-wishlist-links" after="-" />
-       
+        <move element="top.search" destination="header-wrapper" after="account-wishlist-links" />
 
         <referenceContainer name="footer-container">
          <container name="footer-links" htmlTag="div" htmlClass="footer-links" before="-">
