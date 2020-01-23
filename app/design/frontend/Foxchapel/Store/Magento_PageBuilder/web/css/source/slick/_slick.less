@@ -129,7 +129,7 @@
 .slick-next {
     -ms-transform: translate(0, -50%);
     -webkit-transform: translate(0, -50%);
-    background: rgba(252, 252, 252, .6);
+    background: #000;
     border: 1px solid @line-color;
     border-radius: 50%;
     color: transparent;
@@ -152,29 +152,28 @@
 
 
     &:hover {
-        background: rgba(252, 252, 252, 1);
-        border-color: rgb(206, 24, 31);
+        background: @color_red;
+        border-color: @color_red;
 
         &.slick-disabled {
             opacity: .2;
         }
         &:before {
-            color: rgb(206, 24, 31);
+            color: @color_white;
         }
     }
 
     &:before,
     &:after {
         &:extend(.pagebuilder-icon all);
-        color: @black-fox;
+        color: @color_white;
         font-size: 11px;
         opacity: 1;
     }
 
     &:active,
     &:focus,
-    &:not(.primary) {
-        background: rgba(252, 252, 252, .7);
+    &:not(.primary) {      
         box-shadow: none;
 
         &:active {

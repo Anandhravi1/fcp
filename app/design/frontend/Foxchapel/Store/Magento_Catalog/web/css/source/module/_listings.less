@@ -58,7 +58,7 @@
                 -webkit-hyphens: auto;
                 display: block;
                 hyphens: auto;
-                margin: @indent__xs 0;
+                margin: @indent__xs @indent__m;
                 word-wrap: break-word;
 
                 .products-grid & {
@@ -168,7 +168,6 @@
 
                 .price {
                     .lib-font-size(14);
-                    font-weight: @font-weight__bold;
                     white-space: nowrap;
                 }
 
@@ -245,9 +244,14 @@
             }
 
             .tocompare {
-                .lib-icon-font-symbol(
-                @icon-compare-empty
-                );
+               &:before {
+                    background-image: url("@{baseDir}images/compare.svg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    content:'';
+                    height: 12px;
+                    width: 10px;
+               }
             }
 
             .tocart {
@@ -378,6 +382,7 @@
                 .actions-primary + .actions-secondary {
                     > * {
                         white-space: normal;
+                        vertical-align: top;
                     }
                 }
             }

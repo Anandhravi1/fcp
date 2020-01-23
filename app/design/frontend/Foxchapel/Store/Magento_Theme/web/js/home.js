@@ -14,15 +14,22 @@
             $(this).slick({
                 infinite: true,
                 speed: 300,
-                lazyLoad: true,
+                lazyLoad: false,
                 slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToScroll: 3,
                 responsive: [
+                    {
+                        breakpoint: 1025,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                        }
+                    },
                     {
                         breakpoint: 768,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 2
+                            slidesToScroll: 1
                         }
                     },
                     {

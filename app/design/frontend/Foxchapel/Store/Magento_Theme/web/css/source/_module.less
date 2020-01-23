@@ -50,7 +50,9 @@
 
 & when (@media-common = true) {
     body {
-        .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
+        &.cms-index-index {
+            .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
+        }
     }
 
     .page-wrapper {
@@ -119,15 +121,18 @@
 
         .account-wishlist-links {
             display: flex;
-            a {
-                font-size: 18px;
-            }
+           
             .header {
                 &.links {
                     display: flex;
                     align-items: center;
                     list-style-type: none;
                     margin-bottom: 0;
+                    >li {
+                        a {
+                            font-size: 18px;
+                        }
+                    }
                 }
 
             }
@@ -306,7 +311,7 @@
         height: 0;
         position: relative;
     }
-
+    
     //
     //  Global notice
     //  ---------------------------------------------
