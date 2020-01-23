@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e166eba6e8ade46c6feb56c3c390facd",
+    "content-hash": "5c0e9e149975aa48f79bb64059b33497",
     "packages": [
         {
             "name": "amasty/advanced-review",
@@ -2074,6 +2074,7 @@
                 }
             ],
             "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
+            "abandoned": true,
             "time": "2018-07-31T13:22:33+00:00"
         },
         {
@@ -17168,6 +17169,74 @@
             "time": "2018-09-13T19:25:26+00:00"
         },
         {
+            "name": "springbot/magento2-plugin",
+            "version": "1.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/springbot/magento2-plugin.git",
+                "reference": "e723e500af71ea4fdf517c8546ad07f2f3dd6800"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/springbot/magento2-plugin/zipball/e723e500af71ea4fdf517c8546ad07f2f3dd6800",
+                "reference": "e723e500af71ea4fdf517c8546ad07f2f3dd6800",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "springbot/magento2-queue": "1.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "psy/psysh": "^0.7.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Springbot\\Main\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Springbot integration for Magento 2",
+            "time": "2020-01-13T20:57:29+00:00"
+        },
+        {
+            "name": "springbot/magento2-queue",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/springbot/magento2-queue.git",
+                "reference": "fc7a83bd5cc86fece6d258ee66af8f7e8868cc7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/springbot/magento2-queue/zipball/fc7a83bd5cc86fece6d258ee66af8f7e8868cc7c",
+                "reference": "fc7a83bd5cc86fece6d258ee66af8f7e8868cc7c",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Springbot\\Queue\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "A generic job queuing package for Magento 2",
+            "time": "2019-11-26T19:23:51+00:00"
+        },
+        {
             "name": "symfony/config",
             "version": "v4.4.2",
             "source": {
@@ -18662,14 +18731,6 @@
             "type": "metapackage",
             "license": [
                 "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Mediotype",
-                    "email": "diveinto@mediotype.com",
-                    "homepage": "http://www.mediotype.com/",
-                    "role": "Development Company"
-                }
             ],
             "description": "Vertex Tax Links for Magento 2",
             "homepage": "http://go.vertexsmb.com/magento_cbe",

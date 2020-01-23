@@ -60,69 +60,6 @@
         }
 
         .action.search {
-            display: none;
-        }
-
-        .control {            
-            clear: both;            
-            border-top: 0;
-            margin: 0;
-            padding: 0 0 25px;        
-        }
-
-        input {
-            left: -300%;
-            .lib-input-placeholder(@form-element-input-placeholder__color);         
-            transition: all 0.5s ease 0s;
-            margin: 0;
-            padding-right: 35px;
-            position: static;
-            &.input-text {
-                height: 45px;
-                border: 1px solid #092c4c;
-                &::placeholder {
-                    color: @secondary__color;
-                    text-transform: capitalize;
-                }
-            }
-        }
-
-        .nested {
-            display: block;
-            padding-top: 5px;
-            position: absolute;
-        }
-    }
-  
-    .block-search {                
-        .label {
-            &:extend(.abs-visually-hidden-desktop all);
-        }
-        .control {
-            border-top: 0;
-            margin: 0;
-            padding: 0 0 25px;
-        }
-        .nested {
-            display: block;
-            padding-top: 5px;
-            position: absolute;
-        }
-        input {
-            .lib-input-placeholder(@form-element-input-placeholder__color);
-            margin: 0;
-            padding-right: 35px;
-            position: static;
-            &.input-text {
-                height: 45px;
-                border: 1px solid #092c4c;
-                &::placeholder {
-                    color: @secondary__color;
-                    text-transform: capitalize;
-                }
-            }
-        }
-        .action.search {
             display: inline-block;
             .lib-button-icon(
             @_icon-font-content: @icon-search,
@@ -159,12 +96,37 @@
                 opacity: 1;
             }      
        }
+
+        .control {            
+            clear: both;            
+            border-top: 0;
+            margin: 0;
+            padding: 0 0 25px;        
+        }
+
+        input {
+            left: -300%;
+            .lib-input-placeholder(@form-element-input-placeholder__color);         
+            transition: all 0.5s ease 0s;
+            margin: 0;
+            padding-right: 35px;
+            position: static;
+            &.input-text {
+                height: 45px;
+                border: 1px solid #092c4c;
+                &::placeholder {
+                    color: @secondary__color;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .nested {
+            display: block;
+            padding-top: 5px;
+            position: absolute;
+        }
     }
-
-
-
-
-
     .search-autocomplete {
         &:extend(.abs-add-box-sizing all);
         display: none;
