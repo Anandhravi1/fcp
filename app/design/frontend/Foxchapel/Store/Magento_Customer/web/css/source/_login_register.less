@@ -1,0 +1,302 @@
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .customer-account-login,
+  .customer-account-create {
+    .page-title-wrapper {
+      display: none;
+    }
+  }
+
+  .customer-account-login,
+  .customer-account-create {
+    .column {
+      .form-login, .form-create-account {
+        .actions-toolbar {
+          margin-left: 0;
+
+          .action {
+            &.primary {
+              float: none;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .customer-account-login,
+  .customer-account-create {
+    .login-container,
+    .form-create-account {
+      margin: 50px 0;
+      padding: 30px;
+      border-top: 5px solid @color_red;
+      background: @color_white;
+      box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .customer-account-login {
+    .login-container {
+      .agreement {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: @secondary__color;
+      }
+
+      .fieldset{
+        &:after {
+          display: none;
+        }
+
+        .field {
+          &.note {
+            text-align: center;
+          }
+        }
+      }
+
+      .block {
+        &-title {
+          text-align: center;
+          text-transform: uppercase;
+          border-bottom: none;
+          strong {
+            font-weight: bold;
+          }
+        }
+        &-new-customer {
+          p {
+            color: @primary__color;
+          }
+        }
+      }
+
+      block-customer-login,
+      .block-new-customer {
+        width:  100%;
+      }
+
+      .actions-toolbar {
+        margin-left: 0;
+
+        > .primary {
+          display: block;
+          float: none;
+
+          .action {
+            &.primary {
+              margin-right: 0;
+            }
+          }
+        }
+
+        > .secondary {
+          margin-bottom: 20px;
+          float: left;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          font-size: 13px;
+
+          .action {
+            &.remind {
+              margin-top: 0;
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .customer-account-create {
+    .form-create-account {
+      .actions-toolbar {
+        clear: both;
+      }
+      .fieldset {
+        .legend {
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          float: none;
+          display: block;
+        }
+
+        .field {
+          .password-strength-meter {
+            &:before {
+              transition: all 0.5s ease-in 0s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .form-create-account {
+    .fieldset {
+      &.info {
+        padding-right: 30px;
+      }
+      &.account {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  .login-container {
+    .block-customer-login {
+      padding-right: 30px;
+    }
+    .block-new-customer {
+      padding-left: 30px;
+    }
+  }
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m + 1) {
+  .customer-account-login {
+    .login-container {
+      .block-customer-login,
+      .block-new-customer {
+        width: 100%;
+      }
+    }
+  }
+
+
+  .form.form-create-account {
+    .fieldset {
+      &.info {
+        padding-right: 0;
+      }
+      &.account {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .login-container {
+    .block-customer-login {
+      padding-right: 0;
+    }
+    .block-new-customer {
+      padding-left: 0;
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .customer-account-login,
+  .customer-account-create{
+    .login-container,
+    .form-create-account {
+      padding: 60px;
+    }
+  }
+  .form-create-account {
+    .fieldset {
+      &.info {
+        padding-right: 80px;
+      }
+      &.account {
+        padding-left: 80px;
+      }
+    }
+  }
+
+  .login-container {
+    .block-customer-login {
+      padding-right: 80px;
+    }
+    .block-new-customer {
+      padding-left: 80px;
+    }
+  }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m + 1) {
+  .form-create-account {
+    .fieldset {
+      &.account {
+        border-left: 1px solid @border_color;
+      }
+    }
+  }
+
+  .customer-account-login {
+    .login-container {
+        .block {
+          margin-bottom: 0;
+        }
+
+        .block-customer-login,
+        .block-new-customer {
+            width:  50%;
+        }
+
+      .block-customer-login {
+        border-right: 1px solid @border_color;
+      }
+    }
+  }
+
+
+    .form-create-account {
+      .fieldset {
+        width: 50%;
+        float: left;
+      }
+      .actions-toolbar {
+        > .primary {
+          float: right;
+
+          .action {
+            margin-right: 0;
+          }
+        }
+
+        .secondary {
+          float: left;
+        }
+      }
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .customer-account-login {
+    .login-container {
+      .form-login {
+        .actions-toolbar {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+

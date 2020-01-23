@@ -3,7 +3,6 @@
 //  * See COPYING.txt for license details.
 //  */
 
-@import 'icon/_icons.less';
 @import '_home.less';
 //
 //  Theme variables
@@ -106,6 +105,7 @@
             display: flex;
             justify-content: space-between;     
             align-items: center; 
+            flex-wrap: wrap;            
             .icon-wishlist,.action.compare, .my-account {
                     .lib-icon-text-hide();                                   
                 }                
@@ -113,8 +113,8 @@
                position: relative;
                &:before {
                 font-size: 18px;
-                font-family: 'foxchapel-icon';
-                content: "\e901";
+                font-family: @icon-fox;
+                content: @user;
                }
            }
         }
@@ -344,13 +344,7 @@
             margin-bottom: 0;
             text-align: center;
         }
-    }    
-    a{
-        color: #000;
-        &:hover {
-            text-decoration: none;
-        }
-    } 
+    }
     .btn {
         display: inline-block;
         font-weight: 400;
@@ -572,6 +566,16 @@
         } 
  }
 }
+
+@media only screen and (min-width: @s-tab){
+    .block-search {
+        order: 2;
+    }
+    .account-wishlist-links {
+        order: 3;
+    }
+}   
+
 //
 //  tablet
 //  _____________________________________________
@@ -748,5 +752,11 @@
                 margin-top: 20px;
             }
         }
+    }
+}
+
+@media only screen and (max-width: @s-tab){
+    .block-search {
+        display: block;
     }
 }
