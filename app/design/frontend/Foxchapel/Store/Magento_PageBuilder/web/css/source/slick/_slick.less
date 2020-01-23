@@ -129,7 +129,7 @@
 .slick-next {
     -ms-transform: translate(0, -50%);
     -webkit-transform: translate(0, -50%);
-    background: #000;
+    background: @color_black;
     border: 1px solid @line-color;
     border-radius: 50%;
     color: transparent;
@@ -174,10 +174,9 @@
     &:active,
     &:focus,
     &:not(.primary) {      
-        box-shadow: none;
-
+        box-shadow: none;       
         &:active {
-            box-shadow: none;
+            box-shadow: none;           
         }
     }
 }

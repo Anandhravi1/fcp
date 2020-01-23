@@ -20,6 +20,9 @@
 & when (@media-common = true) {
     .block-search {
         margin-bottom: 0;
+        position: relative;
+        width: 570px;        
+        z-index: 4;
 
         .block {
             &-title {
@@ -41,7 +44,7 @@
             @_icon-font-color-active: @header-icons-color-hover,
             @_icon-font-text-hide: true
             );
-            display: inline-block;
+            display: none;
             float: right;
 
             &.active {
@@ -53,31 +56,77 @@
                     }
                 }
             }
+            &:extend(.abs-visually-hidden-desktop all);
         }
 
         .action.search {
-            display: none;
-        }
+            display: inline-block;
+            .lib-button-icon(
+            @_icon-font-content: @icon-search,
+            @_icon-font-text-hide: true,
+            @_icon-font-color: @header-icons-color
+            );
+            .lib-button-reset();
+            padding: @indent__xs 0;
+            position: absolute;
+            right: 0px;
+            top: 0;
+            z-index: 1;
+            border-radius: 0;
 
-        .control {
-            border-top: 1px solid @border-color__base;
-            clear: both;
-            margin: 0 -@layout__width-xs-indent -1px;
-            padding: 0 @layout__width-xs-indent;
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-gray20);
+                }
+            }
+            &:hover {
+                background: @color_red;
+                &:before {
+                    color: #fff;
+                }
+            }
+            background: @color_red;    
+            width: 45px;
+            height: 45px;
+            &:before {
+                color: #fff;
+            }  
+            &.disabled,
+              &[disabled] {
+                opacity: 1;
+            }      
+       }
+
+        .control {            
+            clear: both;            
+            border-top: 0;
+            margin: 0;
+            padding: 0 0 25px;        
         }
 
         input {
             left: -300%;
-            margin: 15px 0;
-            position: absolute;
+            .lib-input-placeholder(@form-element-input-placeholder__color);         
             transition: all 0.5s ease 0s;
+            margin: 0;
+            padding-right: 35px;
+            position: static;
+            &.input-text {
+                height: 45px;
+                border: 1px solid #092c4c;
+                &::placeholder {
+                    color: @secondary__color;
+                    text-transform: capitalize;
+                }
+            }
         }
 
         .nested {
-            display: none;
+            display: block;
+            padding-top: 5px;
+            position: absolute;
         }
     }
-
     .search-autocomplete {
         &:extend(.abs-add-box-sizing all);
         display: none;
@@ -180,6 +229,15 @@
         margin-bottom: @indent__s;
     }
 }
+// Advanced Search 
+ .mst-searchautocomplete__wrapper {
+     .mst-searchautocomplete__index {
+         &.magento_catalog_product {
+             height: 300px;
+             overflow-y: scroll;
+         }
+     }
+ }
 
 //
 //  Mobile
@@ -195,87 +253,32 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
     .block-search {
-        margin-top: @indent__s;
+        margin-top: @indent__s;       
+        width: 100%;
+        .control {           
+            width: 100%;
+        }
     }
 }
+@media only screen and (max-width: @s-tab){
+    .block-search {
+        display: block;
+        width: 100%;
 
+    }
+}
 //
 //  Desktop
 //  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+@media only screen and (min-width: @s-tab){
     .block-search {
-        float: right;
-        padding-left: 15px;
-        position: relative;
-        width: 570px;
-        z-index: 4;
-
-        .label {
-            &:extend(.abs-visually-hidden-desktop all);
-        }
-        .control {
-            border-top: 0;
-            margin: 0;
-            padding: 0 0 25px;
-        }
-        .nested {
-            display: block;
-            padding-top: 5px;
-            position: absolute;
-        }
-        input {
-            .lib-input-placeholder(@form-element-input-placeholder__color);
-            margin: 0;
-            padding-right: 35px;
-            position: static;
-            &.input-text {
-                height: 45px;
-                border: 1px solid #092c4c;
-                &::placeholder {
-                    color: @secondary__color;
-                    text-transform: capitalize;
-                }
-            }
-        }
-        .action.search {
-            display: inline-block;
-            .lib-button-icon(
-            @_icon-font-content: @icon-search,
-            @_icon-font-text-hide: true,
-            @_icon-font-color: @header-icons-color
-            );
-            .lib-button-reset();
-            padding: @indent__xs 0;
-            position: absolute;
-            right: 0px;
-            top: 0;
-            z-index: 1;
-            border-radius: 0;
-
-            &:focus {
-                &:before {
-                    .lib-css(color, @color-gray20);
-                }
-            }
-            &:hover {
-                background: @color_red;
-                &:before {
-                    color: #fff;
-                }
-            }
-            background: @color_red;    
-            width: 45px;
-            height: 45px;
-            &:before {
-                color: #fff;
-            }  
-            &.disabled,
-              &[disabled] {
-                opacity: 1;
-            }      
-       }
+        order: 2;
     }
+    .account-wishlist-links {
+        order: 3;
+    }
+}  
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {   
     ._keyfocus *:focus,
              input:not([disabled]):focus,
                textarea:not([disabled]):focus, 
