@@ -22,13 +22,19 @@
                     font-weight: normal;
                     font-size: 16px;
                 }
-                div,.banner-items,.banner-item {
-                    height: 100%;                    
-                }                
-                .pagebuilder-collage-content {
-                    height: auto;
+                .pagebuilder-column {
+                    .dynamic-slider-sec  {
+                          height: 100%;
+                        div,.banner-items,.banner-item {
+                            height: 100%;
+                        }
+                     }             
                 }
-                .pagebuilder-slide-wrapper {
+                
+                .pagebuilder-collage-content {
+                    height: auto !important;
+                }
+                .pagebuilder-overlay {
                     display: flex;
                     align-items: center;
                 }
@@ -36,6 +42,14 @@
             .slider-side-section{
                 .btn {
                     padding:1rem 3rem;
+                    &:visited {
+                        color: @primary__color;
+                    }
+                    &:hover {
+                        &:visited {
+                            color: @color_white;
+                        }
+                    }
                 }
                 .widget {
                     &.block {
