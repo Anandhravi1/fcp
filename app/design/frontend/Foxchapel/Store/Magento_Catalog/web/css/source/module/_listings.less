@@ -99,6 +99,16 @@
                     font-size: 1.4rem;
                 }
 
+                .tocompare {
+                    &:before {
+                     content: '\e90b';
+                     font-family: 'foxchapel' !important;
+                     height: 22px;
+                     width: 14px;
+                     font-size: 15px !important;
+                    }
+                 }
+
                 .actions-secondary {
                     font-size: 1.4rem;
                     white-space: nowrap;
@@ -121,8 +131,14 @@
                         border-radius: 50%;
                         border: 1px solid @line-color;
 
+                        &:hover {
+                            &:before {
+                                color: #8a92a5;
+                            }
+                        }
+
                         &:before {
-                            color: @line-color;
+                            color: #8a92a5;
                         }
                     }
                     > button.action {
@@ -251,18 +267,6 @@
             .price-from,
             .price-to {
                 margin: 0;
-            }
-
-            .tocompare {
-               &:before {
-                    background-image: url("@{baseDir}images/compare.svg");
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    content:'';
-                    opacity: 0.4;
-                    height: 12px;
-                    width: 10px;
-               }
             }
 
             .tocart {
