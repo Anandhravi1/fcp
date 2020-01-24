@@ -34,7 +34,13 @@
 
 
   .block-minicart {
-    border-color: lighten(@minicart__border-color, 0.3);
+    border-color: @border_color;
+    &:before {
+      right: 15px;
+    }
+    &:after {
+      right: 14px;
+    }
     .action {
       &.viewcart {
         font-size: 16px;
@@ -48,14 +54,25 @@
   }
 
   .minicart-items {
+    &-wrapper {
+      border-color: @border_color;
+    }
     .product-item {
       &:not(:first-child) {
         border-top: 1px solid lighten(@minicart__border-color, 0.3);
       }
     }
     .product-item-details {
-      .details-qty {
-
+      .action {
+        &.edit {
+          &:before {
+            font-family: @icon-fox;
+            content: @edit;
+            font-size: 1.5rem;
+            position: relative;
+            top: 2px;
+          }
+        }
       }
     }
 

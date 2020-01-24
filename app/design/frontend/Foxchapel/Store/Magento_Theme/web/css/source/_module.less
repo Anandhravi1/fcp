@@ -62,7 +62,16 @@
 
     .page-main {
         .lib-vendor-prefix-flex-grow(1);
+
+        > .page-title-wrapper {
+            .page-title {
+                font-weight: bold;
+            }
+        }
     }
+
+
+
     .sections {
       &.nav-sections,.navigation {
            background: @color_black;
@@ -129,7 +138,7 @@
                     list-style-type: none;
                     margin-bottom: 0;
                     >li {
-                        a {
+                        > a {
                             font-size: 18px;
                         }
                     }
