@@ -4,6 +4,7 @@
 //  _____________________________________________
 
 & when (@media-common = true) {
+  select,
   input[type="text"],
   input[type="password"],
   input[type="url"],
@@ -15,6 +16,7 @@
     border-color: @border_color;
     height: 40px;
   }
+
 
   .fieldset {
     > .field {
@@ -42,11 +44,6 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-
-  div.mage-error[generated] {
-    color:  @icon-font__color;
-  }
-
   .fieldset {
     .legend {
       margin-left: 0;
