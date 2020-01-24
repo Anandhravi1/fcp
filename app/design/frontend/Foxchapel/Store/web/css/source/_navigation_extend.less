@@ -107,10 +107,13 @@
           }
         }
 
-        .level1 {
+        .level1 {                     
           .submenu {
-              min-width: 500px;
-
+            min-width: 680px;
+            height: 100%;
+            padding-right: ~"calc(100% + 680px/4)";
+            padding-top: 25px;
+            padding-left: 10px;
               > li{
                 > a {
                   color: @primary__color;
@@ -121,11 +124,24 @@
                   }
                 }
               }
+              .level2 {
+                width: 100%;                
+              }
+              .category_image {
+                position: absolute;
+                top:25px;
+                right: 25px;   
+                width: 50%;                             
+              }
           }
         }
       }
     }
-
+   li{
+     &.level1 {
+        position: static;
+     }
+   }
   }
 }
 

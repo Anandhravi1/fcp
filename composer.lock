@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c425c353e214fc9889afa0ae036e14b0",
+    "content-hash": "94d447ed1986e2394e0a5d680b3e81f7",
     "packages": [
         {
             "name": "amasty/advanced-review",
@@ -214,10 +214,10 @@
         },
         {
             "name": "amasty/module-special-promo",
-            "version": "2.7.12",
+            "version": "2.7.13",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/module-special-promo-2.7.12-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/module-special-promo-2.7.13-ee.zip"
             },
             "require": {
                 "amasty/base": ">=1.9.7",
@@ -589,6 +589,33 @@
             "description": "Login with Amazon module"
         },
         {
+            "name": "avalara/avatax",
+            "version": "15.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avadev/AvaTax-Calc-SOAP-PHP.git",
+                "reference": "5f1e6539c6c086be6ac137a824e265c646aef452"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avadev/AvaTax-Calc-SOAP-PHP/zipball/5f1e6539c6c086be6ac137a824e265c646aef452",
+                "reference": "5f1e6539c6c086be6ac137a824e265c646aef452",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AvaTax\\": "AvaTax"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "A set of classes to assist with integration to the Avalara AvaTax SOAP API.",
+            "time": "2017-05-25T15:46:32+00:00"
+        },
+        {
             "name": "bacon/bacon-qr-code",
             "version": "1.0.3",
             "source": {
@@ -790,6 +817,40 @@
                 "rfc4648"
             ],
             "time": "2018-11-02T09:03:50+00:00"
+        },
+        {
+            "name": "classyllama/module-avatax",
+            "version": "1.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/classyllama/ClassyLlama_AvaTax.git",
+                "reference": "cbebfa657f9a5e8f4b2c9be2a0b9c82c60527ffc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/classyllama/ClassyLlama_AvaTax/zipball/cbebfa657f9a5e8f4b2c9be2a0b9c82c60527ffc",
+                "reference": "cbebfa657f9a5e8f4b2c9be2a0b9c82c60527ffc",
+                "shasum": ""
+            },
+            "require": {
+                "avalara/avatax": "^15.5.2.0",
+                "magento/framework": "^100.1.0|101.0.*|^102.0.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "ClassyLlama\\AvaTax\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "abandoned": "avalara/avatax-magento",
+            "time": "2019-02-22T20:55:07+00:00"
         },
         {
             "name": "colinmollenhour/cache-backend-file",
@@ -1699,16 +1760,16 @@
         },
         {
             "name": "fastly/magento2",
-            "version": "1.2.125",
+            "version": "1.2.126",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fastly/fastly-magento2.git",
-                "reference": "4bf59bfe990746a8399b92130618e178386574f3"
+                "reference": "226d19be8f64f6af4d1155ba72308adeacf78e24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fastly/fastly-magento2/zipball/4bf59bfe990746a8399b92130618e178386574f3",
-                "reference": "4bf59bfe990746a8399b92130618e178386574f3",
+                "url": "https://api.github.com/repos/fastly/fastly-magento2/zipball/226d19be8f64f6af4d1155ba72308adeacf78e24",
+                "reference": "226d19be8f64f6af4d1155ba72308adeacf78e24",
                 "shasum": ""
             },
             "require": {
@@ -1733,7 +1794,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Fastly CDN Module for Magento 2.x",
-            "time": "2020-01-07T15:51:04+00:00"
+            "time": "2020-01-22T19:52:11+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -18692,6 +18753,14 @@
             "license": [
                 "proprietary"
             ],
+            "authors": [
+                {
+                    "name": "Mediotype",
+                    "email": "diveinto@mediotype.com",
+                    "homepage": "http://www.mediotype.com/",
+                    "role": "Development Company"
+                }
+            ],
             "description": "Vertex Tax Links for Magento 2",
             "homepage": "http://go.vertexsmb.com/magento_cbe",
             "keywords": [
@@ -18835,6 +18904,82 @@
                 "stylesheet"
             ],
             "time": "2019-11-06T18:30:11+00:00"
+        },
+        {
+            "name": "wyomind/core",
+            "version": "4.5.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.wyomind.com/wyomind-core-4.5.1.zip"
+            },
+            "require": {
+                "magento/framework": ">=100.0.0",
+                "php": "~5.5.0|~5.6.0|>=7.0.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Wyomind\\Core\\": ""
+                }
+            },
+            "license": [
+                "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
+            ]
+        },
+        {
+            "name": "wyomind/cronscheduler",
+            "version": "1.8.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.wyomind.com/wyomind-cronscheduler-1.8.2.zip"
+            },
+            "require": {
+                "magento/framework": ">=100.0.0",
+                "php": "~5.5.0|~5.6.0|>=7.0.0",
+                "wyomind/core": ">=4.5.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Wyomind\\CronScheduler\\": ""
+                }
+            },
+            "license": [
+                "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
+            ],
+            "description": "Cron Scheduler is a toolbox that makes visible and comprehensible the cron tasks that run in the background of your Magento 2 website. This extension helps to monitor cron jobs and provides many features that help to prevent errors."
+        },
+        {
+            "name": "wyomind/datafeedmanager",
+            "version": "11.12.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.wyomind.com/wyomind-datafeedmanager-11.12.2.zip"
+            },
+            "require": {
+                "magento/framework": ">=100.0.0",
+                "php": "~5.5.0|~5.6.0|>=7.0.0",
+                "wyomind/core": ">=4.5.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Wyomind\\DataFeedManager\\": ""
+                }
+            },
+            "license": [
+                "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
+            ],
+            "description": "Export your products from your Magento website into csv, txt and xml data feeds for any shopping engine or market place! This extension includes all Google Shopping features and 19 sample templates. "
         },
         {
             "name": "yotpo/magento2-module-yotpo-reviews",

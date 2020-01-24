@@ -82,4 +82,25 @@
             </container>
         </containers>
     </widget>
+    <!-- Sub-Category widget for CLP -->
+    <widget id="sub-categories-list" class="FoxChapel\Catalog\Block\Widget\Category" ttl="86400">
+        <label translate="true">Sub Category Widget for CLP</label>
+        <description translate="true">This widget will list all the enabled subcategories list as a widget</description>
+        <parameters>
+            <parameter name="title" visible="true" xsi:type="text" required="true" sort_order="1">
+                <label>Sub Category Widget Title</label>
+            </parameter>
+            <parameter name="template_type" xsi:type="select" required="true" visible="true" sort_order="2">
+                <label translate="true">Template for Sub Categories</label>
+                <options>
+                    <option name="list" value="list" selected="true">
+                        <label translate="true">Sub Categories List Template</label>
+                    </option>
+                    <option name="grid" value="grid">
+                        <label translate="true">Sub Categories Grid Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
 </widgets>

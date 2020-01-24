@@ -27,6 +27,10 @@
         "mageplaza": {
             "type": "composer",
             "url": "https://repo.mageplaza.com"
+        },
+        "repo-name": {
+            "type": "composer",
+            "url": "https://repo.wyomind.com"
         }
     },
     "require": {
@@ -36,11 +40,14 @@
         "amasty/quickview": "^1.1",
         "amasty/shiprules": "^2.6",
         "amasty/social-login": "^1.5",
+        "classyllama/module-avatax": "^1.5",
         "magento/magento-cloud-metapackage": ">=2.3.3 <2.3.4",
         "mageplaza/layered-navigation-m2-pro": "^2.4",
-        "mirasvit/module-search-elastic-ultimate": "*",
         "mageplaza/layered-navigation-m2-ultimate": "^2.4",
-        "springbot/magento2-plugin": "^1.9"
+        "mirasvit/module-search-elastic-ultimate": "*",
+        "springbot/magento2-plugin": "^1.9",
+        "wyomind/cronscheduler": "^1.8",
+        "wyomind/datafeedmanager": "^11.12"
     },
     "suggest": {
         "ext-pcntl": "Need for run processes in parallel mode"

@@ -1,0 +1,56 @@
+<?php
+/**
+ * Sub Category list in CLP
+ *
+ * @var $block \FoxChapel\Catalog\Block\Widget\Category
+ */
+?>
+<?php
+$templateType = $block->getTemplateMode();
+?>
+<?php if (!$block->getCategory()) {
+    return;
+} ?>
+<?php $_categories = $block->getCurrentChildCategories() ;?>
+<?php $_count = is_array($_categories) ? count($_categories) : $_categories->count(); ?>
+<?php if ($_count) :?>
+    <?php if($templateType == 'list'):  ?>
+        <div class="block list">
+            <div class="content">
+                <ol class="items">
+                    <?php foreach ($_categories as $_category) :?>
+                        <?php if ($_category->getIsActive()) :?>
+                            <li class="item">
+                                <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>">
+                                    <?= $block->escapeHtml($_category->getName()) ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach ?>
+                </ol>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="block grid">
+        <div>
+            <h3><?= $block->getWidgetTitle() ?></h3>
+        </div>
+        <div class="content">
+            <ol class="items">
+                <?php foreach ($_categories as $_category) :?>
+                    <?php if ($_category->getIsActive()) :?>
+                        <li class="item">
+                            <img src="<?= $block->getCategoryImage($_category) ?>" width="150" height="150" alt="<?= $_category->getName() ?>"/>
+                            <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>"
+                                <?php if ($block->isCategoryActive($_category)) :?>
+                                    class="current"
+                                <?php endif; ?>
+                            ><?= $block->escapeHtml($_category->getName()) ?></a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach ?>
+            </ol>
+        </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
