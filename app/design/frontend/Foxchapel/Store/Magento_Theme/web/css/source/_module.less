@@ -251,8 +251,12 @@
             .header {
                 &.links {
                     > li {
-                       >  a, .my-account {
-                            margin-left: 20px;
+                        & + li {
+                            > a {
+                                margin-left: 20px;
+                            }
+                        }
+                       >  a{
                            color: @color_black;
                         }
                     }
@@ -574,14 +578,7 @@
  }
 }
 
-@media only screen and (min-width: @s-tab){
-    .block-search {
-        order: 2;
-    }
-    .account-wishlist-links {
-        order: 3;
-    }
-}   
+
 
 //
 //  tablet
@@ -697,8 +694,7 @@
     }
 
     .logo {
-        margin: -8px auto 25px 0;
-        margin-right: 0;
+        margin: 0 0 25px 0;
 
         img {
             max-height: inherit;
@@ -762,8 +758,4 @@
     }
 }
 
-@media only screen and (max-width: @s-tab){
-    .block-search {
-        display: block;
-    }
-}
+

@@ -3,12 +3,7 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-  .sections {
-    &.nav-sections {
-      z-index: 3;
-    }
-  }
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-tab + 1) { 
   
   .navigation {
     > ul {
@@ -27,7 +22,7 @@
         &.active,
         &.has-active{
           > .level-top {
-            color: @color_red;
+            color: @color_white;
             border-bottom: none;
           }
         }
@@ -38,7 +33,7 @@
 
         &.parent {
           .level-top {
-            padding-right: 40px;
+            padding-right: 30px;
             .ui-menu-icon {
               display: none;
             }
@@ -118,11 +113,12 @@
                 > a {
                   color: @primary__color;
       
-                  &:hover {
+                  &:hover,.ui-state-focus {
                     background: none;
                     color: @color_red;
                   }
                 }
+                
               }
               .level2 {
                 width: 100%;                
@@ -152,9 +148,51 @@
     > ul {
       .level0 {
         > .level-top {
-          padding: 0 40px;
+          padding: 0 30px;
         }
       }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @s-tab) {
+  .header {
+    &.content {
+       align-items: inherit;
+    }
+    &.links {
+      padding-left: 0;
+    }
+  }
+  .nav-toggle {    
+     position: relative;
+  }
+  .nav-sections {
+    .navigation{
+      .level0{
+        border-top: 1px solid @border_color;
+        a.level-top {
+          color: @color_white;
+        }
+        &.submenu {
+          background: @color_white;
+        }
+        &:hover {
+          background:@color_white;
+          a.level-top {
+            color: @color_red;
+          }
+        }
+        &:last-child{
+          border-bottom: 1px solid @border_color;
+        }
+      }
+    }
+    .category_image {
+      display: none;
+    }
+    .nav-sections-item-title {
+      display: none;
     }
   }
 }
