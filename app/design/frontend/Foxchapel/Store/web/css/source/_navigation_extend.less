@@ -109,11 +109,15 @@
 
         .level1 {                     
           .submenu {
-            min-width: 680px;
             height: 100%;
-            padding-right: ~"calc(100% + 680px/4)";
             padding-top: 25px;
             padding-left: 10px;
+
+            &.has-category-image {
+              min-width: 680px;
+              padding-right: ~"calc(100% + 680px/4)";
+            }
+
               > li{
                 > a {
                   color: @primary__color;
