@@ -24,7 +24,9 @@
                     background-color: @fox-red;
                 }
                 .footer-container {
-                    border-bottom-color: @fox-red;
+                    &:before {
+                        width: 100%;
+                    }
 
                     a {
                         color: @fox-red;
@@ -44,7 +46,6 @@
         }
 
         .footer-container {
-            border-bottom: 3px solid @color-white;
             box-sizing: border-box;
             background-color: @color-white;
             left: 0;
@@ -54,6 +55,17 @@
             right: 0;
             top: ~"calc(100% - 50px)";
             width: ~"calc(100% - 50px)";
+
+            &:before {
+                background: @fox-red;
+                bottom: -2px;
+                content: '';
+                height: 2px;
+                left: 0;
+                position: absolute;
+                width: 0;
+                transition-duration: 0.3s;
+            }
             
             span {
                 color: #7f92a3;
