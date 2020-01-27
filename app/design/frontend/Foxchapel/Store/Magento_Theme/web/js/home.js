@@ -67,7 +67,7 @@
                         }
                     }
                 ]
-            });
+            }, 'setPosition');
         });
 
         //set position refresh for slick as tab makes slick unresposive
