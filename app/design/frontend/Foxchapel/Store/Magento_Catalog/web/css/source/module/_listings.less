@@ -295,10 +295,14 @@
             &-photo {
                 .products-grid & {
                     display: block;
-                    padding: 50px 55px 0;
+                    padding: 20px;
 
-                    @media only screen and (max-width: (@screen__m - 1)) {
-                        padding: 15px 15px;
+                    @media only screen and (min-width: (@s-desk-lg)) {
+                        padding: 50px 55px 0;
+                    }
+
+                    @media only screen and (max-width: (@screen__l - 1)) {
+
                     }
                 }
             }
