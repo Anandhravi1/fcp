@@ -9,4 +9,7 @@
     <head>
         <script src="Magento_Catalog::js/category.js"/>
     </head>
+    <body>
+        <referenceContainer name="sidebar.additional" remove="true" />
+    </body>
 </page>

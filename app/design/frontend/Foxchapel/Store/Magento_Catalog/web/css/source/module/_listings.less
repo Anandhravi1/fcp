@@ -317,6 +317,54 @@
                 }
             }
         }
+
+        .wishlist-index-index & {
+
+            &-reviews-summary {
+                margin: 10px auto;
+            }
+
+            &-item {
+                text-align: center;
+
+                > * {
+                    padding: 10px;
+                }
+
+                &-info {
+                    overflow: visible;
+
+                    input[type="checkbox"] {
+                        left: 10px;
+                    }
+                }
+
+                &-photo {
+                    padding: 0;
+                }
+
+                &-inner {
+                    padding-top: 0;
+                    position: static;
+                    transform: translateY(0);
+
+                    .field:not(.choice) > .label {
+                        float: none;
+                    }
+
+                    a.btn-remove.action {
+                        display: block;
+                    }
+
+                    &:after {
+                        clear: both;
+                        content: '';
+                        display: table;
+                    }
+                }
+            }
+            
+        }
     }
 
     .price-container {
