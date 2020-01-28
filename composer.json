@@ -35,7 +35,9 @@
     },
     "require": {
         "amasty/advanced-review": "^1.13",
+        "amasty/module-google-rich-snippets": "^1.4",
         "amasty/module-loyalty-program": "^2.7",
+        "amasty/module-seo-toolkit": "^1.16",
         "amasty/module-special-promo-pro": "^2.7",
         "amasty/quickview": "^1.1",
         "amasty/shiprules": "^2.6",
