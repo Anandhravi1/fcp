@@ -54,6 +54,13 @@
         }
     }
 
+    .slick-slider {
+        .slick-prev,
+        .slick-next {
+            z-index: 2;
+        }
+    }
+
     .page-wrapper {
         .lib-vendor-prefix-display(flex);
         .lib-vendor-prefix-flex-direction(column);
@@ -260,7 +267,7 @@
             .header {
                 &.links {
                     > li {
-                        & + li {
+                        & ~ li {
                             > a {
                                 margin-left: 20px;
                             }

@@ -9,6 +9,34 @@ require([
 ], function ($) {
     'use strict';
 
+
+    let slickGreen = false;
+    function greenSlider(){
+        if($(window).width() < 577){
+            if(!slickGreen){
+                $(".category-grid-list .product-items").slick({
+                    dots: false,
+                    arrows: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+                slickGreen = true;
+            }
+        } else if($(window).width() > 576){
+            if(slickGreen){
+                $('.category-grid-list .product-items').slick('unslick');
+                slickGreen = false;
+            }
+        }
+    }
+
+    $(document).ready(function(){
+        greenSlider();
+    });
+    $(window).on('resize', function(){
+        greenSlider();
+    });
+
     if($('.category-slider')) {
         $(".category-slider .items").each(function () {
             $(this).slick({
