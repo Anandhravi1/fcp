@@ -59,12 +59,22 @@
             }
         }
         
+        @media only screen and (max-width: (@screen__m - 1)) {
+            .col-md-6 {
+                width: 50%;
+            }
+        }
+
         .category-inner {
             background-color: @color-white;
             border-bottom: 3px solid @color-white;
             margin: 0 15px 40px;
             padding: 30px 15px;
             transition-duration: 0.3s;
+
+            @media only screen and (max-width: (@screen__m - 1)) {
+                margin-bottom: 15px;
+            }
 
             h4 {
                 .text-upper;
@@ -167,7 +177,6 @@
             
             .tabs-content {
                 opacity: 1;
-                transform: scale(1);
             }
             
             .tabs-navigation {
@@ -207,7 +216,21 @@
                             .text-upper;
                             color: inherit;
                             font-weight: @font-weight__light;
+                            position: relative;
                             transition-duration: 0s;
+
+                            @media only screen and (min-width: @screen__m) {
+
+                                &:after {
+                                    .abs;
+                                    border-right: 2px solid #ebebeb;
+                                    content: '';
+                                    height: 100%;
+                                    top: 0;
+                                    right: 0;
+                                    width: 0;
+                                }
+                            }
                         }
     
                         &.ui-tabs-active {
@@ -259,15 +282,25 @@
             text-transform: uppercase;
             font-weight: bold;
         }
-
+        .best-seller-content {
+            
+        }
         .best-seller {
+            .slick-slide {
+                padding: 0 10px;
+            }
+            .slick-next {
+                right: -25px;
+            }
+            .slick-prev {
+                left: -25px;
+            }
             .products-grid {
                 max-width: 80%;
                 margin: 0 auto;
                 .product-image-container {
                     display: block;
-                }
-              
+                }              
                 .product-item-inner {
                     padding-top: 0;
                 }
@@ -304,4 +337,19 @@
             }
         }
     }
+}
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+    .best-seller-wrap {
+        .pagebuilder-column {
+            width: 50% !important;
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-tab) { 
+    .best-seller-wrap {
+        .best-seller-content {
+            padding-left: 30px;
+        }
+    }
+
 }
