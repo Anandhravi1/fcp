@@ -43,8 +43,8 @@ require([
                 infinite: true,
                 speed: 300,
                 lazyLoad: true,
-                slidesToShow: 4,
-                slidesToScroll: 3,
+                slidesToShow: 5,
+                slidesToScroll: 4,
                 responsive: [
                     {
                         breakpoint: 1300,
