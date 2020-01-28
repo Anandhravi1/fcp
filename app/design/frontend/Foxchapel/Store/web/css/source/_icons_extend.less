@@ -1,15 +1,15 @@
 
 //
 //  Common
-//  _____________________________________________
+//  _____________________________________________ @{baseDir}
 
 @font-face {
   font-family: 'foxchapel';
-  src:  url('@{baseDir}fonts/foxchapel.eot?ed22zs');
-  src:  url('@{baseDir}fonts/foxchapel.eot?ed22zs#iefix') format('embedded-opentype'),
-  url('@{baseDir}fonts/foxchapel.ttf?ed22zs') format('truetype'),
-  url('@{baseDir}fonts/foxchapel.woff?ed22zs') format('woff'),
-  url('@{baseDir}fonts/foxchapel.svg?ed22zs#foxchapel') format('svg');
+  src:  url('@{baseDir}fonts/foxchapel.eot?is1pq8');
+  src:  url('@{baseDir}fonts/foxchapel.eot?is1pq8#iefix') format('embedded-opentype'),
+  url('@{baseDir}fonts/foxchapel.ttf?is1pq8') format('truetype'),
+  url('@{baseDir}fonts/foxchapel.woff?is1pq8') format('woff'),
+  url('@{baseDir}fonts/foxchapel.svg?is1pq8#foxchapel') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -30,6 +30,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-up-right:before {
+  content: "\e90f";
+}
+.icon-compare:before {
+  content: "\e90b";
+}
+.icon-instagram:before {
+  content: "\e90e";
+}
+.icon-eye-slash:before {
+  content: "\e904";
+}
 .icon-edit:before {
   content: "\e90d";
 }
@@ -54,9 +66,6 @@
 .icon-pinterest:before {
   content: "\e907";
 }
-.icon-compare:before {
-  content: "\e90b";
-}
 .icon-wishlist:before {
   content: "\e900";
 }
@@ -75,6 +84,8 @@
 
 @icon-fox: 'foxchapel';
 
+@arrow-up-right: '\e90f';
+@instagram: '\e90e';
 @edit: '\e90d';
 @eye-slash: '\e904';
 @eye: '\e906';

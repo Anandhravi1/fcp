@@ -21,16 +21,22 @@
           margin-bottom: 0;
           color: @color_white;
           max-width: @layout__max-width;
-          padding: @layout-indent__width - 10 @layout-indent__width;
+          padding: @layout-indent__width - 5 @layout-indent__width;
           margin: 0 auto;
           display: block;
-          font-size: 3.5rem;
+          font-size: 2.8rem;
           text-align: center;
+          text-transform: uppercase;
         }
       }
     }
 
     .category-cms {
+
+      [data-content-type='heading'] {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
 
         .category-slider,
         .category-products-slider ,
@@ -45,11 +51,34 @@
 
 
       .category-slider {
+
+        .items  {
+          > li {
+            display: none;
+          }
+        }
+
         li {
           text-align: center;
-          padding: 12px;
+          padding: 13px 0;
           text-transform: uppercase;
-          font-size: 1.3rem;
+          font-size: 1.2rem;
+
+          a {
+            position: relative;
+            &:hover {
+              &:after {
+                opacity: 1;
+              }
+            }
+            &:after {
+              content: @arrow-up-right;
+              font-family: @icon-fox;
+              opacity: 0;
+              position: absolute;
+              right: -12px;
+            }
+          }
         }
 
         .slick-slider {
@@ -62,8 +91,8 @@
           }
           .slick-arrow {
             border-radius: 0;
-            height: 48px;
-            width: 48px;
+            height: 46px;
+            width: 46px;
             z-index: 2;
           }
           .slick-prev {
@@ -85,7 +114,7 @@
             background: @color_white;
           }
 
-          .slick-slider {
+
             .slick-list {
               max-width: ~"calc(100% - 90px)";
               margin: 0 auto;
@@ -97,7 +126,7 @@
             .slick-next {
               right: 0;
             }
-          }
+
         }
       }
 
@@ -109,9 +138,21 @@
             text-align: center;
             text-transform: uppercase;
             font-weight: bold;
-            font-size: 3rem;
             margin-bottom: 40px;
           }
+
+          .slick-list {
+            max-width: ~"calc(100% - 90px)";
+            margin: 0 auto;
+          }
+
+          .slick-prev {
+            left: 20px;
+          }
+          .slick-next {
+            right: 20px;
+          }
+
           .products-grid {
             .product-items {
               font-size: initial;
@@ -123,6 +164,12 @@
                 .product-item-info {
                   box-shadow: none;
                 }
+              }
+            }
+
+            .product-item-photo {
+              img {
+                margin: 0 auto;
               }
             }
 
@@ -161,5 +208,89 @@
     }
   }
 }
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .catalog-category-view {
+    .category-cms {
+      .category-grid-list {
+        .block-title {
+          font-size: 2.5rem;
+        }
+      }
+
+      .category-slider {
+        .items {
+          li {
+            padding: 5px 0;
+         }
+
+          &.slick-slider {
+            .slick-arrow {
+              width: 30px;
+              height: 30px;
+            }
+            .slick-list {
+              max-width: ~"calc(100% - 60px)";
+            }
+          }
+        }
+      }
+
+      .category-products-slider {
+        .products-grid {
+          .slick-slider {
+            .slick-list {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-desk-lg) {
+  .catalog-category-view {
+    .page-main {
+      .page-title-wrapper {
+        .page-title {
+          font-size: 3.5rem;
+        }
+      }
+    }
+    .category-cms {
+      .category-slider {
+        li {
+          font-size: 1.3rem;
+        }
+      }
+      .category-grid-list {
+        .block-title {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+
 
 
