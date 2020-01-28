@@ -39,7 +39,7 @@ $templateType = $block->getTemplateMode();
             <ol class="items row product-items">
                 <?php foreach ($_categories as $_category) :?>
                     <?php if ($_category->getIsActive()) :?>
-                        <li class="item col col-6 col-md-4 col-lg-4 col-xl-3">
+                        <li class="item col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
                             <div class="product-item-info">
                                 <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>"
                                    class="<?php if ($block->isCategoryActive($_category)) :?>current <?php endif; ?>product-item-photo"><img src="<?= $block->getCategoryImage($_category) ?>" alt="<?= $_category->getName() ?>"/>
