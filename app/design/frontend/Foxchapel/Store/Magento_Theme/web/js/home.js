@@ -67,17 +67,21 @@
                         }
                     }
                 ]
-            }, 'setPosition');
+            });
         });
 
-        //set position refresh for slick as tab makes slick unresposive
-        setTimeout(function(){
-            $(".full-carousel ol.product-items").each(function() {
-                $(this).slick('setPosition');
-            });
-        }, 1000);
+         //set position refresh for slick as tab makes slick unresposive
+         var Slickcount = 0;
+         function myFunction() {
+            Slickcount++;
+             if(Slickcount > 2) clearInterval(timeout);
+             $(".full-carousel ol.product-items").each(function() {
+                 $(this).slick('setPosition');
+             });
+         }
+         var timeout = setInterval(myFunction, 3000);
 
-        $( "h3.featured" ).one('mouseover', function() {
+        $("h3.featured").one('mouseover', function() {
             $(".full-carousel ol.product-items").each(function() {
                 $(this).slick('setPosition');
             });
