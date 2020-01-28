@@ -45,6 +45,7 @@
           .level-top {
             padding-left: 20px;
             padding-right: 20px;
+            pointer-events: none;
             &:before {
               content: @icon-menu;
               font-family: @icon-font;
@@ -163,9 +164,11 @@
   .header {
     &.content {
        align-items: inherit;
+       padding-top: 20px;
     }
     &.links {
       padding-left: 0;
+      padding-right: 10px;
     }
   }
   .nav-toggle {    
