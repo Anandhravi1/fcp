@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d447ed1986e2394e0a5d680b3e81f7",
+    "content-hash": "551808ba8b8e51e86138416ce398c3d6",
     "packages": [
         {
             "name": "amasty/advanced-review",
@@ -112,6 +112,56 @@
             "description": "Cron Schedule List by Amasty"
         },
         {
+            "name": "amasty/html-sitemap",
+            "version": "1.2.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/html-sitemap-1.2.3-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\SeoHtmlSitemap\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "HTML Sitemap by Amasty"
+        },
+        {
+            "name": "amasty/meta",
+            "version": "1.1.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/meta-1.1.11-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Meta\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Meta Tags Templates by Amasty"
+        },
+        {
             "name": "amasty/module-advanced-conditions",
             "version": "1.4.0",
             "dist": {
@@ -162,6 +212,56 @@
             "description": "Promo Banners Lite by Amasty"
         },
         {
+            "name": "amasty/module-cross-linking",
+            "version": "1.1.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-cross-linking-1.1.2-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\CrossLinks\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Amasty Seo Cross Linking"
+        },
+        {
+            "name": "amasty/module-google-rich-snippets",
+            "version": "1.4.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-google-rich-snippets-1.4.6-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\SeoRichData\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Google Rich Snippets by Amasty"
+        },
+        {
             "name": "amasty/module-loyalty-program",
             "version": "2.7.10",
             "dist": {
@@ -186,6 +286,37 @@
                 "Commercial"
             ],
             "description": "Loyalty Program by Amasty"
+        },
+        {
+            "name": "amasty/module-seo-toolkit",
+            "version": "1.16.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-seo-toolkit-1.16.6-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "amasty/html-sitemap": ">=1.2.3",
+                "amasty/meta": ">=1.1.11",
+                "amasty/module-cross-linking": ">=1.1.2",
+                "amasty/module-google-rich-snippets": ">=1.4.6",
+                "amasty/module-unique-product-url": ">=1.0.18",
+                "amasty/module-xml-google-sitemap": ">=1.5.0",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\SeoToolKit\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "SEO Toolkit by Amasty"
         },
         {
             "name": "amasty/module-shippingarea",
@@ -267,6 +398,57 @@
                 "Commercial"
             ],
             "description": "Special Promotions Pro by Amasty"
+        },
+        {
+            "name": "amasty/module-unique-product-url",
+            "version": "1.0.18",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-unique-product-url-1.0.18-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\SeoSingleUrl\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Unique Product URL by Amasty"
+        },
+        {
+            "name": "amasty/module-xml-google-sitemap",
+            "version": "1.5.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/enterprise/packages/module-xml-google-sitemap-1.5.0-ee.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "amasty/cron-schedule-list": ">=1.0.3",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\XmlSitemap\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "XML Google Sitemap By Amasty"
         },
         {
             "name": "amasty/quickview",
@@ -2186,6 +2368,7 @@
                 "Guzzle",
                 "stream"
             ],
+            "abandoned": true,
             "time": "2014-10-12T19:18:40+00:00"
         },
         {
