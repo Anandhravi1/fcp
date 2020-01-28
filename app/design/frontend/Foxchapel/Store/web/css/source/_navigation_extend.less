@@ -3,7 +3,11 @@
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-tab + 1) { 
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-tab + 1) {
+
+  .nav-sections {
+    margin-bottom: 0;
+  }
   
   .navigation {
     > ul {
@@ -54,6 +58,7 @@
               vertical-align: middle;
               color: @color-white;
               transition: all 0.5s ease 0s;
+              font-size: 2rem;
             }
 
             &:hover, &.ui-state-focus {
