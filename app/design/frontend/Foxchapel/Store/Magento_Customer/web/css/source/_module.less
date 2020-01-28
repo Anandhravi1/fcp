@@ -107,7 +107,14 @@
             }
         }
     }
+    //Wishlist
 
+    .wishlist-index-index {
+        .pager > * {
+            vertical-align: top;
+        }
+    }
+    
     //
     //  My account
     //  ---------------------------------------------
@@ -116,6 +123,10 @@
         .column.main {
             h2 {
                 margin-top: 0;
+            }
+
+            .actions-toolbar {
+                margin-left: 0;
             }
 
             .toolbar {
@@ -133,6 +144,14 @@
 
             .block:not(.widget) {
                 &:extend(.abs-account-blocks all);
+            }
+
+            .checkout-payment-method .actions-toolbar .secondary {
+                padding: 15px;
+
+                a.action {
+                    margin-top: 0;
+                }
             }
         }
 
@@ -159,6 +178,17 @@
                 .input-text {
                     &:extend(.abs-input-qty all);
                 }
+            }
+        }
+        .block-title {
+            border-bottom: 1px solid @line-color;
+            font-size: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+
+            h2 {
+                font-size: 30px;
+                margin-bottom: 0;
             }
         }
     }
