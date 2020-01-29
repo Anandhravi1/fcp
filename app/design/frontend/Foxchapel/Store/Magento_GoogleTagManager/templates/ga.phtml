@@ -22,7 +22,7 @@ switch ($accountType) {
                         "isCookieRestrictionModeEnabled": <?= (int)$block->isCookieRestrictionModeEnabled() ?>,
                         "currentWebsite": <?= (int)$block->getCurrentWebsiteId() ?>,
                         "cookieName": "<?= /* @noEscape */ \Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>",
-                        "gtmAccountId": "<?= $block->escapeJs($gtmAccountId) ?>",
+                        "gtmAccountId": "<?= $block->escapeHtml($gtmAccountId) ?>",
                         "storeCurrencyCode": "<?= $block->escapeJs($block->getStoreCurrencyCode()) ?>",
                         "ordersData": <?= /* @noEscape */ json_encode($block->getOrdersDataArray()) ?>
                     }
