@@ -45,6 +45,14 @@ class Feeds extends Template implements BlockInterface {
 		);
 	}
 
+	public function getTitle()
+	{
+		return $this->_scopeConfig->getValue(
+			'foxchapel_config/general/title',
+			\Magento\Store\Model\ScopeInterface::SCOPE_STORE
+		);
+	}
+
 	public function getFormattedDate($pubDate)
 	{
 		$formattedDate = $this->timezoneInterface->date($pubDate)->format('d M');

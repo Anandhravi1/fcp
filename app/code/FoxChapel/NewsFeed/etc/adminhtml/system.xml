@@ -15,6 +15,13 @@
                     <label>Module Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0"        canRestore="1"
+ showInStore="0">
+                    <label>Title</label>
+                     <depends>
+                        <field id="foxchapel_config/general/enable">1</field>
+                    </depends>
+                </field>
                 <field id="feed_count" translate="label" canRestore="1"
  type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>No of feeds</label>

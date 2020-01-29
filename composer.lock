@@ -4,19 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "551808ba8b8e51e86138416ce398c3d6",
+    "content-hash": "3f7fa06623c8a06163f42917b6b3c8c9",
     "packages": [
         {
             "name": "amasty/advanced-review",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/advanced-review-1.13.0-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/advanced-review-1.13.1-ee.zip"
             },
             "require": {
                 "amasty/aminvisiblecaptcha": ">=2.2.1",
                 "amasty/base": ">=1.9.7",
-                "amasty/cron-schedule-list": ">=1.0.3",
+                "amasty/cron-schedule-list": ">=1.0.4",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "suggest": {
@@ -188,13 +188,13 @@
         },
         {
             "name": "amasty/module-banners-lite",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/module-banners-lite-1.0.9-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/module-banners-lite-1.0.10-ee.zip"
             },
             "require": {
-                "amasty/base": ">=1.9.5",
+                "amasty/base": ">=1.9.7",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
@@ -15791,11 +15791,11 @@
         },
         {
             "name": "mirasvit/module-misspell",
-            "version": "1.0.34",
+            "version": "1.0.35",
             "dist": {
                 "type": "tar",
-                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-misspell-1.0.34-5d0d6b.tar",
-                "reference": "3178982a0e99ebbd00f622abfa4ee0e43263db0a"
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-misspell-1.0.35-29a094.tar",
+                "reference": "c07dfe7794e042bd8975d4e6f019398ae9b313a5"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -15815,7 +15815,7 @@
                 "proprietary"
             ],
             "description": "Search Spell Correction",
-            "time": "2019-10-08T14:54:21+00:00"
+            "time": "2020-01-24T14:47:46+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -16328,6 +16328,53 @@
                 "time"
             ],
             "time": "2020-01-21T09:36:43+00:00"
+        },
+        {
+            "name": "olegkoval/magento2-regenerate-url-rewrites",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/olegkoval/magento2-regenerate_url_rewrites.git",
+                "reference": "8bc3974be85bc6cb6d44002f41810a986f9e9045"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/olegkoval/magento2-regenerate_url_rewrites/zipball/8bc3974be85bc6cb6d44002f41810a986f9e9045",
+                "reference": "8bc3974be85bc6cb6d44002f41810a986f9e9045",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "OlegKoval\\RegenerateUrlRewrites\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Oleg Koval",
+                    "email": "contact@olegkoval.com"
+                }
+            ],
+            "description": "Add into Magento 2 a CLI feature which allow to regenerate a Url rewrites of products and categories",
+            "homepage": "https://github.com/olegkoval/magento2-regenerate_url_rewrites",
+            "keywords": [
+                "extension",
+                "magento",
+                "magento 2 extension",
+                "magento 2 module",
+                "magento2 extension",
+                "magento2 module",
+                "module"
+            ],
+            "time": "2019-05-12T16:23:41+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -19090,10 +19137,10 @@
         },
         {
             "name": "wyomind/core",
-            "version": "4.5.1",
+            "version": "4.5.2",
             "dist": {
                 "type": "zip",
-                "url": "https://repo.wyomind.com/wyomind-core-4.5.1.zip"
+                "url": "https://repo.wyomind.com/wyomind-core-4.5.2.zip"
             },
             "require": {
                 "magento/framework": ">=100.0.0",
@@ -19140,15 +19187,15 @@
         },
         {
             "name": "wyomind/datafeedmanager",
-            "version": "11.12.2",
+            "version": "11.12.4",
             "dist": {
                 "type": "zip",
-                "url": "https://repo.wyomind.com/wyomind-datafeedmanager-11.12.2.zip"
+                "url": "https://repo.wyomind.com/wyomind-datafeedmanager-11.12.4.zip"
             },
             "require": {
                 "magento/framework": ">=100.0.0",
                 "php": "~5.5.0|~5.6.0|>=7.0.0",
-                "wyomind/core": ">=4.5.1"
+                "wyomind/core": ">=4.5.2"
             },
             "type": "magento2-module",
             "autoload": {
