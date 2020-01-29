@@ -4,6 +4,7 @@
         <foxchapel_config>
             <general>
                 <feed_count>6</feed_count>
+                <title>Latest Blog Post</title>
                 <cron_time>0 * * * *</cron_time>
             </general>
         </foxchapel_config>
