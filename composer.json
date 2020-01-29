@@ -47,6 +47,7 @@
         "mageplaza/layered-navigation-m2-pro": "^2.4",
         "mageplaza/layered-navigation-m2-ultimate": "^2.4",
         "mirasvit/module-search-elastic-ultimate": "*",
+        "olegkoval/magento2-regenerate-url-rewrites": "^1.4",
         "springbot/magento2-plugin": "^1.9",
         "wyomind/cronscheduler": "^1.8",
         "wyomind/datafeedmanager": "^11.12"
