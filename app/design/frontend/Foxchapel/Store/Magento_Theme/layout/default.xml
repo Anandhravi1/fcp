@@ -28,6 +28,8 @@
         <move element="authorization-link"  destination="my.accounts.links" after="-" />
         <move element="header" destination="my.accounts.links" before="-" />
 
+        <move element="google_analyticsuniversal" destination="after.body.start" before="-" />
+
         <move element="top.links" destination="account-wishlist-links" after="-" />
         <move element="top.search" destination="header-wrapper" after="account-wishlist-links" />
 
