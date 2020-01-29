@@ -3,13 +3,13 @@
 
 <?php $feeds = $block->getFeeds(); ?>
 <?php if($block->getFeeds()): ?>
-    <h2 class='posts text-center'>Latest Blog Posts</h2>
+    <h2 class='posts text-center'><?= $block->escapeHtml($block->getTitle()); ?></h2>
     <?php $feeds = $block->getFeeds(); ?>
     <div class="feed-wrapper">
     <?php foreach ($feeds as $feed) :?>
         <div class="feed-inner">
             <div class="footer-container">
-                <h3><?= $feed->getTitle(); ?></h3>
+                <h3><?= $block->escapeHtml($feed->getTitle()); ?></h3>
                 <span><?= $feed->getShortDescription() ?></span>
                 <a href="<?= $feed->getData('link'); ?>">Read More</a>
             </div>
