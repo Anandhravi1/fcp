@@ -47,7 +47,7 @@
         position: relative;
       }
       .level0{
-        border-top: 1px solid @border_color;
+        border-top: 1px solid #8e8e8e;
         a.level-top {
           color: @color_white;
         }       
@@ -57,7 +57,7 @@
           }
         }
         &:last-child{
-          border-bottom: 1px solid @border_color;
+          border-bottom: 1px solid #8e8e8e;
         }
       }
     }
@@ -88,7 +88,9 @@
     > ul {
       li {
         a {          
-          font-size: 12px;          
+          &.level-top {
+            font-size: 14px;
+          }
         }
       }
     }
@@ -263,6 +265,17 @@
       color: #fff;
       z-index: 2;
     }
+    .submenu {
+      &:not(:first-child){
+        .level1{
+          &.active{
+            >a {
+              color: @color_red;
+            }
+          }
+        }
+      }
+    }
     .level0{
       &.has-active{
         >a{
@@ -300,6 +313,9 @@
           }
         }
       }
+    }
+    .ui-state-active {
+      color: @color_red;
     }
   } 
   
