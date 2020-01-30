@@ -6,7 +6,16 @@
 & when (@media-common = true) {
   button, a {
     &.action {
-      &.primary {
+      &.primary {        
+        font-size: 13px;
+        line-height: 18px;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        transition: all 0.5s ease-in-out 0s;
+      }      
+      &.close,&-dismiss,&-primary {
+        .lib-button-primary();
+        border-radius: 0;
         font-size: 13px;
         line-height: 18px;
         padding: 15px 30px;
