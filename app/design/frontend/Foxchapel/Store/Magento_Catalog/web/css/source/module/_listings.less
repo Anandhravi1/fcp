@@ -62,7 +62,7 @@
                 word-wrap: break-word;
 
                 .products-grid & {
-                    max-height: 40px;
+                    height: 40px;
                     overflow: hidden;
 
                     @media only screen and (max-width: (@screen__m - 1)) {
@@ -124,6 +124,23 @@
                         @media only screen and (max-width: (@screen__m - 1)) {
                             display: none;
                         }    
+
+                        .amquickview-hover {
+                            + .split.button.wishlist {
+                                margin-left: -37px;
+                            }
+                        }
+
+                        .split.button.wishlist {
+                            margin-left: 0;
+
+                            + .amquickview-hover {
+                                margin-left: -90px;
+                                + a.action.tocompare {
+                                    margin-left: 53px;
+                                }
+                            }
+                        }
                     }
 
                     a.action {

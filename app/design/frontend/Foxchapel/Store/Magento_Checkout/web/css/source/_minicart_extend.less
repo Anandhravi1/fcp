@@ -5,6 +5,8 @@
 
 .minicart-wrapper {
     margin-left: 0px;
+    margin-top: 0;
+
     .action{
       &.showcart,
       &.showcart.active {
@@ -13,7 +15,7 @@
           content: @cart;
           font-family: @icon-fox;
           color: @color_black;
-          font-size: 18px;
+          font-size: inherit;
           line-height: 20px;
         }
         .counter.qty{

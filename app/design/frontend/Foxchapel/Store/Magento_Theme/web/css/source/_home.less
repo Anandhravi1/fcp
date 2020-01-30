@@ -34,7 +34,19 @@
             }     
         }
 
+        .tabs-navigation {
+            opacity: 0;
+        }
       
+    }
+//H1 common styling
+    .page-main {
+        .page-title-wrapper {
+            .page-title {
+                margin-top: 20px;
+                font-size: 40px;
+            }
+        }
     }
     //Top Categories
 
@@ -47,7 +59,7 @@
             padding: 0;
 
             li {
-                margin-bottom: 10px;
+                margin-bottom: 6px;
 
                 &:hover {
                     a {
@@ -79,11 +91,10 @@
                 font-size: 16px;
                 font-weight: @font-weight__bold;
                 letter-spacing: 1px;
+                line-height: 18px;
                 margin-top: 0;
-                margin-bottom: 20px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                margin-bottom: 10px;
+                min-height: 35px;
     
                 a {
                     color: #092c4c;
@@ -135,10 +146,8 @@
     }
     .full-carousel {
         background-color: @color-white;
+        max-height: 600px;
 
-        .tabs-navigation {
-            opacity: 0;
-        }
         .tabs-content {
             opacity: 0;
             transition-duration: 0.3s;
@@ -184,7 +193,6 @@
                 background: #ebebeb;
                 box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.2);
                 bottom: 0;
-                opacity: 1;
                 z-index: 99;
 
                 @media only screen and (max-width: (@screen__m - 1)) {

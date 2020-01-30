@@ -102,8 +102,9 @@
           float: left;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           width: 100%;
-          font-size: 13px;
+          font-size: 12px;
 
           .action {
             &.remind {
@@ -178,7 +179,12 @@
 
       .block-new-customer {
         padding-top: 40px;
-        border-top: 1px solid @border_color @account-nav-current-border-color;
+        border-top: 1px solid @border_color;
+      }
+      .block {
+        &-title {
+          font-size: 1.6rem;
+        }
       }
     }
   }
@@ -196,6 +202,18 @@
   }
 }
 
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m)  {
+  .customer-account-login,
+  .customer-account-create {
+    .page-main {
+      .login-container,
+      .form-create-account {
+        padding: 20px;
+        margin-top: 25px;
+      }
+    }
+  }
+}
 //
 //  Desktop
 //  _____________________________________________
