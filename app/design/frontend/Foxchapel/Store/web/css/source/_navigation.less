@@ -53,6 +53,32 @@
         padding: 0;
 
         .parent {
+            >a {
+                .ui-icon {
+                    &:after {
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        font-size: 42px;
+                        line-height: inherit;
+                        color: inherit;
+                        content: '\e622';
+                        font-family: 'icons-blank-theme';
+                        vertical-align: middle;
+                        display: inline-block;
+                        font-weight: 400;
+                        overflow: hidden;
+                        speak: none;
+                        text-align: center;
+                    }
+                }
+                &.ui-state-active{
+                    .ui-icon{
+                        &:after {
+                           content: '\e621';
+                        }
+                    }
+                }
+            }
             .level-top {
                 position: relative;
                 .lib-icon-font(
@@ -66,6 +92,7 @@
                     position: absolute;
                     right: 7px;
                     top: -8px;
+                    display: none;
                 }
 
                 &.ui-state-active {
