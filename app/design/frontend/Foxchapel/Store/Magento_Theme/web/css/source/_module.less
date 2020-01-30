@@ -168,8 +168,10 @@
                     list-style-type: none;
                     margin-bottom: 0;
                     >li {
-                        > a {
+                        > .action {
                             font-size: 18px;
+                            color: @color_black;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -188,8 +190,8 @@
             .customer-menu {
                 display: none;
                 position: absolute;
-                top: 50px;
-                right: 0;
+                top: 30px;
+                right: -2px;
                 min-width: 175px;
                 z-index: 1000;
                 background: @color_white;
