@@ -681,7 +681,30 @@
             margin: 15px 0;
         }
     }
-
+    .header{
+        &.links {
+            .action{
+                &.compare{
+                    position: relative;
+                    .counter{
+                        &.qty{
+                            position: absolute;
+                            font-size: 12px;
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            top: -20px;
+                            right: -15px;
+                            background: #ce181f;
+                            text-align: center;
+                            color: @color_white;
+                            line-height: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .table-wrapper.comparison {
         clear: both;
         max-width: 100%;
