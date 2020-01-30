@@ -57,7 +57,7 @@
     .slick-slider {
         .slick-prev,
         .slick-next {
-            z-index: 2;
+            z-index: auto;
         }
     }
 
@@ -113,26 +113,45 @@
 
     .page-header {
         .lib-css(background-color, @header__background-color);
-        border-bottom: 1px solid @border-color__base;
+        border-bottom: 1px solid @border_color;
         margin-bottom: @indent__base;
     }
 
     .header {
         &.content {
             &:extend(.abs-add-clearfix all);
-            padding-top: 20px 20px 0;
+            padding-top: 20px;
             position: relative;
             display: flex;
             justify-content: space-between;     
             align-items: center; 
             flex-wrap: wrap;            
-            .icon-wishlist,.action.compare, .my-account {
-                    .lib-icon-text-hide();                                   
-                }                
-           .my-account {              
-               position: relative;
+            .action.wishlist, .action.compare, .action.user {
+                position: relative;
+                    .text {
+                        .lib-visually-hidden();
+                    }
+            }
+
+            .action.wishlist {
+                &:before {
+                    font-size: inherit;
+                    font-family: @icon-fox;
+                    content: @wishlist;
+                }
+            }
+
+            .action.compare {
+                &:before {
+                    font-size: inherit;
+                    font-family: @icon-fox;
+                    content: @compare;
+                }
+            }
+
+           .action.user {
                &:before {
-                font-size: 18px;
+                font-size: inherit;
                 font-family: @icon-fox;
                 content: @user;
                }
@@ -149,8 +168,10 @@
                     list-style-type: none;
                     margin-bottom: 0;
                     >li {
-                        > a {
+                        > .action {
                             font-size: 18px;
+                            color: @color_black;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -169,8 +190,8 @@
             .customer-menu {
                 display: none;
                 position: absolute;
-                top: 50px;
-                right: 0;
+                top: 30px;
+                right: -2px;
                 min-width: 175px;
                 z-index: 1000;
                 background: @color_white;
@@ -766,11 +787,46 @@
 //
 //  mobile
 //  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .header {
+        .account-wishlist-links {
+            .header.links {
+                > li {
+                    > a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .page-footer {
+        .footer-part {
+            padding-top: 30px;
+        }
+    }
+    .footer{
+        &.content {
+            .copyright-media-sec,
+            .social-media-sec {
+                display: block;
+                text-align: center;
+            }
+            .social-media-sec {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
     .page-header {
         .header {
             &.content {
-                align-items: unset;
+                align-items: center;
             }
             .header {
                 &.links{
@@ -805,21 +861,6 @@
           margin-bottom: 30px;
         h6{
             margin-bottom: 15px;
-        }
-    }
-}
-
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-    .footer{
-        &.content {
-            .copyright-media-sec,
-            .social-media-sec {
-                display: block;
-                text-align: center;                
-            }
-            .social-media-sec {
-                margin-top: 20px;
-            }
         }
     }
 }
