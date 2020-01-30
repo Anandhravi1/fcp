@@ -45,6 +45,7 @@ define([
 
             var link = $('<a />', {
                 class : 'amquickview-link',
+                title: 'Quickview',
                 id : 'amquickview-link-' + productId
             });
             link.attr('data-product-id', productId);
