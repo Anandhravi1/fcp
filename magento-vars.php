@@ -44,10 +44,10 @@ if (isHttpHost("master-7rqtwti-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
 }
 
 // Production (MC)
-if (isHttpHost("mcprod.foxchapelpublishing.com")) {
-    $_SERVER["MAGE_RUN_CODE"] = "base";
-    $_SERVER["MAGE_RUN_TYPE"] = "website";
-}
+//if (isHttpHost("mcprod.foxchapelpublishing.com")) {
+//    $_SERVER["MAGE_RUN_CODE"] = "base";
+//    $_SERVER["MAGE_RUN_TYPE"] = "website";
+//}
 
 // Production Live With WWW
 //if (isHttpHost("www.foxchapelpublishing.com")) {
