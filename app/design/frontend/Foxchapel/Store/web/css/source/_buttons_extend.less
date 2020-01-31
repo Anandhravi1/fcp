@@ -4,6 +4,17 @@
 //  _____________________________________________
 
 & when (@media-common = true) {
+
+  .lib-button() {
+    .lib-button-primary();
+    border-radius: 0;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
   button, a {
     &.action {
       &.primary {        
@@ -14,13 +25,17 @@
         transition: all 0.5s ease-in-out 0s;
       }      
       &.close,&-dismiss,&-primary {
-        .lib-button-primary();
-        border-radius: 0;
-        font-size: 13px;
-        line-height: 18px;
-        padding: 15px 30px;
-        text-transform: uppercase;
-        transition: all 0.5s ease-in-out 0s;
+        .lib-button();
+      }
+    }
+  }
+
+  .actions-toolbar {
+    .action {
+      &.update,
+      &.share,
+      &.tocart {
+        .lib-button();
       }
     }
   }

@@ -5,7 +5,10 @@
 & when (@media-common = true) {
   .account {
     .page-title-wrapper {
-      margin-top: 30px;
+      .page-title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
     }
     &.customer-account-index {
       .column {
@@ -67,9 +70,41 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m + 1)
-{
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m + 1) {
+  .account {
+    .products-grid{
+      &.wishlist {
+        .product-item {
+          .product-item-info {
+            .product-item-photo {
+              float: none;
+              margin-left: 0;
+              margin-right: 0;
+            }
 
+            .product-item-name,
+            .price-box {
+              margin-left: 0;
+              margin-right: 0;
+            }
+          }
+
+
+          .field.qty {
+            display: block;
+          }
+
+          .box-tocart {
+            float: none;
+            margin-right: 0;
+          }
+        }
+        .product-item-actions {
+          float: none;
+        }
+      }
+    }
+  }
 }
 
 //
@@ -82,8 +117,7 @@
 
 }
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m + 1)
-{
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m + 1) {
 
 }
 

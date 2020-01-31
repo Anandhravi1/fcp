@@ -136,6 +136,25 @@
                 }
             }
 
+            .table-wrapper {
+                tr {
+                    td[data-th] {
+                        &:before {
+                            width: 50%;
+                        }
+                    }
+                    @media only screen and (max-width: 639px) {
+                        td {
+                            padding: 8px !important;
+
+                            &:nth-child(odd) {
+                                background-color: #f1f1f1;
+                            }
+                        }
+                    }
+                }
+            }
+
             .limiter {
                 >.label {
                     &:extend(.abs-visually-hidden all);
@@ -396,6 +415,9 @@
     }
 
     .account {
+        .page-main {
+            padding-top: 0;
+        }
         .messages {
             margin-bottom: 0;
         }

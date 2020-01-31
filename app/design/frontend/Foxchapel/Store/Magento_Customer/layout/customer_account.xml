@@ -17,5 +17,12 @@
         <referenceBlock name="customer-account-navigation-giftregistry-link" remove="true"/>
         <!-- Reward points -->
         <referenceBlock name="customer-account-navigation-reward-link" remove="true"/>
+
+        <referenceBlock name="sidebar.main.account_nav">
+            <arguments>
+                <argument name="block_title" translate="true" xsi:type="string">My Account</argument>
+                <argument name="block_css" xsi:type="string">account-nav block-collapsible-nav</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>
