@@ -121,6 +121,10 @@
                         right: 0;
                         top: -20px;
 
+                        body.mobile-device & {
+                            display: none;
+                        }
+
                         @media only screen and (max-width: (@screen__m - 1)) {
                             display: none;
                         }    
@@ -301,6 +305,12 @@
                     transform: translateY(~"calc(100% + 20px)");
                     z-index: 9;
 
+                    body.mobile-device & {
+                        padding-top: 10px;
+                        position: static;
+                        transform: translateY(0%);
+                    }
+
                     @media only screen and (max-width: (@screen__m - 1)) {
                         padding-top: 10px;
                         position: static;
@@ -327,6 +337,10 @@
                 .products-grid & {
                     margin-bottom: @indent__s;
                     min-height: 70px;
+
+                    body.mobile-device & {
+                        margin-bottom: 0;
+                    }
 
                     @media only screen and (max-width: (@screen__m - 1)) {
                         margin-bottom: 0;
