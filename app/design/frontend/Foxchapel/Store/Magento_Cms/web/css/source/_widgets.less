@@ -4,8 +4,58 @@
 //  */
 
 & when (@media-common = true) {
-    .cms-index-index { 
-           .columns {
+    .cms-index-index {
+        .home-slider-sec {
+            .slick-dots {
+                z-index: 2;
+            }
+        }
+        .dynamic-slider-sec { 
+            .pagebuilder-slide-wrapper{
+                .pagebuilder-overlay{
+                    &:not(.pagebuilder-poster-overlay) {
+                        max-width: 1200px;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                }
+            }            
+            .pagebuilder-collage-content  {
+                 position: relative;
+                [data-element="content"]{
+                    display: flex;    
+                    width: 100%;
+                    justify-content: flex-start;
+                    flex-direction: row-reverse;
+                    align-items: center;                    
+                }
+                h2 {
+                    flex: 0 0 70%;
+                    max-width: 70%;
+                    color: @color_white;
+                    margin-top: -20px;
+                    span {
+                        font-size: 48px;
+                        max-width: 500px;
+                        display: block;
+                    }
+                }
+                p {
+                    flex: 0 0 30%;
+                    max-width: 30%;
+                    text-align: right;
+                    position: relative;
+                    // top:30px;
+                }
+                button {
+                    position: absolute;
+                    bottom: 60px;
+                }
+            }
+        }
+        
+        
+        .columns {
                .column {
                    &.main {
                        padding-bottom: 0;
@@ -171,17 +221,100 @@
         
     }    
 }
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-        .dynamic-slider-sec {
-            .pagebuilder-overlay {
-                .pagebuilder-collage-content {
-                    span {
-                        font-size: 35px !important;
-                        line-height: 40px !important;
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @s-tab) {
+    //homepage banner
+    .cms-index-index {
+        .dynamic-slider-sec { 
+            .pagebuilder-slide-wrapper{
+                .pagebuilder-overlay{
+                    &:not(.pagebuilder-poster-overlay) {
+                        max-width: 100%;
+                        display: flex;
+                        justify-content: center;
                     }
                 }
+            }            
+            .pagebuilder-collage-content  {
+                 position: relative;
+                 text-align: center;
+                [data-element="content"]{
+                    display: initial;                    
+                }
+                h2 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    color: @color_white;
+                    margin: 30px 0;
+                    span {
+                        font-size: 35px;
+                        max-width: 500px;
+                        display: block;
+                    }
+                }
+                p {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    text-align: right;
+                    position: relative;
+                    // top:30px;
+                }
+                button {
+                    position: relative;
+                    bottom: 30px;                    
+                }
+            }
+            .slick-dots {
+                bottom: 25px;
             }
         }
+    }
+  
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .cms-index-index {
+        .dynamic-slider-sec {            
+            .pagebuilder-slide-wrapper{
+                .pagebuilder-overlay{
+                    &:not(.pagebuilder-poster-overlay) {
+                        max-width: 100%;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }            
+            .pagebuilder-collage-content  {
+                 position: relative;
+                 text-align: center;
+                [data-element="content"]{
+                    display: initial;                    
+                }
+                h2 {                    
+                    margin-top: 25px;
+                    span {
+                        font-size: 24px !important;
+                        line-height: 30px;
+                        max-width: 500px;
+                        display: block;
+                    }
+                }
+                p {
+                    height: 250px;
+                    position: relative;
+                    // top:30px;
+                }
+                button {
+                    position: relative;
+                    bottom: 10px;
+                    
+                }
+            }
+            .slick-dots {
+                bottom: 35px !important;
+            }
+        }
+    }
+     
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m + 1) {
     .cms-index-index {
@@ -217,15 +350,18 @@
 
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
-    .dynamic-slider-sec {
-        .pagebuilder-slider {
-            min-height: 325px !important; 
-        }
+    .dynamic-slider-sec {        
         .pagebuilder-overlay {
+              align-items: flex-end !important;
+              .pagebuilder-slide-button {
+                margin-top: 10px;
+              }
             .pagebuilder-collage-content {
+                padding-bottom: 30px !important;
+                text-align: center;
                 span {
-                    font-size: 30px !important;
-                    line-height: 35px !important;
+                    font-size: 24px !important;
+                    line-height: 28px !important;
                 }
             }
         }       
