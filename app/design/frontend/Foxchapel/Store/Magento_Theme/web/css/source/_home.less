@@ -345,6 +345,36 @@
         }
     }
 }
+//ipad pro
+@media only screen and (min-width: 769px) and (max-width: 992px){
+    .home-slider-sec {
+        .pagebuilder-column {
+            >div{
+                height: 100%;
+            }               
+            .block-static-block,.slider-side-section{
+                height: 100%;                
+            }
+            .slider-side-section {
+               >:last-child{
+                   height: 100%;
+                   [data-element="main"]{
+                       height: 100%;
+                    >div{
+                        height: 100%;
+                    }
+                   }
+               }
+            }
+        }
+        .block-sec-item,.block-sec-content{
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+}
 @media only screen and (min-width: 769px) and (max-width: 1200px) {
     .best-seller-wrap {
         .pagebuilder-column {
