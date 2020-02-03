@@ -46,7 +46,8 @@ class LimitToCompareProducts
     }
 
      public function aroundExecute(
-    \Magento\Catalog\Controller\Product\Compare\Add $subject
+    \Magento\Catalog\Controller\Product\Compare\Add $subject,
+     \Closure $proceed
     ){
     $count_limit = 0;
      $count_limit =  $this->_scopeConfig->getValue(
@@ -65,7 +66,7 @@ class LimitToCompareProducts
        return $resultRedirect->setRefererOrBaseUrl();
       }
 
-      return;
+      return $proceed();
         
    }
 }
