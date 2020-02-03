@@ -11,8 +11,6 @@ class LimitToCompareProducts
 {
 
  const COMPARE_PRODUCTS_LIMIT = 'catalog/recently_products/compare_product_limit';
-    const LIMIT_TO_COMPARE_PRODUCTS = 3;
-
     /**
      * @var \Magento\Framework\Message\ManagerInterface
      */
