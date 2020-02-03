@@ -8,6 +8,7 @@
       .page-title {
         margin-top: 20px;
         margin-bottom: 20px;
+        margin-right: 0;
       }
     }
     &.customer-account-index {
@@ -56,6 +57,7 @@
       }
     }
   }
+
 
   .table-comparison {
     .cell {
@@ -122,6 +124,30 @@
           float: none;
         }
       }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+  // Order
+  .table-order-items {
+    tbody {
+      tr {
+        & ~ tr {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    tr {
+      strong {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .price-including-tax, .price-excluding-tax {
+      font-size: inherit;
     }
   }
 }
