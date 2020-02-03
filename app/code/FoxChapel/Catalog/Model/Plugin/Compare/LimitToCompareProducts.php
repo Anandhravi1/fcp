@@ -48,7 +48,7 @@ class LimitToCompareProducts
      \Closure $proceed
     ){
     $count_limit = 0;
-     $count_limit =  $this->_scopeConfig->getValue(
+    $count_limit =  $this->_scopeConfig->getValue(
             self::COMPARE_PRODUCTS_LIMIT,
             ScopeInterface::SCOPE_STORE
        );
@@ -56,7 +56,6 @@ class LimitToCompareProducts
       $count = $this->helper->getItemCount();
       $resultRedirect = $this->resultRedirectFactory->create();
       if($count >= $count_limit) {
-     
         $this->messageManager->addErrorMessage(
             'The max number of compared products is 3'
         );
