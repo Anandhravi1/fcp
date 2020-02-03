@@ -15,6 +15,13 @@
                     <validate>validate-digits</validate>
                     <comment>This value must be Category ID,that need to be hidden from breadcrumb.</comment>
                 </field>
+                </group>
+              <group id="recently_products" translate="label">
+                <field id="compare_product_limit" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Product Compare Limit</label>
+                    <validate>validate-digits</validate>
+                    <comment>This value must be ,that need to be hidden from breadcrumb.</comment>
+                </field>
             </group>
         </section>
     </system>
