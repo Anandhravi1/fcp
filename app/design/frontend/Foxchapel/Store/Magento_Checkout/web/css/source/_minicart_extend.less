@@ -16,7 +16,8 @@
           font-family: @icon-fox;
           color: @color_black;
           font-size: inherit;
-          line-height: 20px;
+          line-height: inherit;
+          margin-top: -1px;
         }
         .counter.qty{
           position: absolute;
@@ -104,6 +105,25 @@
         text-decoration: none;
         &:hover {
           color: @color_red;
+        }
+      }
+    }
+  }
+}
+
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .minicart-wrapper {
+    .action {
+      &.showcart,
+      &.showcart.active {
+        &:before {
+          margin-top: 0;
         }
       }
     }
