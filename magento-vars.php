@@ -38,16 +38,16 @@ if (isHttpHost("mcstaging.foxchapelpublishing.com")) {
 }
 
 // Production
-if (isHttpHost("master-7rqtwti-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
-    $_SERVER["MAGE_RUN_CODE"] = "base";
-    $_SERVER["MAGE_RUN_TYPE"] = "website";
-}
-
-// Production (MC)
-//if (isHttpHost("mcprod.foxchapelpublishing.com")) {
+//if (isHttpHost("master-7rqtwti-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
 //    $_SERVER["MAGE_RUN_CODE"] = "base";
 //    $_SERVER["MAGE_RUN_TYPE"] = "website";
 //}
+
+// Production (MC)
+if (isHttpHost("mcprod.foxchapelpublishing.com")) {
+    $_SERVER["MAGE_RUN_CODE"] = "base";
+    $_SERVER["MAGE_RUN_TYPE"] = "website";
+}
 
 // Production Live With WWW
 //if (isHttpHost("www.foxchapelpublishing.com")) {
