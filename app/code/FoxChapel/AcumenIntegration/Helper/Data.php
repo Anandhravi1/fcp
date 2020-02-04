@@ -7,6 +7,8 @@ use Magento\Store\Model\ScopeInterface;
 
 class Data extends AbstractHelper
 {
+    const XML_PATH_ACUMEN_INTEGRATION = 'acumen_integration/';
+
     /**
      * get configuration value
      *
@@ -20,5 +22,10 @@ class Data extends AbstractHelper
 		return $this->scopeConfig->getValue(
 			$field, ScopeInterface::SCOPE_STORE, $storeId
 		);
+    }
+
+	public function getGeneralConfig($code, $storeId = null)
+	{
+		return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $code, $storeId);
 	}
 }

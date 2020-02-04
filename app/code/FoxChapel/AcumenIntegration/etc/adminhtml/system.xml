@@ -4,11 +4,11 @@
         <tab id="acumen_tab" translate="label" sortOrder="10">
             <label>Acumen</label>
         </tab>
-        <section id="acumen_config" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="acumen_integration" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Acumen Configuration</label>
             <tab>foxchapel</tab>
-            <resource>FoxChapel_AcumenIntegration::acumen_config</resource>
+            <resource>FoxChapel_AcumenIntegration::acumen_integration</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Acumen Configuration</label>
                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
@@ -30,7 +30,10 @@
                 <field id="email_recipient_3" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Email Recipient 3</label>
                 </field>
-                <field id="cron_schedule_expression" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" canRestore="1" showInStore="0">
+                <field id="last_integrated_order_id" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Last Integrated Order Id</label>
+                </field>
+                <field id="cron_schedule_expression" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" canRestore="1" showInStore="0">
                     <label>Cron schedule expression</label>
                 </field>
             </group>
