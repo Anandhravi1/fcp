@@ -55,6 +55,23 @@
             }
         }
 
+        @media only screen and (max-width: 991px) {
+            .modes,
+            .toolbar-amount {
+                display: none;
+            }
+            .sorter {
+                border-width: 0;
+                float: left;
+            }
+        }
+
+        @media only screen and (max-width: @screen__xs) {
+            .sorter {
+                float: none;
+            }
+        }
+
         .limiter {
             .control {
                 display: inline-block;
@@ -73,6 +90,10 @@
             font-weight: @font-weight__bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+
+            @media only screen and (max-width: @screen__xs) {
+               display: block;
+            }
         }
 
         .sorter-action {
@@ -183,22 +204,27 @@
         &:not(.active) {
             &:hover {
                 .lib-css(color, @text__color__muted);
-                background: darken(@toolbar-element-background, 7%);
             }
         }
+
+
 
         &.active {
             .lib-css(color, @primary__color__light);
         }
 
-        &:hover {
+        &.mode-list,
+        &.mode-grid {
             &:before {
-                color: @fox-red;
+                color: #8b92a5;
             }
-        }
 
-        &:before {
-            color: #8b92a5;
+            &:hover,
+            &.active {
+                &:before {
+                    color: @fox-red;
+                }
+            }
         }
 
         .lib-icon-font(

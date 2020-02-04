@@ -29,6 +29,35 @@
         }
     }
 
+    .block-content {
+        &.filter-content {
+            @media only screen and (max-width: @screen__m) {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                width: ~"calc(100% - 80px)";
+                background: #fff;
+                overflow-y: scroll;
+                z-index: 9;
+                max-height: 100%;
+                transition-duration: 0.5s;
+
+                body.filter-active & {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    body.filter-active {
+        overflow: hidden;
+
+        header.page-header {
+            z-index: -1;
+        }
+    }
+    
+
     .block-subtitle {
         display: inline-block;
         margin-bottom: @indent__s;
