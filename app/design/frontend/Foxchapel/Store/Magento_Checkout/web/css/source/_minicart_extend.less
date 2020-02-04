@@ -16,7 +16,8 @@
           font-family: @icon-fox;
           color: @color_black;
           font-size: inherit;
-          line-height: 20px;
+          line-height: inherit;
+          margin-top: 0;
         }
         .counter.qty{
           position: absolute;
@@ -117,5 +118,38 @@
         }
       }
     }
+  }
+}
+
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .minicart-wrapper {
+    .action {
+      &.showcart,
+      &.showcart.active {
+        &:before {
+          margin-top: 1px;
+        }
+      }
+    }
+    .subtitle {
+      &.empty {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+  .minicart-wrapper .block-minicart {
+    width: 100%;
+    min-width: 300px;
+    right: -15px;
   }
 }

@@ -44,10 +44,11 @@ class LimitToCompareProducts
     }
 
      public function aroundExecute(
-    \Magento\Catalog\Controller\Product\Compare\Add $subject
+    \Magento\Catalog\Controller\Product\Compare\Add $subject,
+     \Closure $proceed
     ){
     $count_limit = 0;
-     $count_limit =  $this->_scopeConfig->getValue(
+    $count_limit =  $this->_scopeConfig->getValue(
             self::COMPARE_PRODUCTS_LIMIT,
             ScopeInterface::SCOPE_STORE
        );
@@ -55,7 +56,6 @@ class LimitToCompareProducts
       $count = $this->helper->getItemCount();
       $resultRedirect = $this->resultRedirectFactory->create();
       if($count >= $count_limit) {
-     
         $this->messageManager->addErrorMessage(
             'The max number of compared products is 3'
         );
@@ -63,7 +63,7 @@ class LimitToCompareProducts
        return $resultRedirect->setRefererOrBaseUrl();
       }
 
-      return;
+      return $proceed();
         
    }
 }
