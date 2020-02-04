@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="acumen_tab" translate="label" sortOrder="10">
+            <label>Acumen</label>
+        </tab>
+        <section id="acumen_config" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Acumen Configuration</label>
+            <tab>foxchapel</tab>
+            <resource>FoxChapel_AcumenIntegration::acumen_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Acumen Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="email_header" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Header</label>
+                </field>
+                <field id="email_subject" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Subject</label>
+                </field>
+                <field id="email_recipient_1" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Recipient 1</label>
+                </field>
+                <field id="email_recipient_2" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Recipient 2</label>
+                </field>
+                <field id="email_recipient_3" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Recipient 3</label>
+                </field>
+                <field id="cron_schedule_expression" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" canRestore="1" showInStore="0">
+                    <label>Cron schedule expression</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

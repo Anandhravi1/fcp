@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <acumen_config>
+            <general>
+                <enable>1</enable>
+                <email_subject>Magento Store New Order</email_subject>
+                <email_header><![CDATA[From: Magento Foxchape Site <magdostore@d-originals.com> ]]></email_header>
+                <email_recipient_1>fcporders@paulmetzger.com</email_recipient_1>
+                <email_recipient_2>fcporders@foxchapelbooks.com</email_recipient_2>
+                <email_recipient_3>metzger@foxchapelpublishing.com</email_recipient_3>
+                <cron_schedule_expression>0 */1 * * *</cron_schedule_expression>
+            </general>
+        </acumen_config>
+    </default>
+</config>
