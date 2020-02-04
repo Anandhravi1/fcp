@@ -14,5 +14,8 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.upsell" after="-"/>
+        </referenceContainer>
     </body>
 </page>
