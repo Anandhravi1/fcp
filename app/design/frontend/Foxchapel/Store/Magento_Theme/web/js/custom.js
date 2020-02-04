@@ -53,4 +53,22 @@ define(["jquery"], function($) {
 
         if( isMobile.any() ) $('body').addClass('mobile-device');
 
+
+         // footer links mobile view
+   jQuery(document).ready(function($){
+    $('.footer-part h6').on('click', function () {
+        var _this = $(this);
+        $('.footer-part h6').not(_this).removeClass('active');
+        $('.footer-part h6').not(_this).next('.block-content').slideUp('slow');
+        if (!_this.hasClass('active')) {
+            _this.addClass('active');
+            _this.next('.block-content').slideDown('slow');
+        } else {
+            _this.removeClass('active');
+            _this.next('.block-content').slideUp('slow');
+        }
+    });
+   })
+
+
 });
