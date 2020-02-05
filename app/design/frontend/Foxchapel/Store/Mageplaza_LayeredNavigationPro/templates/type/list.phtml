@@ -34,7 +34,7 @@ $attCode = $filter->getRequestVar();
 <ol class="items ln-items-<?= /** @noEscape */ $attCode ?> <?= /** @noEscape */ $searchEnable ? 'layer-search-list layer-search-list-' . $attCode : '' ?>">
     <?php
         $filterData = $block->getItems();
-        usort($filterData, ['\Mageplaza\LayeredNavigationPro\Block\Type\OptionList', 'sortByCount']);
+        usort($filterData, ['\FoxChapel\Catalog\Helper\Data', 'sortByCount']);
     ?>
     <?php foreach ($filterData as $item) : ?>
         <li class="item" <?= /** @noEscape */ $searchEnable ? "data-search-term=\"" . strtolower($item->getLabel()) . "\"" : ''; ?>>
