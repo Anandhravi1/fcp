@@ -7,7 +7,7 @@
     <?php $feeds = $block->getFeeds(); ?>
     <div class="feed-wrapper">
     <?php foreach ($feeds as $feed) :?>
-        <div class="feed-inner">
+        <div class="feed-inner img-zoom">
             <div class="footer-container">
                 <h3><?= $block->escapeHtml($feed->getTitle()); ?></h3>
                 <span><?= $feed->getShortDescription() ?></span>
