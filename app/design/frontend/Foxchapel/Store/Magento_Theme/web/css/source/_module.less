@@ -49,9 +49,7 @@
 
 & when (@media-common = true) {
     body {
-        &.cms-index-index {
-            .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
-        }
+        .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
     }
 
     .slick-slider {
@@ -135,6 +133,7 @@
             }
 
             .action.wishlist {
+                display: inline-block;
                 &:before {
                     font-size: inherit;
                     font-family: @icon-fox;

@@ -13,7 +13,7 @@ $welcomeMessage = $block->getWelcome();
     <li class="greet welcome" data-bind="scope: 'customer'">
         <!-- ko if: customer().fullname  -->
         <span class="logged-in"
-              data-bind="text: new String('<?= $block->escapeHtml(__('%1', '%1')) ?>').replace('%1', customer().fullname)">
+              data-bind="text: new String('<?= $block->escapeHtml(__('%1', '%1')) ?>').replace('%1', customer().firstname)">
         </span>
         <!-- /ko -->
     </li>

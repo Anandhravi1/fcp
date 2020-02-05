@@ -6,7 +6,29 @@
  */
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body> 
+    <body>
+
+        <referenceContainer name="content">
+            <container name="product-info-wrap" htmlClass="product-info-wrap" htmlTag="div" before="-">
+                <container name="product-info-inner" htmlClass="product-info-inner" htmlTag="div"/>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="product.info.main">
+            <container name="product-sku-ratings" htmlClass="product-sku-ratings" htmlTag="div" after="product.info.price"/>
+        </referenceContainer>
+
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.media" destination="product-info-inner" before="-"/>
+        <move element="product.info.main" destination="product-info-inner" after="product.info.media" />
+
+        <move element="product.info.review" destination="product-sku-ratings" after="-"/>
+        <move element="product.info.sku" destination="product-sku-ratings" before="-"/>
+
+        <move element="product.info.overview" destination="product.info.main" after="product-sku-ratings"/>
+
+
+
         <referenceBlock name="product.info.details">
             <block class="Magento\Catalog\Block\Product\View" name="product.preview" template="Magento_Catalog::product/view/details/preview.phtml" group="detailed_info">
                 <arguments>
