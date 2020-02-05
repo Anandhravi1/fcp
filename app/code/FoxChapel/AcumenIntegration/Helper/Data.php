@@ -4,11 +4,22 @@ namespace FoxChapel\AcumenIntegration\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Config\ReinitableConfigInterface;
+use Magento\Framework\App\Config\Storage\WriterInterface;
 
 class Data extends AbstractHelper
 {
     const XML_PATH_ACUMEN_INTEGRATION = 'acumen_integration/';
 
+    public function __construct(
+        ScopeConfigInterface $scopeConfig,
+        ReinitableConfigInterface $reinitableConfig, 
+        WriterInterface $configWriter
+    ) {
+        $this->scopeConfig = $scopeConfig;
+        $this->reinitableConfig = $reinitableConfig;
+        $this->configWriter = $configWriter;
+    }
     /**
      * get configuration value
      *
@@ -24,8 +35,20 @@ class Data extends AbstractHelper
 		);
     }
 
-	public function getGeneralConfig($code, $storeId = null)
+	public function getGeneralConfig($path, $storeId = null)
 	{
-		return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $code, $storeId);
-	}
+		return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $storeId);
+    }
+    
+    /**
+     * @param string $path
+     * @param string $value
+     * @return $this
+     */
+    private function saveConfig($path, $value)
+    {
+        $this->configWriter->save(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $value);
+        $this->reinitableConfig->reinit();
+        return $this;
+    }
 }
