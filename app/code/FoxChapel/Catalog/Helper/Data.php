@@ -44,4 +44,16 @@ class Data extends MainHelper
         }
         return $this->_categoryPath;
     }
+
+    /**
+     * To sort layered navigation filter by it's count using usort php function.
+     *
+     * @param Magento\Catalog\Model\Layer\Filter\Item $itemA
+     * @param Magento\Catalog\Model\Layer\Filter\Item $itemB
+     * @return boolean
+     */
+    public static function sortByCount($itemA, $itemB)
+    {
+        return (int)$itemA->getCount() < (int)$itemB->getCount();
+    }
 }

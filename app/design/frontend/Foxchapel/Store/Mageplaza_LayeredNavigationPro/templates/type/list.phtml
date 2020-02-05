@@ -32,7 +32,11 @@ $attCode = $filter->getRequestVar();
     <input type="text" class="layer-search-box" code="<?= /** @noEscape */ $attCode ?>" placeholder="<?= /** @noEscape */ __('Search') ?>"/>
 <?php endif; ?>
 <ol class="items ln-items-<?= /** @noEscape */ $attCode ?> <?= /** @noEscape */ $searchEnable ? 'layer-search-list layer-search-list-' . $attCode : '' ?>">
-    <?php foreach ($block->getItems() as $item) : ?>
+    <?php
+        $filterData = $block->getItems();
+        usort($filterData, ['\Mageplaza\LayeredNavigationPro\Block\Type\OptionList', 'sortByCount']);
+    ?>
+    <?php foreach ($filterData as $item) : ?>
         <li class="item" <?= /** @noEscape */ $searchEnable ? "data-search-term=\"" . strtolower($item->getLabel()) . "\"" : ''; ?>>
             <?php if ($item->getCount() > 0) : ?>
                 <input type="<?= /** @noEscape */ $filterModel->isMultiple($filter) ? 'checkbox' : 'radio' ?>" <?= /** @noEscape */ $filterModel->isSelected($item) ? 'checked="checked"' : '' ?>
