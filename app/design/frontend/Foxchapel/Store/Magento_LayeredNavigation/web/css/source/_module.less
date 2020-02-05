@@ -11,6 +11,7 @@
 
     .block.filter {
         margin-bottom: @indent__xl;
+        position: relative;
 
         .filter-title {
             border-bottom: 1px solid @line-color;
@@ -75,16 +76,27 @@
 
         @media only screen and (max-width: (@screen__m - 1)) {
             cursor: pointer;
-            position: fixed;
             right: 10px;
-            top: 20px;
+            top: 15px;
+            height: 25px;
+            width: 25px;
+            display: block;
+            position: absolute;
+            z-index: 999;
 
             body.laynav-active & {
-                display: block;
+                position: fixed;
+
+                &:after {
+                    content: '\e616';
+                    font-weight: @font-weight__bold;
+                    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.67);
+                }
             }
 
             &:after {
-                content: '+';
+                content: '\e606';
+                font-family: 'icons-blank-theme';
                 color: @color-white;
                 background-color: @fox-red;
                 width: 25px;
@@ -92,14 +104,13 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                transform: rotate(45deg);
                 border-radius: 50%;
                 text-align: center;
                 font-size: 22px;
                 font-weight: 200;
                 padding: 0;
                 line-height: 25px;
-                box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.67);
+        
             }
         }
     }
@@ -220,7 +231,9 @@
 
             a {
                 color: #7f92a3;
+                display: inline-block;
                 font-size: 13px;
+                width :~"calc(100% - 40px)";
             }
 
             div#ln_slider_text_price {

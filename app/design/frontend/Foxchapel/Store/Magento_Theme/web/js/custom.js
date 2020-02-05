@@ -31,11 +31,8 @@ define(["jquery"], function($) {
 
         //layered navigation mobile close
         $(document).ready(function() {
-            $('.block-title.filter-title').on('click', function() {
-                $('body').toggleClass('laynav-active');
-            });
             $('.laynav-close').on('click', function() {
-                $('body').removeClass('laynav-active');
+                $('body').toggleClass('laynav-active');
             });
         });
 
