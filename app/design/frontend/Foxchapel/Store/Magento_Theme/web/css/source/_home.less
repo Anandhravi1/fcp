@@ -200,10 +200,11 @@
                 li {
                     &.tab-header {
                         background: #ebebeb;
+                        border: 0;
                         
                         @media only screen and (max-width: (@screen__m - 1)) {
                             a.tab-title {
-                                border: 1px solid @color-white;
+                                border: 0;
                                 box-sizing: border-box;
                             }
                         }
@@ -412,6 +413,11 @@
 
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) { 
+    .cms-index-index {
+        h3 {
+            margin-bottom: 25px;
+        }
+    }
     .feed-wrapper {
         .footer-container {
             width: ~ "calc(100% - 20px)";

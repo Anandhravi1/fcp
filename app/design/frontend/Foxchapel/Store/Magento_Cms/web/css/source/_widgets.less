@@ -379,6 +379,25 @@
     }
 
 }
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .cms-index-index{
+        .slider-side-section{
+            [data-element="inner"]{
+                min-height: 215px !important;
+            }
+            h6 {
+                margin-top: 0;
+            }
+        }
+        .newsletter-section {
+            padding: 15px 0;
+            h4 {
+                margin-top: 0;
+            }
+        }
+         
+    }
+}
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
     .dynamic-slider-sec {        
         .pagebuilder-overlay {
@@ -398,14 +417,27 @@
     }
     .cms-index-index {        
           h3,h2.posts {
-              font-size: 24px;
+              font-size: 20px;
+          }
+          h2.posts{
+              margin-bottom: 25px;
+          }
+          .featured {
+              padding: 25px 0 !important;
           }
         .customer-service-section{
             h3 {
-                font-size: 18px;
+                font-size: 16px;
             }
-        }    
+        } 
+        .best-seller-wrap {
+            padding: 0 !important;
+        }
+        .top-categories {
+            padding-top: 0 !important;
+        }   
         .amreview-widget-container{
+            margin-bottom: 50px;
             .amreview-title {
                 font-size: 24px;                              
             }
