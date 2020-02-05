@@ -506,6 +506,28 @@
             min-height: inherit;
         }
     }
+
+        //Page with filter
+
+        .page-with-filter {
+            &.page-layout-2columns-left {
+                .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
+                
+                @media only screen and (min-width: @screen__m) {
+                    .column.main {
+                        width: ~"calc(100% - 340px)"
+                    }
+        
+                    .sidebar-main {
+                        border: 1px solid @line-color;
+                        background-color: @color-white;
+                        margin-right: 40px;
+                        padding-right: 0;
+                        width: 300px;
+                    }
+                }
+            }
+        }
 }
 
 //

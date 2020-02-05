@@ -29,6 +29,16 @@ define(["jquery"], function($) {
             return false;
         });
 
+        //layered navigation mobile close
+        $(document).ready(function() {
+            $('.block-title.filter-title').on('click', function() {
+                $('body').toggleClass('laynav-active');
+            });
+            $('.laynav-close').on('click', function() {
+                $('body').removeClass('laynav-active');
+            });
+        });
+
         //Identifying if user is on mobile browser or not
         var isMobile = {
             Android: function() {
