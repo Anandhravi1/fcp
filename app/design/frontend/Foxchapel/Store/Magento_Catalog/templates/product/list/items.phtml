@@ -155,7 +155,7 @@ switch ($type = $block->getType()) {
 ?>
 
 <?php if ($exist) :?>
-
+<div class="products-wrapper">
 <?php if ($type == 'related' || $type == 'upsell') :?>
 <?php if ($type == 'related') :?>
 <div class="block <?= $block->escapeHtmlAttr($class) ?>" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="<?= $block->escapeHtmlAttr($limit) ?>" data-shuffle="<?= /* @noEscape */ $shuffle ?>">
@@ -267,6 +267,7 @@ switch ($type = $block->getType()) {
                 </div>
             </div>
         </div>
+    </div>
         <?php endif;?>
 <script type="text/x-magento-init">
     {
