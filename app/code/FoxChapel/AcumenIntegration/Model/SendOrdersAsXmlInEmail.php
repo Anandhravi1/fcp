@@ -9,6 +9,7 @@ use FoxChapel\AcumenIntegration\Helper\Data;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Payment\Model\Config;
+use Magento\Framework\Mail\Template\TransportBuilder;
 
 class SendOrdersAsXmlInEmail
 {
@@ -53,6 +54,11 @@ class SendOrdersAsXmlInEmail
     protected $paymentConfig;
 
     /**
+     * @var \Magento\Framework\Mail\Template\TransportBuilder
+     */
+    protected $_transportBuilder;
+    
+    /**
      * Cron constructor.
      * @param StoreManagerInterface $storeManager
      * @param CollectionFactory $orderCollectionFactory
@@ -61,6 +67,7 @@ class SendOrdersAsXmlInEmail
      * @param Data $helperData
      * @param DateTime $date
      * @param Config $paymentConfig
+     * @param ransportBuilder $transportBuilder
      */
     public function __construct(
         StoreManagerInterface $storeManager,
@@ -69,25 +76,52 @@ class SendOrdersAsXmlInEmail
         Order $order,
         Data $helperData,
         DateTime $date,
-        Config $paymentConfig
+        Config $paymentConfig,
+        TransportBuilder $transportBuilder
     ) {
         $this->_storeManager           = $storeManager;
         $this->_orderCollectionFactory = $orderCollectionFactory;
         $this->_orderFactory           = $orderFactory;
         $this->_order                  = $order;
-        $this->helperData              = $helperData;
+        $this->_helperData             = $helperData;
         $this->_date                   = $date;
-        $this->paymentConfig           = $paymentConfig;
+        $this->_paymentConfig          = $paymentConfig;
+        $this->_transportBuilder       = $transportBuilder;
     }
 
+    /**
+     * Cron method to send orders as XML in mail
+     * 
+     */
     public function sendOrders()
     {
+        $emailSubject    = $this->_helperData->getGeneralConfig('email_subject', $storeId);
+        $emailHeader     = $this->_helperData->getGeneralConfig('email_header', $storeId);
+        $emailRecipient1 = $this->_helperData->getGeneralConfig('email_recipient_1', $storeId);
+        $emailRecipient2 = $this->_helperData->getGeneralConfig('email_recipient_2', $storeId);
+        $emailRecipient3 = $this->_helperData->getGeneralConfig('email_recipient_3', $storeId);
+
+        $recipients = [];
+        if (isset($emailRecipient1)) array_push($recipients, $emailRecipient1);
+        if (isset($emailRecipient2)) array_push($recipients, $emailRecipient2);
+        if (isset($emailRecipient3)) array_push($recipients, $emailRecipient3);
+        
         foreach ($this->_storeManager->getStores() as $store) {
-            $this->sendXmlAsEmail($store->getId());
+            $emailContent = $this->createOrdersXml($store->getId());
         }
+
+        $transport = $this->_transportBuilder
+            ->addTo($recipients)
+            ->getTransport();
+        $transport->sendMessage();
     }
 
-    protected function sendXmlAsEmail($storeId)
+    /**
+     * Create Orders XML
+     * @param $storeId
+     * 
+     */
+    protected function createOrdersXml($storeId)
     {
         $this->_storeId = $storeId;
 
@@ -98,7 +132,6 @@ class SendOrdersAsXmlInEmail
             ->load();
 
         if ($orderCollection) {
-            // <Orders> 
             $dom = $this->createXmlFile();
             $root = $dom->createElement('Orders');
 
@@ -107,52 +140,6 @@ class SendOrdersAsXmlInEmail
                 $this->_order = $this->_orderFactory->create()->load($orderId);
                 $billingAddress = $this->_order->getBillingAddress();
                 $shippingAddress = $this->_order->getShippingAddress();
-                 
-                // <Order><OrderNumber>
-                $orderNode = $dom->createElement('Order');
-                $this->appendXmlNode($dom, $orderNode, $this->_order['increment_id'], 'OrderNumber');
-
-                // <PurchaseOrder><PONumber>
-                $purchaseOrderNode = $dom->createElement('PurchaseOrder');
-                $this->appendXmlNode($dom, $purchaseOrderNode, "FC2:" . $this->_order['increment_id'], 'PONumber');
-                $orderNode->appendChild($purchaseOrderNode);
-                
-                // <SpecialInstructions>
-                $this->appendXmlNode($dom, $orderNode, "False", 'SpecialInstructions');
-
-                // <Comments><Comment>
-                if ($statusHistory = $this->_order->getStatusHistoryCollection()) {
-                    $commentsNode = $dom->createElement('Comments');
-
-                    foreach ($statusHistory as $status) {
-                        if ($status->getComment()) {
-                            $this->appendXmlNode($dom, $commentsNode, ' ', 'Comment');
-                        }
-                    }
-                    $orderNode->appendChild($commentsNode);
-                }
-                
-                // <OrderDate><DocumentType><DocumentVersion><OrderAmount><InvoiceType><OrderMethod>
-                $this->appendXmlNode($dom, $orderNode, date('m/d/Y', strtotime($order['created_at'])), 'OrderDate');
-                $this->appendXmlNode($dom, $orderNode, "Invoice", 'DocumentType');
-                $this->appendXmlNode($dom, $orderNode, '1.0', "DocumentVersion");
-                $this->appendXmlNode($dom, $orderNode, $order['grand_total'], "OrderAmount");
-                $this->appendXmlNode($dom, $orderNode, " ", "InvoiceType");
-                $this->appendXmlNode($dom, $orderNode, "Website", "OrderMethod");
-
-                // <Warehouse><WarehouseID><WarehouseName>
-                $warehouseNode = $dom->createElement('Warehouse');
-                $this->appendXmlNode($dom, $warehouseNode, 1002, "WarehouseID");
-                $this->appendXmlNode($dom, $warehouseNode, "Fox Chapel Warehouse", "WarehouseName");
-                $orderNode->appendChild($warehouseNode);
-
-                // <Tax><Amount><RepVendorID>
-                $taxNode = $dom->createElement('Tax');
-                $this->appendXmlNode($dom, $taxNode, $order['tax_amount'], 'Amount');
-                $orderNode->appendChild($taxNode);
-                $this->appendXmlNode($dom, $orderNode, "", "RepVendorID");
-
-                // <ShipVIA><ShippingCharge>
                 $shipDesc = strtoupper($order['shipping_description']);
                 switch (true) {
                     case strpos($shipDesc, 'DHL') !== false:
@@ -167,10 +154,48 @@ class SendOrdersAsXmlInEmail
                     default:
                         $shipDesc = 'US Standard Shipping';
                 }
+                 
+                $orderNode = $dom->createElement('Order');
+                // TODO: Awaiting confirmation from FoxChapel
+                // $this->appendXmlNode($dom, $orderNode, $this->getOrderReferer($order['entity_id']), 'RefererName');
+                $this->appendXmlNode($dom, $orderNode, $this->_order['increment_id'], 'OrderNumber');
+
+                $purchaseOrderNode = $dom->createElement('PurchaseOrder');
+                $this->appendXmlNode($dom, $purchaseOrderNode, "FC2:" . $this->_order['increment_id'], 'PONumber');
+                $orderNode->appendChild($purchaseOrderNode);
+                
+                $this->appendXmlNode($dom, $orderNode, "False", 'SpecialInstructions');
+
+                if ($statusHistory = $this->_order->getStatusHistoryCollection()) {
+                    $commentsNode = $dom->createElement('Comments');
+
+                    foreach ($statusHistory as $status) {
+                        if ($status->getComment()) {
+                            $this->appendXmlNode($dom, $commentsNode, ' ', 'Comment');
+                        }
+                    }
+                    $orderNode->appendChild($commentsNode);
+                }
+                
+                $this->appendXmlNode($dom, $orderNode, date('m/d/Y', strtotime($order['created_at'])), 'OrderDate');
+                $this->appendXmlNode($dom, $orderNode, "Invoice", 'DocumentType');
+                $this->appendXmlNode($dom, $orderNode, '1.0', "DocumentVersion");
+                $this->appendXmlNode($dom, $orderNode, $order['grand_total'], "OrderAmount");
+                $this->appendXmlNode($dom, $orderNode, " ", "InvoiceType");
+                $this->appendXmlNode($dom, $orderNode, "Website", "OrderMethod");
+
+                $warehouseNode = $dom->createElement('Warehouse');
+                $this->appendXmlNode($dom, $warehouseNode, 1002, "WarehouseID");
+                $this->appendXmlNode($dom, $warehouseNode, "Fox Chapel Warehouse", "WarehouseName");
+                $orderNode->appendChild($warehouseNode);
+
+                $taxNode = $dom->createElement('Tax');
+                $this->appendXmlNode($dom, $taxNode, $order['tax_amount'], 'Amount');
+                $orderNode->appendChild($taxNode);
+
+                $this->appendXmlNode($dom, $orderNode, "", "RepVendorID");
                 $this->appendXmlNode($dom, $orderNode, $shipDesc, "ShipVIA");
                 $this->appendXmlNode($dom, $orderNode, $order['shipping_amount'], "ShippingCharge");
-
-                // <LineItems><CreditCardInfo>
                 $orderNode->appendChild($this->appendOrderItems($orderId, $dom));
                 $orderNode->appendChild($this->appendCardInfo($orderId, $dom));
                 $orderNode->appendChild($this->appendAddressInformation($billingAddress, $dom, 'BillToParty'));
@@ -179,65 +204,86 @@ class SendOrdersAsXmlInEmail
                 $this->appendXmlNode($dom, $orderNode, "Website", "ListCode");
                 
                 $root->appendChild($orderNode);
-                $this->helperData->saveConfig('last_integrated_order_id', $this->_storeId);
+                $this->_helperData->saveConfig('last_integrated_order_id', $this->_storeId);
             }
             $dom->appendChild($root);
             $dom->appendChild($root);
 
             return $dom->saveXML();
         }
+
+        return null;
     }
 
+    /**
+     * Get last_integrated_order_id from config_data
+     * @param $storeId
+     * 
+     */
     protected function getLastIntegratedOrderId($storeId) {
-        $lastOrderId = $this->helperData->getGeneralConfig('last_integrated_order_id', $storeId);
+        $lastOrderId = $this->_helperData->getGeneralConfig('last_integrated_order_id', $storeId);
         
         return $lastOrderId ? $lastOrderId : 0;
     }
 
+    /**
+     * Append Order line items to Order element
+     * @param $orderId
+     * @param $dom
+     * 
+     */
     protected function appendOrderItems($orderId, $dom) {
-        $items = $this->order->getAllVisibleItems();
-        $i = 1;
-        $itemsNode = $dom->createElement('LineItems');
+        $items      = $this->order->getAllVisibleItems();
+        $lineNumber = 1;
+        $itemsNode  = $dom->createElement('LineItems');
         
         foreach ($items as $item) {
-			
-            $Price = $item->getPrice();
-            $DiscountAmt = $item->getDiscountAmount();
-            $NetPrice = $Price - $DiscountAmt;
-            $NetPrice2 = number_format($NetPrice, 4);
-            $childItemNode = $dom->createElement('ItemDetail');
-            $this->appendXmlNode($dom, $childItemNode, $i, 'LineNumber');
+            
+            $childItemNode    = $dom->createElement('ItemDetail');
+            $listPrice        = $item->getPrice();
+            $DiscountAmt      = $item->getDiscountAmount();
+            $discountedPrice  = $listPrice - $DiscountAmt;
+            $netPrice         = number_format($discountedPrice, 4);
+            $qtyOrdered       = abs($item->getQtyOrdered());
+
+            $this->appendXmlNode($dom, $childItemNode, $lineNumber, 'LineNumber');
             $this->appendXmlNode($dom, $childItemNode, $item->getSku(), 'ProductCode');
             $this->appendXmlNode($dom, $childItemNode, $item->getName(), 'Title');
-            $this->appendXmlNode($dom, $childItemNode, $item->getPrice(), 'ListPrice');
-			$this->appendXmlNode($dom, $childItemNode, $NetPrice2, 'NetPrice');
-			
-            $this->appendXmlNode($dom, $childItemNode, abs($item->getQtyOrdered()), 'QtyOrdered');
+            $this->appendXmlNode($dom, $childItemNode, $listPrice, 'ListPrice');
+			$this->appendXmlNode($dom, $childItemNode, $netPrice, 'NetPrice');
+            $this->appendXmlNode($dom, $childItemNode, $qtyOrdered, 'QtyOrdered');
             $itemsNode->appendChild($childItemNode);
-            $i++;
+            $lineNumber++;
         }
+
         return $itemsNode;
     }
 
+    /**
+     * Append card information
+     * @param $orderId
+     * @param $dom
+     * 
+     */
     protected function appendCardInfo($orderId, $dom) {
-        $cardNode = $dom->createElement('CreditCardInfo');
-        $paymentCode = $this->_order->getPayment()->getMethodInstance()->getCode();
-        $paymentInfo = $this->_order->getPayment()->debug();
+        $cardNode                 = $dom->createElement('CreditCardInfo');
+        $paymentCode              = $this->_order->getPayment()->getMethodInstance()->getCode();
+        $paymentInfo              = $this->_order->getPayment()->debug();
         $paymentInfoAmountOrdered = $this->_order->getPayment()->getAmountOrdered();
-        $paymentInfoLastTransId = $this->_order->getPayment()->getLastTransId();
-        $ccNumber = ($paymentCode == 'paypal_express') ? $paymentInfo['additional_information']['paypal_payer_email'] : '';
-        $ccTransactionDate = $this->date('m/d/Y', strtotime($orderId['created_at']));
-        $ccExpirationDate = ($paymentCode == 'paypal_express') ? "0130" : '';
-        $ccAuthorizationService = ($paymentCode == 'authnetcim') ? "Authorize.net" : $paymentCode;
-        $ccPreAuthorization = "TRUE";
-        $sType = $this->_order->getPayment()->getCcType();
-        $sName = $this->getCCTypeName($sType);
-        $ccType = ($paymentCode == 'paypal_express') ? "PayPal" : $sName;
+        $paymentInfoLastTransId   = $this->_order->getPayment()->getLastTransId();
+        $ccNumber                 = ($paymentCode == 'paypal_express') ? $paymentInfo['additional_information']['paypal_payer_email'] : '';
+        $ccTransactionDate        = $this->date('m/d/Y', strtotime($orderId['created_at']));
+        $ccExpirationDate         = ($paymentCode == 'paypal_express') ? "0130" : '';
+        $ccAuthorizationService   = ($paymentCode == 'authnetcim') ? "Authorize.net" : $paymentCode;
+        $ccPreAuthorization       = "TRUE";
+        $sType                    = $this->_order->getPayment()->getCcType();
+        $sName                    = $this->getCCTypeName($sType);
+        $ccType                   = ($paymentCode == 'paypal_express') ? "PayPal" : $sName;
         // TODO: Need to develop custom module
         // $creditCardInformation = Mage::getModel('creatuity_cardinformation/card')
-        //         ->getCollection()
-        //         ->addFieldToFilter('order_id', $this->_order['increment_id'])
-        //         ->getFirstItem();
+        //                           ->getCollection()
+        //                           ->addFieldToFilter('order_id', $this->_order['increment_id'])
+        //                           ->getFirstItem();
 				
         $this->appendXmlNode($dom, $cardNode, $ccNumber, 'CCNumber');
         $this->appendXmlNode($dom, $cardNode, $ccTransactionDate, 'CCTransactionDate');
@@ -252,6 +298,13 @@ class SendOrdersAsXmlInEmail
         return $cardNode;
     }
 
+    /**
+     * Append address information to Order element
+     * @param $address
+     * @param $dom
+     * @param $nodeName
+     * 
+     */
     protected function appendAddressInformation($address, $dom, $nodeName) {
         $addressNode = $dom->createElement($nodeName);
         $this->appendXmlNode($dom, $addressNode, $address->getStreet(), 'PostalAddress1');
@@ -275,13 +328,13 @@ class SendOrdersAsXmlInEmail
     }
 
     /**
+     * Get CCType name
      * @param $ccType
      *
-     * @return mixed
      */
     protected function getCCTypeName($ccType)
     {
-        $types = $this->paymentConfig->getCcTypes();
+        $types = $this->_paymentConfig->getCcTypes();
         if (isset($types[$ccType])) {
             return $types[$ccType];
         }
@@ -289,6 +342,11 @@ class SendOrdersAsXmlInEmail
         return '';
     }
 
+    /**
+     * Create XML element
+     * @param void
+     *
+     */
     protected function createXmlFile() {
         $dom = new DOMDocument();
         $dom->encoding = 'utf-8';
@@ -298,11 +356,15 @@ class SendOrdersAsXmlInEmail
         return $dom;
     }
 
+    /**
+     * Append given node to XML
+     * @param $dom
+     * @param $node
+     * @param $content
+     * @param $childName
+     * 
+     */
     protected function appendXmlNode($dom, $node, $content, $childName) {
         $node->appendChild($dom->createElement($childName, $content));
     }
-
-    
-
-    
 }
