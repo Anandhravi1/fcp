@@ -35,8 +35,9 @@ if ($block->canShowBlock()) : ?>
             </div>
         </div>
         <div class="block-title filter-title" data-count="<?= /** @noEscape */ $filtered ?>">
-            <strong data-role="title"><?= /** @noEscape */ __('Shop By66') ?></strong>
+            <strong data-role="title"><?= /** @noEscape */ __('Filter') ?></strong>
         </div>
+        <span class="laynav-close"></span>
         <div class="block-content filter-content" data-mage-init='{"mpLayer": <?= /** @noEscape */ $layerConfig ?>}'>
             <?= /** @noEscape */ $block->getChildHtml('state') ?>
             <?php if ($block->getLayer()->getState()->getFilters()) : ?>
