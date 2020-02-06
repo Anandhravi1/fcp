@@ -51,33 +51,7 @@
     });
 
 
-    let slickGreen = false;
-    function greenSlider(){
-        if($(window).width() < 577){
-            if(!slickGreen){
-                $(".full-carousel .tabs-navigation").slick({
-                    dots: false,
-                    arrows: false,
-                    slidesToShow: 1,
-                    centerMode: true,
-                    slidesToScroll: 1
-                });
-                slickGreen = true;
-            }
-        } else if($(window).width() > 576){
-            if(slickGreen){
-                $('.full-carousel .tabs-navigation').slick('unslick');
-                slickGreen = false;
-            }
-        }
-    }
 
-    $(document).ready(function(){
-        greenSlider();
-    });
-    $(window).on('resize', function(){
-        greenSlider();
-    });
 
 
     if($('.full-carousel.sticky-foot').length) {
