@@ -64,9 +64,11 @@
         .media-width('max', @s-desk);
     }
 
-    @media all and (min-width: @screen__s) {
-        .media-width('min', @screen__s);
+    @media all and (max-width: @screen__s) {
+        .media-width('max', @screen__s);
     }
+
+    
     
    
 
@@ -110,6 +112,9 @@
     @media all and (min-width: (@s-tab + 1)),
     print {
         .media-width('min', (@s-tab + 1));
+    }
+    @media all and (min-width: @screen__s) {
+        .media-width('min', @screen__s);
     }
     
     
