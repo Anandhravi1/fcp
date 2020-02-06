@@ -22,6 +22,7 @@ $loginUrl = $block->getUrl('customer/account/login', ['referer' => base64_encode
         <div class="field qty">
             <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
             <div class="control">
+            <!-- qty increment button-->
                 <button type="button" id="dec" class="decreaseQty"><span>-</span></button>
                 <input type="number"
                        name="qty"
@@ -33,6 +34,7 @@ $loginUrl = $block->getUrl('customer/account/login', ['referer' => base64_encode
               
                        />
                 <button type="button" id="inc" class="increaseQty"><span>+</span></button>
+                 <!-- qty decrement button-->
             </div>
         </div>
         <?php endif; ?>
@@ -48,6 +50,7 @@ $loginUrl = $block->getUrl('customer/account/login', ['referer' => base64_encode
     </div>
 </div>
 <?php endif; ?>
+ <!-- JS for qty update-->
 <script type="text/x-magento-init">
     {
         "#product_addtocart_form": {

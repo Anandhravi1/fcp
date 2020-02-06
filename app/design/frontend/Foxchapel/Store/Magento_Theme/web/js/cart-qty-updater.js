@@ -6,7 +6,6 @@ define([
  
     $.widget('qty.incdec', {
         _create: function() {
-            console.log('TEST');
             this.increaseQty();
             this.decreaseQty();
             this.validateQty();

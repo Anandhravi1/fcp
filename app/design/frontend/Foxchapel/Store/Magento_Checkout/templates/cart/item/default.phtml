@@ -96,6 +96,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
         <td class="col qty" data-th="<?= $block->escapeHtml(__('Qty')) ?>">
             <div class="field qty">
                 <div class="control qty">
+                <!-- qty increment button-->
                 <button type="button"  id="<?=  $_item->getId() ?>-dec"  class="decreaseQty"><span>-</span></button>
                     <input id="cart-<?= /* @escapeNotVerified */ $_item->getId() ?>-qty"
                            name="cart[<?= /* @escapeNotVerified */ $_item->getId() ?>][qty]"
@@ -108,6 +109,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                            data-validate="{required:true,'validate-greater-than-zero':true}"
                            data-role="cart-item-qty"/>
                     <button type="button" id="<?= /* @escapeNotVerified */ $_item->getId() ?>-inc" class="increaseQty"><span>+</span></button>
+                    <!-- qty decrement button-->
                 </div>
             </div>
         </td>
@@ -128,7 +130,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
         </td>
     </tr>
 </tbody>
-
+ <!-- JS for qty update-->
 <script type="text/x-magento-init">
     {
         "*": {
