@@ -84,7 +84,10 @@
     print {
         .media-width('min', @s-desk-lg);
     }
-
+    @media all and (min-width: @s-desk),
+    print {
+        .media-width('min', @s-desk);
+    }
     @media all and (min-width: @screen__m),
     print {
         .media-width('min', @screen__m);
@@ -103,7 +106,7 @@
     @media all and (min-width: @s-tab),
     print {
         .media-width('min', @s-tab);
-    }
+    }    
 
     @media all and (min-width: @screen__xl),
     print {

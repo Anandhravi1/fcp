@@ -42,9 +42,9 @@
                                 border: none;
                                 color: #fff;
                                 padding: 15px 25px;
-                                border-right: 1px solid #00aeeb;
+                                border-right: 1px solid #333333;
                                 text-align: center;
-                                font-family: @heading__font-family__base;
+                                text-transform: uppercase;                                
                                 &:last-child{
                                     border-right: 0;
                                     border-radius: 0 3px 0 0;
@@ -64,11 +64,11 @@
                         &.item {
                             border: 1px solid @border_color;
                             &:hover {
-                                box-shadow: 0px 0px 5px 3px rgba(216, 221, 231, 0.5);
-                                transition: all .5s ease 0s;
-                                .product-image-container{
-                                    box-shadow:0 0 0 2px #019cdf;
-                                }
+                                // box-shadow: 0px 0px 5px 3px rgba(216, 221, 231, 0.5);
+                                // transition: all .5s ease 0s;
+                                // .product-image-container{
+                                //     box-shadow:0 0 0 2px #019cdf;
+                                // }
                             }
                         }
 
@@ -280,7 +280,8 @@
             .summary{
                 margin: 0;
                 text-align: center;
-                background: @primary__color;
+                text-transform: uppercase;
+                background: @color_black;
                 padding: 15px 25px;
                 color: #fff;
                 font-weight: bold;
@@ -671,6 +672,19 @@
 //
 //  Desktop
 //  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-desk) {
+    .checkout-cart-index {
+        .cart-summary {
+            .block.shipping,.cart-totals,.block.discount,.checkout-methods-items{                
+                    padding: 2.5rem 3.5rem 0;                
+            }
+        .checkout-methods-items {
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid @border_color;
+        }
+        }
+    }
+}
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
 
@@ -690,8 +704,8 @@
             margin-bottom: 4rem;
             .cart {
                 thead {
-                    background: @primary__color;
-                    border: 1px solid #0091d4;;
+                    background: @color_black;
+                    border: 1px solid @color_black;
                 }
             }
         }
@@ -719,6 +733,8 @@
                 }
             }
         }
+       
+
     }
 }
 
