@@ -2,8 +2,8 @@
 //  * Copyright © Magento, Inc. All rights reserved.
 //  * See COPYING.txt for license details.
 //  */
-
-.minicart-wrapper {
+& when (@media-common = true) {
+  .minicart-wrapper {
     margin-left: 0px;
     margin-top: 0;
 
@@ -39,6 +39,7 @@
 
   .block-minicart {
     border-color: @border_color;
+    padding: 30px;
     &:before {
       right: 15px;
     }
@@ -48,23 +49,52 @@
     .action {
       &.viewcart {
         font-size: 16px;
-        color: @color_black;
+        font-weight: 700;     
 
         &:hover {
           color: @color_red;
+        }
+      }
+      &.close {
+        display: none;
+      }
+    }
+    .subtotal {
+      display: flex;
+      justify-content: flex-end;
+      .label {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .price-wrapper {
+        &:first-child{
+          .price{
+            font-size: 16px;
+            color: @secondary__color;
+          }
         }
       }
     }
 
     .items-total {
       margin-left: 0;
+      color: @secondary__color;
+      .count {
+        font-weight: normal;
+      }
     }
 
-    .block-content {
+    .block-content {      
       > .actions {
+          margin-top: 30px;
           > .primary {
             margin-left: 0;
             margin-right: 0;
+            .checkout {
+              font-size: 14px;
+              border-radius: 0;
+              padding: 12px 17px;
+            }
           }
         }
       }
@@ -81,6 +111,13 @@
       }
     }
     .product-item-details {
+      .product {
+        &.actions {
+          .primary {
+            margin-right: 10px;
+          }
+        }
+      }
       .action {
         &.edit {
           &:before {
@@ -89,6 +126,12 @@
             font-size: 1.5rem;
             position: relative;
             top: 2px;
+            color: @secondary__color;
+          }
+        }
+        &.delete {
+          &:before {
+            color: @secondary__color;
           }
         }
       }
@@ -96,7 +139,7 @@
 
     .product-image-photo {
       padding: 8px;
-      border: 1px solid lighten(@minicart__border-color, 0.3);
+      border: 1px solid @border_color;
     }
     .product-item-name {
       a {
@@ -110,6 +153,8 @@
     }
   }
 }
+}
+
 
 
 
@@ -132,14 +177,32 @@
         font-size: 1.2rem;
       }
     }
+    .block-minicart {
+       right: -15px;
+      .product-item {
+        position: relative;
+        padding-bottom: 30px;
+        .product {
+          &.actions {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
   }
 }
 
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
-  .minicart-wrapper .block-minicart {
-    width: 100%;
-    min-width: 300px;
-    right: -15px;
-  }
+  .minicart-wrapper{
+    .block.block-minicart {
+      width: 100%;
+      min-width: 300px;
+      right: -15px;
+      padding: 25px 20px;
+      
+    }
+  } 
 }

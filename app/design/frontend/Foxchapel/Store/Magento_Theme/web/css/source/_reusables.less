@@ -29,3 +29,57 @@
         background: @color_white;
         }    
 }
+.banner-box{
+    &:before {
+        background: rgba(255,255,255,.2);
+        bottom: 0;
+        content: "";
+        left: 50%;
+        position: absolute;
+        right: 51%;
+        top: 0;
+        opacity: 1;
+    }
+    &:after {
+        background: rgba(255,255,255,.2);
+        bottom: 50%;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        opacity: 1;
+    }
+    &:hover {
+        &:before {
+            left: 0;
+            right: 0;
+            opacity: 0;
+            -webkit-transition: all .9s ease-in;
+            -moz-transition: all .9s ease-in;
+            -ms-transition: all .9s ease-in;
+            -o-transition: all .9s ease-in;
+            transition: all .9s ease-in;
+        }
+        &:after {
+            top: 0;
+            bottom: 0;
+            opacity: 0;
+            -webkit-transition: all .9s ease-in;
+            -moz-transition: all .9s ease-in;
+            -ms-transition: all .9s ease-in;
+            -o-transition: all .9s ease-in;
+            transition: all .9s ease-in;
+        }
+    }
+}
+.img-zoom {
+    img {
+        transition: all 0.5s ease;
+    }
+    &:hover {
+        img {
+            transform: scale(1.1);
+        }
+    }
+}

@@ -325,9 +325,16 @@
 //  --------------------------------------------
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-    .amreview-widget-container .amreview-message {
-        height: 80px;
-    }
+    .amreview-widget-container{
+        .amreview-message {
+            height: 80px;
+        }
+        .amreview-image-wrapper {
+            height: 100px;
+            width: 100%;
+        }
+    } 
+
 }
 
 //
