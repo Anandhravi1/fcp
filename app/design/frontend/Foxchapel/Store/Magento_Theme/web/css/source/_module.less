@@ -616,27 +616,24 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
-    .footer-part {  
-        .footer-customer,.footer-connected,.footer-magazines,
-       .footer-imprints,.footer-authors,.footer-category {
-            width: 50%;
-        } 
- }
+ 
+        .footer-part {  
+            .footer-customer,.footer-connected,.footer-magazines,
+           .footer-imprints,.footer-authors,.footer-category {
+                width: 50%;
+            } 
+     }   
+     .footer-list {
+         h6 {
+             pointer-events: none;
+         }
+     }
+   
 }
 
 
 
-//
-//  tablet
-//  _____________________________________________
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    .footer-part {  
-       .footer-customer,.footer-connected,.footer-magazines,
-       .footer-imprints,.footer-authors,.footer-category {
-            width: 33.3%;
-        }  
- }
-}
+
 //
 //  Desktop
 //  _____________________________________________
@@ -652,23 +649,39 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-    .footer-part {  
-       .footer-customer {
-            width: 15%;
-        }    
-      .footer-connected,.footer-magazines {
-         width: 19%;
-     }
-     .footer-imprints,.footer-authors {
-         width: 12%;
-     }
-     .footer-category {
-         width: 23%;
-     }
- }
-
-
-
+    .footer-links {
+        .footer-part {  
+            .footer-customer {
+                 width: 15%;
+             }    
+           .footer-connected,.footer-magazines {
+              width: 19%;
+          }
+          .footer-imprints,.footer-authors {
+              width: 12%;
+          }
+          .footer-category {
+              width: 23%;
+          }
+      }   
+    }
+}
+//
+//  tablet
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .footer-links {
+        .footer-part {  
+            .footer-customer,.footer-connected,.footer-magazines,
+            .footer-imprints,.footer-authors,.footer-category {
+                 width: 33.3%;
+             }  
+      }
+      .block-content   {
+        display: block !important;
+    }
+    }  
+   
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @s-tab) {
     .nav-toggle {        
@@ -834,6 +847,7 @@
     .page-footer {
         .footer-part {
             padding-top: 30px;
+            display: block;
         }
     }
     .footer{
@@ -848,6 +862,51 @@
             }
         }
     }
+    .footer-list {
+        margin-bottom: 10px;
+      h6{
+          position: relative;
+          margin-bottom: 15px;
+          padding: 10px 20px 10px 0;
+          border-bottom: 1px solid @border_color;
+          cursor: pointer;
+          pointer-events: initial;
+          &:before,&:after {
+              cursor: pointer;
+              position: absolute;
+              content:'';               
+              background: @color_white;        
+              -webkit-transition: .4s ease transform;
+              transition: .4s ease transform;
+
+          }
+          &:before {
+              width: 2px;
+              height: 15px;                
+              right: 6px;
+              top: 7px;        
+          }
+          &:after {                
+              width: 15px;
+              height: 2px;                
+              right: 0;
+              top: 13px;                
+          }
+          &.active {
+              &:before {
+                  transform: rotate(-90deg);
+              }
+          }
+      }
+      .block-content {
+          display: none;
+          margin-bottom: 0;
+          padding: 8px 0;
+          ul {
+              margin-bottom: 0;
+          }
+      }
+  }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
@@ -885,51 +944,7 @@
             display: block;
         }         
     }
-    .footer-list {
-          margin-bottom: 10px;
-        h6{
-            position: relative;
-            margin-bottom: 15px;
-            padding: 10px 20px 10px 0;
-            border-bottom: 1px solid @border_color;
-            cursor: pointer;
-            pointer-events: initial;
-            &:before,&:after {
-                cursor: pointer;
-                position: absolute;
-                content:'';               
-                background: @color_white;        
-                -webkit-transition: .4s ease transform;
-                transition: .4s ease transform;
-
-            }
-            &:before {
-                width: 2px;
-                height: 15px;                
-                right: 6px;
-                top: 7px;        
-            }
-            &:after {                
-                width: 15px;
-                height: 2px;                
-                right: 0;
-                top: 13px;                
-            }
-            &.active {
-                &:before {
-                    transform: rotate(-90deg);
-                }
-            }
-        }
-        .block-content {
-            display: none;
-            margin-bottom: 0;
-            padding: 8px 0;
-            ul {
-                margin-bottom: 0;
-            }
-        }
-    }
+  
 }
 
 
