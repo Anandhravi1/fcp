@@ -29,26 +29,34 @@ class Data extends AbstractHelper
      * @return void
      */
     public function getConfigValue($field, $storeId = null)
-	{
-		return $this->scopeConfig->getValue(
-			$field, ScopeInterface::SCOPE_STORE, $storeId
-		);
+    {
+        return $this->scopeConfig->getValue(
+            $field, ScopeInterface::SCOPE_STORE, $storeId
+        );
     }
 
-	public function getGeneralConfig($path, $storeId = null)
-	{
-		return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $storeId);
+    /**
+     * @param string $path
+     * @param integer $storeId
+     * 
+     * @return void
+     */
+    public function getGeneralConfig($path, $storeId = null)
+    {
+        return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $storeId);
     }
-    
+
     /**
      * @param string $path
      * @param string $value
+     * 
      * @return $this
      */
     private function saveConfig($path, $value)
     {
         $this->configWriter->save(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $value);
         $this->reinitableConfig->reinit();
+        
         return $this;
     }
 }

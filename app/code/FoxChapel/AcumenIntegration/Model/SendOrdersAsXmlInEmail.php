@@ -19,11 +19,6 @@ class SendOrdersAsXmlInEmail
     protected $_storeManager;
 
     /**
-     * @var _storeId
-     */
-    protected $_storeId;
-
-    /**
      * @var \Magento\Sales\Model\ResourceModel\Order\CollectionFactory
      */
     protected $_orderCollectionFactory;
@@ -95,25 +90,27 @@ class SendOrdersAsXmlInEmail
      */
     public function sendOrders()
     {
-        $emailSubject    = $this->_helperData->getGeneralConfig('email_subject', $storeId);
-        $emailHeader     = $this->_helperData->getGeneralConfig('email_header', $storeId);
-        $emailRecipient1 = $this->_helperData->getGeneralConfig('email_recipient_1', $storeId);
-        $emailRecipient2 = $this->_helperData->getGeneralConfig('email_recipient_2', $storeId);
-        $emailRecipient3 = $this->_helperData->getGeneralConfig('email_recipient_3', $storeId);
-
-        $recipients = [];
-        if (isset($emailRecipient1)) array_push($recipients, $emailRecipient1);
-        if (isset($emailRecipient2)) array_push($recipients, $emailRecipient2);
-        if (isset($emailRecipient3)) array_push($recipients, $emailRecipient3);
-        
         foreach ($this->_storeManager->getStores() as $store) {
-            $emailContent = $this->createOrdersXml($store->getId());
-        }
+            $storeId           = $store->getId();
+            $emailSubject      = $this->_helperData->getGeneralConfig('email_subject', $storeId);
+            $emailSender       = $this->_helperData->getGeneralConfig('email_sender', $storeId);
+            $emailRecipients   = $this->getEmailRecipientList();
+            $emailContentAsXml = $this->createOrdersXml($storeId);
 
-        $transport = $this->_transportBuilder
-            ->addTo($recipients)
-            ->getTransport();
-        $transport->sendMessage();
+            $transport = $this->_transportBuilder->setTemplateIdentifier(
+                'orders_xml_email_template'
+            )->setTemplateOptions(
+                ['area' => 'adminhtml', 'store' => $storeId]
+            )->setTemplateVars(
+                ['orderXml' => $emailContentAsXml]
+            )->setFrom(
+                ['email' => $emailSender, 'name' => 'Magento FoxChapel Site']
+            )->addTo(
+                $emailRecipients
+            )->getTransport();
+
+            $transport->sendMessage();
+        }
     }
 
     /**
@@ -123,12 +120,10 @@ class SendOrdersAsXmlInEmail
      */
     protected function createOrdersXml($storeId)
     {
-        $this->_storeId = $storeId;
-
         $orderCollection = $this->_orderCollectionFactory->create()
             ->addAttributeToFilter('created_at', array('from' => $this->_date->gmtDate('Y-m-d')))
-            ->addFieldToFilter('store_id', $this->_storeId)
-            ->addFieldToFilter('entity_id', array('gt' => $this->getLastIntegratedOrderId($this->_storeId)))
+            ->addFieldToFilter('store_id', $storeId)
+            ->addFieldToFilter('entity_id', array('gt' => $this->getLastIntegratedOrderId($storeId)))
             ->load();
 
         if ($orderCollection) {
@@ -204,7 +199,7 @@ class SendOrdersAsXmlInEmail
                 $this->appendXmlNode($dom, $orderNode, "Website", "ListCode");
                 
                 $root->appendChild($orderNode);
-                $this->_helperData->saveConfig('last_integrated_order_id', $this->_storeId);
+                $this->_helperData->saveConfig('last_integrated_order_id', $storeId);
             }
             $dom->appendChild($root);
             $dom->appendChild($root);
@@ -226,6 +221,17 @@ class SendOrdersAsXmlInEmail
         return $lastOrderId ? $lastOrderId : 0;
     }
 
+     /**
+     * Get Email Recipient list
+     * @param $storeId
+     * 
+     * @return Array
+     */
+    protected function getEmailRecipientList($storeId) {
+        $list = $this->_helperData->getGeneralConfig('email_recipients', $storeId);
+
+        return $list !== null ? explode(',', $list) : [];
+    }
     /**
      * Append Order line items to Order element
      * @param $orderId
@@ -250,7 +256,7 @@ class SendOrdersAsXmlInEmail
             $this->appendXmlNode($dom, $childItemNode, $item->getSku(), 'ProductCode');
             $this->appendXmlNode($dom, $childItemNode, $item->getName(), 'Title');
             $this->appendXmlNode($dom, $childItemNode, $listPrice, 'ListPrice');
-			$this->appendXmlNode($dom, $childItemNode, $netPrice, 'NetPrice');
+            $this->appendXmlNode($dom, $childItemNode, $netPrice, 'NetPrice');
             $this->appendXmlNode($dom, $childItemNode, $qtyOrdered, 'QtyOrdered');
             $itemsNode->appendChild($childItemNode);
             $lineNumber++;
@@ -268,10 +274,10 @@ class SendOrdersAsXmlInEmail
     protected function appendCardInfo($orderId, $dom) {
         $cardNode                 = $dom->createElement('CreditCardInfo');
         $paymentCode              = $this->_order->getPayment()->getMethodInstance()->getCode();
-        $paymentInfo              = $this->_order->getPayment()->debug();
+        $paymentPaypalPayerEmail  = $this->_order->getPayment()->getAdditionalInformation('paypal_payer_email');
         $paymentInfoAmountOrdered = $this->_order->getPayment()->getAmountOrdered();
         $paymentInfoLastTransId   = $this->_order->getPayment()->getLastTransId();
-        $ccNumber                 = ($paymentCode == 'paypal_express') ? $paymentInfo['additional_information']['paypal_payer_email'] : '';
+        $ccNumber                 = ($paymentCode == 'paypal_express') ? $paymentPaypalPayerEmail : '';
         $ccTransactionDate        = $this->date('m/d/Y', strtotime($orderId['created_at']));
         $ccExpirationDate         = ($paymentCode == 'paypal_express') ? "0130" : '';
         $ccAuthorizationService   = ($paymentCode == 'authnetcim') ? "Authorize.net" : $paymentCode;
@@ -284,7 +290,6 @@ class SendOrdersAsXmlInEmail
         //                           ->getCollection()
         //                           ->addFieldToFilter('order_id', $this->_order['increment_id'])
         //                           ->getFirstItem();
-				
         $this->appendXmlNode($dom, $cardNode, $ccNumber, 'CCNumber');
         $this->appendXmlNode($dom, $cardNode, $ccTransactionDate, 'CCTransactionDate');
         $this->appendXmlNode($dom, $cardNode, $ccExpirationDate, 'CCExpirationDate');
