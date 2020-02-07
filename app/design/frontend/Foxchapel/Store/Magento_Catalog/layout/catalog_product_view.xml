@@ -41,5 +41,11 @@
         <referenceContainer name="content">
             <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.upsell" after="-"/>
         </referenceContainer>
+
+        <referenceContainer name="product.info.social">
+            <block name="product.share" template="Magento_Catalog::product/view/share.phtml" after="-" />
+        </referenceContainer>    
+
+        <move element="product.share" destination="product.info.addto" after="-"/>
     </body>
 </page>
