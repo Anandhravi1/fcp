@@ -26,16 +26,16 @@ if (isHttpHost("dev2-iu3gqsi-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
 }
 
 // Staging
-//if (isHttpHost("staging-5em2ouy-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
-//    $_SERVER["MAGE_RUN_CODE"] = "base";
-//    $_SERVER["MAGE_RUN_TYPE"] = "website";
-//}
-
-// Staging (MC)
-if (isHttpHost("mcstaging.foxchapelpublishing.com")) {
+if (isHttpHost("staging-5em2ouy-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
     $_SERVER["MAGE_RUN_CODE"] = "base";
     $_SERVER["MAGE_RUN_TYPE"] = "website";
 }
+
+// Staging (MC)
+//if (isHttpHost("mcstaging.foxchapelpublishing.com")) {
+//    $_SERVER["MAGE_RUN_CODE"] = "base";
+//    $_SERVER["MAGE_RUN_TYPE"] = "website";
+//}
 
 // Production
 //if (isHttpHost("master-7rqtwti-g3o6dwn7txy2w.us-5.magentosite.cloud")) {
