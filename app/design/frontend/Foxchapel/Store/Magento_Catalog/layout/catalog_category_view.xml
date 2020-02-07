@@ -9,6 +9,7 @@
     <body>
         <referenceBlock name="category.image" remove="true" />
 
+        <move element="category.description" destination="category.product.list.additional" />
         <move element="page.main.title" after="breadcrumbs" destination="page.top"/>
     </body>
 </page>
