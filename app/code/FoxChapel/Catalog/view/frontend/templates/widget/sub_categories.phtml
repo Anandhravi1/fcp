@@ -1,0 +1,67 @@
+<?php
+/**
+ * Sub Category list in CLP
+ *
+ * @var $block \FoxChapel\Catalog\Block\Widget\Category
+ */
+?>
+<?php
+$templateType = $block->getTemplateMode();
+?>
+<?php if (!$block->getCategory()) {
+    return;
+} ?>
+<?php $_categories = $block->getCurrentChildCategories() ;?>
+<?php $_count = is_array($_categories) ? count($_categories) : $_categories->count(); ?>
+<?php if ($_count) :?>
+    <?php if($templateType == 'list'):  ?>
+        <div class="block list">
+            <div class="block-content">
+                <ol class="items">
+                    <?php foreach ($_categories as $_category) :?>
+                        <?php if ($_category->getIsActive()) :?>
+                            <li class="item">
+                                <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>">
+                                    <?= $block->escapeHtml($_category->getName()) ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach ?>
+                </ol>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="block grid">
+            <div class="block-title">
+                <strong><?= $block->getWidgetTitle() ?></strong>
+            </div>
+        <div class="block-content products-grid grid">
+            <ol class="items row product-items">
+                <?php foreach ($_categories as $_category) :?>
+                    <?php if ($_category->getIsActive()) :?>
+                        <li class="item col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                            <div class="product-item-info">
+                                <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>"
+                                   class="<?php if ($block->isCategoryActive($_category)) :?>current <?php endif; ?>product-item-photo"><img src="<?= $block->getCategoryImage($_category) ?>" alt="<?= $_category->getName() ?>"/>
+                                </a>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>" title="<?= $block->escapeHtml($_category->getName()) ?>"><?= $block->escapeHtml($_category->getName()) ?></a>
+                                    </strong>
+                                    <div class="product-item-inner">
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary">
+                                                <a href="<?= $block->escapeUrl($block->getCategoryUrl($_category)) ?>" class="action primary"><?= $block->escapeHtml(__('View Books')) ?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach ?>
+            </ol>
+        </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

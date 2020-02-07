@@ -1,0 +1,24 @@
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+}
+
+
+//
+//  mobile
+//  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .table {
+    font-size: 1.2rem;
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+}

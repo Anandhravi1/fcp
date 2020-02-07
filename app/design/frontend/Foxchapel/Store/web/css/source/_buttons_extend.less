@@ -1,0 +1,58 @@
+
+  .lib-button() {
+    .lib-button-primary();
+    border-radius: 0;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  .lib-button-sm() {
+    .lib-button-primary();
+    border-radius: 0;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  button, a {
+
+    &:active {
+      box-shadow: none;
+    }
+
+    &.action {
+      .br-radius(0);
+      &.primary {        
+        font-size: 13px;
+        line-height: 18px;
+        padding: 15px 30px;
+        text-transform: uppercase;
+        transition: all 0.5s ease-in-out 0s;
+      }      
+      &.close,
+      &-dismiss,
+      &-primary{
+        .lib-button();
+      }
+
+      &.select {
+        .lib-button-sm();
+      }
+    }
+  }
+
+  .actions-toolbar {
+    .action {
+      &.update,
+      &.share,
+      &.tocart {
+        .lib-button();
+      }
+    }
+  }
+

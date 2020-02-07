@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="FoxChapel_NewsFeed::data" title="NewsFeed Data" module="FoxChapel_NewsFeed" sortOrder="75" resource="FoxChapel_NewsFeed::data" action="newsfeed/data/index"/>
+    </menu>
+</config>

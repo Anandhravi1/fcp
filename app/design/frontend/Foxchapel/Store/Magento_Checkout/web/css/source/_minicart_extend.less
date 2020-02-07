@@ -1,0 +1,226 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+& when (@media-common = true) {
+  .minicart-wrapper {
+    margin-left: 0px;
+    margin-top: 0;
+
+    .action{
+      &.showcart,
+      &.showcart.active {
+        position: relative;
+        &:before {
+          content: @cart;
+          font-family: @icon-fox;
+          color: @color_black;
+          font-size: inherit;
+          line-height: inherit;
+          margin-top: 0;
+        }
+        .counter.qty{
+          position: absolute;
+          font-size: 12px;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          top: -20px;
+          right: -15px;
+          background: @color_red;
+          line-height: 25px;
+          &.empty {
+            display: block;
+          }
+        }
+      }
+    }
+
+
+  .block-minicart {
+    border-color: @border_color;
+    padding: 30px;
+    background: @primary_background_color;
+    &:before {
+      right: 15px;
+    }
+    &:after {
+      right: 14px;
+    }
+    .action {
+      &.viewcart {
+        font-size: 16px;
+        font-weight: 700;     
+
+        &:hover {
+          color: @color_red;
+        }
+      }
+      &.close {
+        display: none;
+      }
+    }
+    .subtotal {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      .label {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .price-wrapper {
+        &:first-child{
+          .price{
+            font-size: 16px;
+            color: @secondary__color;
+          }
+        }
+      }
+    }
+
+    .items-total {
+      margin-left: 0;
+      color: @secondary__color;
+      margin-top: 20px;
+      .count {
+        font-weight: normal;
+      }
+    }
+
+    .block-content {      
+      > .actions {
+          margin-top: 20px;
+          > .primary {
+            margin-left: 0;
+            margin-right: 0;
+            .checkout {
+              font-size: 14px;
+              border-radius: 0;
+              padding: 12px 17px;
+              background: @color_red;
+              border: 1px solid transparent;
+              &:hover {
+                background: @color_black;
+              }
+            }
+          }
+        }
+      }
+  }
+
+  .minicart-items {
+    &-wrapper {
+      border-color: @border_color;
+      border-top: 0;
+      margin: -30px -30px 0;
+      padding: 30px;
+      background: @color_white;      
+    }
+    .product-item {
+      &:not(:first-child) {
+        border-top: 1px solid @border_color;
+      }
+    }
+    .product-item-details {
+      .product {
+        &.actions {
+          .primary {
+            margin-right: 10px;
+          }
+        }
+      }
+      .action {
+        &.edit {
+          &:before {
+            font-family: @icon-fox;
+            content: @edit;
+            font-size: 1.5rem;
+            position: relative;
+            top: 2px;
+            color: @secondary__color;
+          }
+        }
+        &.delete {
+          &:before {
+            color: @secondary__color;
+          }
+        }
+      }
+    }
+
+    .product-image-photo {
+      padding: 8px;
+      border: 1px solid @border_color;
+    }
+    .product-item-name {
+      a {
+        color: @primary__color;
+        font-size: 14px;
+        text-decoration: none;
+        &:hover {
+          color: @color_red;
+        }
+      }
+    }
+  }
+}
+}
+
+
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .minicart-wrapper {
+    .action {
+      &.showcart,
+      &.showcart.active {
+        &:before {
+          margin-top: 1px;
+        }
+      }
+    }
+    .subtitle {
+      &.empty {
+        font-size: 1.2rem;
+      }
+    }
+    .block-minicart {
+       right: -15px;
+      .product-item {
+        position: relative;
+        padding-bottom: 30px;
+        .product {
+          &.actions {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+  .minicart-wrapper{
+    .block.block-minicart {
+      width: 100%;
+      min-width: 300px;
+      right: -15px;
+      padding: 25px 20px;
+      
+    }
+    .block-minicart {
+      .minicart-items-wrapper {
+        margin: -25px -20px 0;
+        padding: 20px;
+      }
+    }
+    
+  } 
+}

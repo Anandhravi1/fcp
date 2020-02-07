@@ -1,0 +1,139 @@
+
+/**
+* Newsfeed styling
+*
+* @author karthikeyan Indran <kindran@ztech.io>
+* @package FoxChapel/NewsFeed
+*/
+//variables
+@fox-red: rgb(205, 23, 30);
+@black: rgb(0, 0, 0);
+
+& when (@media-common = true) {
+    .feed-wrapper {
+        margin: auto;
+        max-width: ~"calc(100% - 100px)";
+        width: 1370px;
+
+        @media only screen and (min-width: 500px) and (max-width: 768px) {
+            max-width: ~"calc(100% - 200px)";
+        }
+
+        .feed-inner {
+            margin-bottom: 150px;
+            position: relative;
+
+            &:hover {
+                .date {
+                    background-color: @fox-red;
+                }
+                .footer-container {
+                    &:before {
+                        width: 100%;
+                    }
+
+                    a {
+                        color: @fox-red;
+                    }
+                }
+            }
+        }
+
+        .img-thumb {
+            display: block;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        .slick-slide {
+            padding: 0 15px;
+        }
+
+        .footer-container {
+            box-sizing: border-box;
+            background-color: @color-white;
+            left: 0;
+            margin: auto;
+            padding: 30px;
+            position: absolute;
+            right: 0;
+            top: ~"calc(100% - 50px)";
+            width: ~"calc(100% - 50px)";
+
+            &:before {
+                background: @fox-red;
+                bottom: -2px;
+                content: '';
+                height: 2px;
+                left: 0;
+                position: absolute;
+                width: 0;
+                transition-duration: 0.3s;
+            }
+            
+            span {
+                color: #7f92a3;
+                display: block;
+                font-size: 14px;
+                max-height: 58px;
+                overflow: hidden;
+            }
+
+            a {
+                display: block;
+                margin-top: 10px;
+            }
+
+            h3 {
+                font-size: 16px;
+                font-weight: @font-weight__bold;;
+                max-height: 48px;
+                line-height: 16px;
+                overflow: hidden;
+                margin: 0 0 10px 0;
+
+                @media only screen and (max-width: 1280px) {
+                    font-size: 14px;
+                }
+            }
+        }
+        .img-container {
+        font-size: 0;
+            
+            .date {
+                background: rgba(0, 0, 0, 0.5);
+                box-sizing: border-box;
+                color: @color-white;
+                font-size: 13px;
+                height: 30px;
+                left: 0;
+                padding: 6px;
+                position: absolute;
+                top: 10px;
+                width: 65px;
+                z-index: 9;
+                
+                span {
+                    display: inline-block;
+                    padding: 0 2px;
+                }
+            }
+            img {
+                height: auto;
+
+                @media only screen and (max-width: 1100px) {
+                    min-width: 100%;
+                }
+            }
+        }
+    }
+
+
+    h2.posts {
+        font-size: 30px;
+        letter-spacing: 1px;
+        margin: 0 auto 50px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+}
