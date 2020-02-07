@@ -10,6 +10,7 @@ use Magento\Framework\Stdlib\DateTime\DateTime;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Payment\Model\Config;
 use Magento\Framework\Mail\Template\TransportBuilder;
+use Psr\Log\LoggerInterface;
 
 class SendOrdersAsXmlInEmail
 {
@@ -52,6 +53,11 @@ class SendOrdersAsXmlInEmail
      * @var \Magento\Framework\Mail\Template\TransportBuilder
      */
     protected $_transportBuilder;
+
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
     
     /**
      * Cron constructor.
@@ -62,7 +68,8 @@ class SendOrdersAsXmlInEmail
      * @param Data $helperData
      * @param DateTime $date
      * @param Config $paymentConfig
-     * @param ransportBuilder $transportBuilder
+     * @param TransportBuilder $transportBuilder
+     * @param LoggerInterface $logger
      */
     public function __construct(
         StoreManagerInterface $storeManager,
@@ -72,7 +79,8 @@ class SendOrdersAsXmlInEmail
         Data $helperData,
         DateTime $date,
         Config $paymentConfig,
-        TransportBuilder $transportBuilder
+        TransportBuilder $transportBuilder,
+        LoggerInterface $logger
     ) {
         $this->_storeManager           = $storeManager;
         $this->_orderCollectionFactory = $orderCollectionFactory;
@@ -82,6 +90,7 @@ class SendOrdersAsXmlInEmail
         $this->_date                   = $date;
         $this->_paymentConfig          = $paymentConfig;
         $this->_transportBuilder       = $transportBuilder;
+        $this->logger                  = $logger;
     }
 
     /**
@@ -90,6 +99,7 @@ class SendOrdersAsXmlInEmail
      */
     public function sendOrders()
     {
+        $this->logger->info('Getting Orders for Acumen Integration started');
         foreach ($this->_storeManager->getStores() as $store) {
             $storeId           = $store->getId();
             $emailSubject      = $this->_helperData->getGeneralConfig('email_subject', $storeId);
@@ -111,6 +121,7 @@ class SendOrdersAsXmlInEmail
 
             $transport->sendMessage();
         }
+        $this->logger->info('Sending Orders XML for Acumen Integration completed');
     }
 
     /**
@@ -130,8 +141,10 @@ class SendOrdersAsXmlInEmail
             $dom = $this->createXmlFile();
             $root = $dom->createElement('Orders');
 
+            $orderList = [];
             foreach ($orderCollection as $order) {
                 $orderId = $order->getEntityId();
+                array_push($orderList, $orderId);
                 $this->_order = $this->_orderFactory->create()->load($orderId);
                 $billingAddress = $this->_order->getBillingAddress();
                 $shippingAddress = $this->_order->getShippingAddress();
@@ -203,6 +216,7 @@ class SendOrdersAsXmlInEmail
             }
             $dom->appendChild($root);
             $dom->appendChild($root);
+            $this->logger->info('Orders sent to Acumen Integration: ' . explode(',', $orderList) . ' for storeId: ' . $storeId);
 
             return $dom->saveXML();
         }
@@ -239,7 +253,7 @@ class SendOrdersAsXmlInEmail
      * 
      */
     protected function appendOrderItems($orderId, $dom) {
-        $items      = $this->order->getAllVisibleItems();
+        $items      = $this->_order->getAllVisibleItems();
         $lineNumber = 1;
         $itemsNode  = $dom->createElement('LineItems');
         

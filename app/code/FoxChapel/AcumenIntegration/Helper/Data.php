@@ -12,7 +12,7 @@ class Data extends AbstractHelper
     const XML_PATH_ACUMEN_INTEGRATION = 'acumen_integration/';
 
     public function __construct(
-        ScopeConfigInterface $scopeConfig,
+        ScopeInterface $scopeConfig,
         ReinitableConfigInterface $reinitableConfig, 
         WriterInterface $configWriter
     ) {

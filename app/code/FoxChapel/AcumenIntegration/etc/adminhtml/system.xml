@@ -15,8 +15,8 @@
                     <label>Module Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="email_header" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Email Header</label>
+                <field id="email_subject" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email Subject</label>
                 </field>
                 <field id="email_sender" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Sender Email Id</label>
