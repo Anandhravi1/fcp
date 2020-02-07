@@ -36,7 +36,7 @@ $_helper = $this->helper('FoxChapel\Rememberme\Helper\Data');
                 <?= $block->getChildHtml('form_additional_info') ?>
                 <div class="actions-toolbar">
                     <div class="secondary">
-                        <div class="remember-me">
+                        <div class="remember-me choice">
                             <input name="login[rememberme]" type="checkbox"  class="input-checkbox" id="rememberme" <?php if ($_helper->getCookieloginChk()){ ?>checked="checked"<?php } ?> title="<?php echo __('Rememberme on this computer') ?>" >
                             <label for="remember_me">Remember me</label>
                         </div>
