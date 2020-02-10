@@ -24,7 +24,9 @@
 
             .cart-empty,
             .cart-container {
-                // .container-md();
+                max-width: @layout__max-width;
+                margin: 0 auto;
+                padding: 0 @layout-indent__width;
 
             }
             .cart-container {
@@ -278,24 +280,29 @@
                     text-align: left;
 
                     .action {
-                        margin: 0;                        
-                        &.continue {                           
+                        margin: 0;
+                        &.continue {
                             &::before{
                                 display: none;
                             }
                             &:active{
                                 box-shadow: none;
-                            }                           
+                            }    
+                            .lib-button();
+                            padding-left: 10px;
                         }
                         &.clear {
                             margin-left: 10px;
                         }
-                        &.update{                            
+                        &.update {
+                            float: right;
+                        }
+                        &.update,
+                        &.clear {
+                            .lib-button();
                             &:before {
                                 display: none;
                             }
-                            padding: 15px 33px;
-                            float: right;
                         }
                     }
 
@@ -479,47 +486,13 @@
                 }
             }
 
-            input[type="radio"]{
-                display: none;
-
-                & + label {
-                    cursor: pointer;
-                    position: relative;
-                    padding-left: 25px;
-
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        width: 17px;
-                        height: 17px;
-                        .br-radius(50%);
-                        border: 2px solid @border_color;
-                        left: 0;
-                        top: 0;
-                    }
-                }
-
-                &:checked {
-                    & + label {
-                        &:after {
-                            content: '';
-                            position: absolute;
-                            background: @border_color;
-                            width: 5px;
-                            height: 5px;
-                            left: 6px;
-                            top: 6px !important;
-                            .br-radius(50%);
-                        }
-                    }
-                }
-            }
-
             .checkout-methods-items{
                 button{
                     background-color: @color_red;
+                    border-color: @color_red;
                     &:hover{
                         background-color: @color_black;
+                        border-color: @color_black;
                     }
                 }
 
