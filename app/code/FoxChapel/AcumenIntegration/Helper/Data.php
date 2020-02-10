@@ -3,7 +3,7 @@
 namespace FoxChapel\AcumenIntegration\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\ReinitableConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
 
@@ -12,7 +12,7 @@ class Data extends AbstractHelper
     const XML_PATH_ACUMEN_INTEGRATION = 'acumen_integration/';
 
     public function __construct(
-        ScopeInterface $scopeConfig,
+        ScopeConfigInterface $scopeConfig,
         ReinitableConfigInterface $reinitableConfig, 
         WriterInterface $configWriter
     ) {
@@ -31,7 +31,7 @@ class Data extends AbstractHelper
     public function getConfigValue($field, $storeId = null)
     {
         return $this->scopeConfig->getValue(
-            $field, ScopeInterface::SCOPE_STORE, $storeId
+            $field, \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
 

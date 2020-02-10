@@ -11,8 +11,9 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Payment\Model\Config;
 use Magento\Framework\Mail\Template\TransportBuilder;
 use Psr\Log\LoggerInterface;
+use DOMDocument;
 
-class SendOrdersAsXmlInEmail
+class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
 {
     /**
      * @var \Magento\Store\Model\StoreManagerInterface
@@ -104,11 +105,11 @@ class SendOrdersAsXmlInEmail
             $storeId           = $store->getId();
             $emailSubject      = $this->_helperData->getGeneralConfig('email_subject', $storeId);
             $emailSender       = $this->_helperData->getGeneralConfig('email_sender', $storeId);
-            $emailRecipients   = $this->getEmailRecipientList();
+            $emailRecipients   = $this->getEmailRecipientList($storeId);
             $emailContentAsXml = $this->createOrdersXml($storeId);
 
             $transport = $this->_transportBuilder->setTemplateIdentifier(
-                'orders_xml_email_template'
+                'acumen_integration_orders_xml_template'
             )->setTemplateOptions(
                 ['area' => 'adminhtml', 'store' => $storeId]
             )->setTemplateVars(
@@ -121,6 +122,7 @@ class SendOrdersAsXmlInEmail
 
             $transport->sendMessage();
         }
+        $this->logger->info($emailContentAsXml);
         $this->logger->info('Sending Orders XML for Acumen Integration completed');
     }
 
@@ -216,7 +218,8 @@ class SendOrdersAsXmlInEmail
             }
             $dom->appendChild($root);
             $dom->appendChild($root);
-            $this->logger->info('Orders sent to Acumen Integration: ' . explode(',', $orderList) . ' for storeId: ' . $storeId);
+            $ordersCount = empty($orderList) ? 0 : explode(',', $orderList);
+            $this->logger->info('Orders sent to Acumen Integration: ' . $ordersCount . ' for storeId: ' . $storeId);
 
             return $dom->saveXML();
         }
