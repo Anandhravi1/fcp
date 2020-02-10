@@ -5,11 +5,11 @@
 
 @font-face {
   font-family: 'foxchapel';
-  src:  url('@{baseDir}fonts/foxchapel.eot?gf5v9e');
-  src:  url('@{baseDir}fonts/foxchapel.eot?gf5v9e#iefix') format('embedded-opentype'),
-  url('@{baseDir}fonts/foxchapel.ttf?gf5v9e') format('truetype'),
-  url('@{baseDir}fonts/foxchapel.woff?gf5v9e') format('woff'),
-  url('@{baseDir}fonts/foxchapel.svg?gf5v9e#foxchapel') format('svg');
+  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc');
+  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc#iefix') format('embedded-opentype'),
+  url('@{baseDir}fonts/foxchapel.ttf?n6ojgc') format('truetype'),
+  url('@{baseDir}fonts/foxchapel.woff?n6ojgc') format('woff'),
+  url('@{baseDir}fonts/foxchapel.svg?n6ojgc#foxchapel') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29,7 +29,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-share:before {
+  content: "\e911";
+}
 .icon-arrow-up-right:before {
   content: "\e90f";
 }
@@ -83,6 +85,7 @@
 }
 
 @icon-fox: 'foxchapel';
+@share: '\e911';
 @check: '\e910';
 @arrow-up-right: '\e90f';
 @instagram: '\e90e';

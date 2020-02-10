@@ -24,13 +24,20 @@
       input[type="radio"]{
         position: absolute;
         visibility: hidden;
+
+        & + label {
+          cursor: pointer;
+        }
       }
 
       input[type="radio"] {
         &:checked + label {
           &:before {
-            content: @check;
             background: @primary__color;
+            content: '\2022';
+            text-align: center;
+            font-size: 25px;
+            line-height: 12px;
           }
         }
         & + label {
@@ -41,7 +48,7 @@
             border: 1px solid @primary__color;
             color: @color_white;
             content: '';
-            .br-radius(0);
+            .br-radius(50%);
             font-family: @icon-fox;
             display: inline-block;
             vertical-align: middle;
