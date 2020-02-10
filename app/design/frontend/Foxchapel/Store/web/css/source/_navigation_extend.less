@@ -58,6 +58,7 @@
         border-top: 1px solid #464444;
         a.level-top {
           color: @color_white;
+          padding: 15px 40px 15px 15px;
           >.ui-icon {
                pointer-events: none;
             }
@@ -87,27 +88,47 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @s-desk) {
-  .nav-sections {
-    .navigation {    
-      .level0 {
-        .submenu{
-          a {
-            padding: 6px 20px;
-            font-size: 12px;
+    .nav-sections {
+      .navigation {
+        .level0 {
+          .submenu{
+            a {
+              padding: 6px 20px;
+              font-size: 12px;
+            }
+          }
+        }
+        > ul {
+          li {
+            a {
+              &.level-top {
+                font-size: 12px;
+              }
+            }
           }
         }
       }
-    > ul {
-      li {
-        a {          
-          &.level-top {
-            font-size: 12px;
+    }
+}
+
+
+@media screen and (min-width: 993px) and (max-width: @s-desk-m) {
+  .nav-sections {
+    .navigation {
+      > ul {
+        li {
+          &.level-top:not(:first-child) {
+            .level-top {
+              padding: 0 15px;
+            }
+          }
+          a.level-top {
+            font-size: 11px;
           }
         }
       }
     }
   }
-}
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-tab + 1) {
@@ -223,7 +244,7 @@
                 > a {
                   color: @primary__color;
       
-                  &:hover,.ui-state-focus {
+                  &:hover,&.ui-state-focus {
                     background: none;
                     color: @color_red;
                   }

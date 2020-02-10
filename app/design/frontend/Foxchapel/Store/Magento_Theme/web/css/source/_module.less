@@ -177,6 +177,7 @@
                             color: @color_black;
                             cursor: pointer;
                             line-height: normal;
+                            display: block;
                         }
                     }
                 }
@@ -837,7 +838,13 @@
             .header.links {
                 > li {
                     > .action {
-                        font-size: 14px;
+                        font-size: 16px;
+                    }
+
+                    & ~ li {
+                        a {
+                            margin-left: 10px;
+                        }
                     }
                 }
             }

@@ -28,18 +28,23 @@
         <move element="product.info.sku" destination="product-sku-ratings" before="-"/>
 
         <move element="product.info.overview" destination="product.info.main" after="product-sku-ratings"/>
-        <!--<move element="product.info.social" destination="product.info.addtocart" before="-"/>-->
-
 
         <referenceBlock name="product.info.details">
             <block class="Magento\Catalog\Block\Product\View" name="product.preview" template="Magento_Catalog::product/view/details/preview.phtml" group="detailed_info">
                 <arguments>
                     <argument translate="true" name="title" xsi:type="string">Preview</argument>
+                    <argument name="class" xsi:type="string">preview-tab</argument>
                 </arguments>
             </block>
         </referenceBlock>
         <referenceContainer name="content">
             <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.upsell" after="-"/>
         </referenceContainer>
+
+        <referenceContainer name="product.info.social">
+            <block name="product.share" template="Magento_Catalog::product/view/share.phtml" after="-" />
+        </referenceContainer>    
+
+        <move element="product.share" destination="product.info.addto" after="-"/>
     </body>
 </page>
