@@ -15,73 +15,24 @@
   input[type="email"] {
     border-color: @border_color;
     height: 40px;
+    color: @secondary__color;
+  }
+
+  textarea {
+    border-color: @border_color;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
 
-
-    .choice {
-      input[type="checkbox"],
-      input[type="radio"]{
-        position: absolute;
-        visibility: hidden;
-
-        & + label {
-          cursor: pointer;
-        }
-      }
-
-      input[type="radio"] {
-        &:checked + label {
-          &:before {
-            background: @primary__color;
-            content: '\2022';
-            text-align: center;
-            font-size: 25px;
-            line-height: 12px;
-          }
-        }
-        & + label {
-          &:before {
-            width: 16px;
-            height: 16px;
-            line-height: 16px;
-            border: 1px solid @primary__color;
-            color: @color_white;
-            content: '';
-            .br-radius(50%);
-            font-family: @icon-fox;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      input[type="checkbox"] {
-        &:checked + label {
-          &:before {
-            content: @check;
-            background: @primary__color;
-          }
-        }
-        & + label {
-          &:before {
-            width: 16px;
-            height: 16px;
-            line-height: 16px;
-            border: 1px solid @primary__color;
-            color: @color_white;
-            content: '';
-            font-family: @icon-fox;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-          }
-        }
-      }
-    }
-
-
+  .choice:not(.review-field-rating) {
+    .choice();
+  }
+  
   .fieldset {
     > .field {
       &.date {

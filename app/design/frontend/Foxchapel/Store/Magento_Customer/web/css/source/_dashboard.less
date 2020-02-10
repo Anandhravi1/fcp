@@ -10,7 +10,9 @@
         margin-bottom: 20px;
       }
     }
-    &.customer-account-index {
+    &.customer-account-index,
+    &.customer-address-index,
+    &.magento_customerbalance-info-index{
       .column {
         &.main {
           .block {
@@ -19,13 +21,13 @@
             box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
 
             &-title {
-              padding: 20px 30px;
+              padding: 20px;
               border-bottom: 1px solid @border_color;
               font-size: 1.6rem;
             }
 
             &-content {
-              padding: 30px;
+              padding: 20px;
 
               address {
                 color: @secondary__color;
@@ -44,6 +46,16 @@
       }
     }
 
+    .form-address-edit,
+    .manage-payment-method,
+    .form-newsletter-manage,
+    .form-edit-account {
+      border-top: 5px solid @color_red;
+      background: @color_white;
+      box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
+
     .sidebar {
       &-main {
         .block {
@@ -56,6 +68,29 @@
       }
     }
   }
+
+
+  .order-links {
+    display: none;
+  }
+
+  .order-details-items,
+  .block-order-details-view {
+    background: @color_white;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid @color_red;
+    padding: 20px;
+  }
+
+  .table-wrapper {
+    &.orders-history {
+        background: @color_white;
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid @color_red;
+        padding: 20px;
+    }
+  }
+
 
 
   .order-details-items {
