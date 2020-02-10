@@ -10,6 +10,9 @@
         <script src="Magento_Catalog::js/category.js"/>
     </head>
     <body>
-        <referenceContainer name="sidebar.additional" remove="true" />
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceBlock name="multiple-wishlist_sidebar" remove="true" />
+
+        <move element="sidebar.additional" destination="sidebar.main" after="-" />
     </body>
 </page>

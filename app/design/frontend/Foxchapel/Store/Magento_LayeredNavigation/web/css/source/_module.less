@@ -10,7 +10,7 @@
 & when (@media-common = true) {
 
     .block.filter {
-        margin-bottom: @indent__xl;
+        margin-bottom: @indent__s;
         position: relative;
 
         .filter-title {
@@ -33,10 +33,11 @@
     .block-content {
         &.filter-content {
             @media only screen and (max-width: (@screen__m - 1)) {
+                box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.65);
                 position: fixed;
                 left: -100%;
                 top: 0;
-                width: ~"calc(100% - 40px)";
+                width: ~"calc(100% - 15px)";
                 background: #fff;
                 overflow-y: scroll;
                 overflow-x: hidden;
@@ -86,11 +87,13 @@
 
             body.laynav-active & {
                 position: fixed;
+                right: 25px;
+                top: 8px;
 
                 &:after {
                     content: '\e616';
                     font-weight: @font-weight__bold;
-                    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.67);
+                    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.60);
                 }
             }
 
@@ -130,6 +133,8 @@
         .action.remove {
             padding-right: 15px;
             position: relative;
+            right: -2px;
+            top: 2px;
 
             &:before {
                 .abs;
@@ -182,6 +187,7 @@
 
 
         .filter-options-title {
+            cursor: pointer;
             font-weight: 700;
             line-height: 1.1;
             font-size: 13px;
@@ -189,6 +195,7 @@
             margin-bottom: 2rem;
             margin: 0 0 10px;
             word-break: break-all;
+            padding-top: 20px;
             position: relative;
             text-transform: uppercase;
 
@@ -200,7 +207,7 @@
                 display: inline-block;
                 padding: 3px;
                 right: 0;
-                top: 0;
+                top: 20px;
                 transform: rotate(45deg);
                 -webkit-transform: rotate(45deg);
                 vertical-align: middle;
@@ -209,7 +216,7 @@
 
         &-item {
             border-bottom: 1px solid @line-color;
-            padding: 20px;
+            padding: 0 20px 20px;
 
             &.active {
                 .filter-options-title {
@@ -223,13 +230,16 @@
 
             &[attribute="price"] {
                 background-color: #f6fafd;
+
+                .filter-options-content {
+                    margin-bottom: 25px;
+                }
             }
-            
         }
 
         .filter-options-content {
 
-            a {
+            a:not(.ui-slider-handle) {
                 color: #7f92a3;
                 display: inline-block;
                 font-size: 13px;
@@ -241,14 +251,13 @@
             }
 
             .ln_slider_container {
+                margin-left: 0;
                 width: 100%;
             }
 
             .ui-slider-handle {
-                background-color: #8a92a5;
-                height: 16px;
-                margin: -5px 0 0 0;
-                width: 2px;
+                background-color: @fox-red;
+                margin: -2px 0 0 0;
             }
 
             .ui-slider-horizontal {

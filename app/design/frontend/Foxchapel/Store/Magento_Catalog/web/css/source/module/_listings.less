@@ -162,6 +162,10 @@
                     font-size: 1.4rem;
                 }
 
+                .products-list & {
+                    position: relative;
+                }
+
                 .tocompare {
                     &:before {
                      content: '\e90b';
@@ -175,6 +179,17 @@
                 .actions-secondary {
                     font-size: 1.4rem;
                     white-space: nowrap;
+
+                    .products-list & {
+                        display: inline-block;
+                        margin: 10px;
+                        padding: 6px;
+                        vertical-align: top;
+                        transition-duration: 0.5s;
+                        -webkit-transition-duration: 0.5s;
+                        transform: translateX(-100%);
+                        -webkit-transform: translateX(-100%);
+                    }
 
                     .products-grid & {
                         .abs;
@@ -249,7 +264,11 @@
                     display: block;
 
                     .products-list & {
+                        display: inline-block;
                         margin: @indent__s 0;
+                        vertical-align: top;
+                        position: relative;
+                        z-index: 9;
                     }
 
                     .tocart {
@@ -263,7 +282,7 @@
             }
 
             &-description {
-                margin: @indent__m 0;
+                margin: @indent__s 0;
             }
 
             .product-reviews-summary {
@@ -510,6 +529,13 @@
                 &-info {
                     margin-bottom: @indent__m;
                     padding: 15px;
+
+                    &:hover {
+                        .actions-secondary {
+                            transform: translateX(0);
+                            -webkit-transform: translateX(0);
+                        }
+                    }
                 }
 
                 &-photo {
