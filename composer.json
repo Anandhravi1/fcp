@@ -15,10 +15,42 @@
         "repo": {
             "type": "composer",
             "url": "https://repo.magento.com"
+        },
+        "amasty": {
+            "type": "composer",
+            "url": "https://composer.amasty.com/enterprise/"
+        },
+        "mirasvit-esu2": {
+            "type": "composer",
+            "url": "https://45840:3T76OASKDG@packages.mirasvit.com/45840:3T76OASKDG/"
+        },
+        "mageplaza": {
+            "type": "composer",
+            "url": "https://repo.mageplaza.com"
+        },
+        "repo-name": {
+            "type": "composer",
+            "url": "https://repo.wyomind.com"
         }
     },
     "require": {
-        "magento/magento-cloud-metapackage": ">=2.3.3 <2.3.4"
+        "amasty/advanced-review": "^1.13",
+        "amasty/module-google-rich-snippets": "^1.4",
+        "amasty/module-loyalty-program": "^2.7",
+        "amasty/module-seo-toolkit": "^1.16",
+        "amasty/module-special-promo-pro": "^2.7",
+        "amasty/quickview": "^1.1",
+        "amasty/shiprules": "^2.6",
+        "amasty/social-login": "^1.5",
+        "classyllama/module-avatax": "^1.5",
+        "magento/magento-cloud-metapackage": ">=2.3.3 <2.3.4",
+        "mageplaza/layered-navigation-m2-pro": "^2.4",
+        "mageplaza/layered-navigation-m2-ultimate": "^2.4",
+        "mirasvit/module-search-elastic-ultimate": "*",
+        "olegkoval/magento2-regenerate-url-rewrites": "^1.4",
+        "springbot/magento2-plugin": "^1.9",
+        "wyomind/cronscheduler": "^1.8",
+        "wyomind/datafeedmanager": "^11.12"
     },
     "suggest": {
         "ext-pcntl": "Need for run processes in parallel mode"

@@ -1,0 +1,34 @@
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .page-wrapper {
+    .breadcrumbs {
+      background: @smoke_background;
+      max-width: 100%;
+      padding: 0;
+      margin-bottom: 0;
+      width: 100%;
+
+      .items {
+        max-width: @layout__max-width;
+        padding: @layout-indent__width - 4 @layout-indent__width;
+        margin: 0 auto;
+
+        li {
+          &:not(:last-child):after {
+            color: @color_black;
+          }
+          a {
+            color: @color_black;
+          }
+          strong {
+            color: @color_red;
+          }
+        }
+      }
+    }
+  }
+}

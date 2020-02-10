@@ -1,0 +1,75 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+
+  .am-sl-login-page {
+    .am-social-wrapper {
+      .am-social-login {
+        background: @color_white;
+        padding: 0;
+      }
+      .am-buttons {
+        .am-button-wrapper {
+          &.-rectangular.with-label {
+            max-width: percentage(1/2);
+            flex: 0 0 percentage(1/2);
+            width: 100%;
+            padding-left: @layout-indent__width;
+            padding-right: @layout-indent__width;
+            margin-right: 0;
+
+            .am-sl-text {
+              color: @primary__color;
+            }
+
+            .am-sl-button {
+              border: 1px solid @border_color;
+              text-align: center;
+              justify-content: center;
+              background: @color_white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .am-social-login {
+    .am-buttons {
+      .am-button-wrapper {
+        .am-sl-button {
+          width: 50px;
+          height: 50px;
+
+          .am-sl-text {
+            .lib-visually-hidden();
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+
+
+

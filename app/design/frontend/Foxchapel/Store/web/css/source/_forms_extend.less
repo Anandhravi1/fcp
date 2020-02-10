@@ -1,0 +1,147 @@
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  select,
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="search"],
+  input[type="number"],
+  input[type="datetime"],
+  input[type="email"] {
+    border-color: @border_color;
+    height: 40px;
+  }
+
+
+
+    .choice {
+      input[type="checkbox"],
+      input[type="radio"]{
+        position: absolute;
+        visibility: hidden;
+
+        & + label {
+          cursor: pointer;
+        }
+      }
+
+      input[type="radio"] {
+        &:checked + label {
+          &:before {
+            background: @primary__color;
+            content: '\2022';
+            text-align: center;
+            font-size: 25px;
+            line-height: 12px;
+          }
+        }
+        & + label {
+          &:before {
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            border: 1px solid @primary__color;
+            color: @color_white;
+            content: '';
+            .br-radius(50%);
+            font-family: @icon-fox;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+          }
+        }
+      }
+
+      input[type="checkbox"] {
+        &:checked + label {
+          &:before {
+            content: @check;
+            background: @primary__color;
+          }
+        }
+        & + label {
+          &:before {
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            border: 1px solid @primary__color;
+            color: @color_white;
+            content: '';
+            font-family: @icon-fox;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+
+  .fieldset {
+    > .field {
+      &.date {
+        .control {
+          position: relative;
+
+          input {
+            padding-right: 40px;
+          }
+
+          button {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .fieldset {
+    .legend {
+      margin-left: 0;
+    }
+    > .field{
+        margin-bottom: 20px;
+
+      &.choice,
+      &.no-label {
+        &:before {
+          display: none;
+        }
+      }
+
+        &:not(.choice) {
+          > .label,
+          .control {
+            width: 100%;
+          }
+          > .label {
+            padding-bottom: 10px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 13px;
+          }
+        }
+    }
+  }
+}
+
+
+//
+//  mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-desk-lg) {
+
+}

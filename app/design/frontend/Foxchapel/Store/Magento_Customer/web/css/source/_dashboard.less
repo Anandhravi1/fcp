@@ -1,0 +1,215 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .account {
+    .page-title-wrapper {
+      .page-title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    &.customer-account-index {
+      .column {
+        &.main {
+          .block {
+            border-top: 5px solid @color_red;
+            background: @color_white;
+            box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
+
+            &-title {
+              padding: 20px 30px;
+              border-bottom: 1px solid @border_color;
+              font-size: 1.6rem;
+            }
+
+            &-content {
+              padding: 30px;
+
+              address {
+                color: @secondary__color;
+              }
+
+              .box {
+                &-title {
+                  > span {
+                    font-size: 1.4rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sidebar {
+      &-main {
+        .block {
+          .content {
+            background: @color_white;
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid @color_red;
+          }
+        }
+      }
+    }
+  }
+
+
+  .order-details-items {
+    .table-order-items {
+      .product-item-name {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .options-label {
+      .label {
+        font-weight: bold;
+      }
+    }
+
+    .item-options-container {
+       td {
+         > span {
+           margin-left: 20px;
+         }
+       }
+    }
+  }
+
+    .table-comparison {
+    .cell {
+      width: 250px;
+      .product {
+        &-item-photo,
+        &-item-name{
+          text-align: center;
+        }
+      }
+    }
+    .price-box {
+      text-align: center;
+    }
+  }
+}
+
+//
+//  Tab - Landscape
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m + 1) {
+  .account {
+    .products-grid{
+      &.wishlist {
+        .product-item {
+          .product-item-info {
+            .product-item-photo {
+              float: none;
+              margin-left: 0;
+              margin-right: 0;
+            }
+
+            .product-item-name,
+            .price-box {
+              margin-left: 0;
+              margin-right: 0;
+            }
+
+            .product-item-tooltip {
+              margin-left: 0;
+            }
+          }
+
+
+          .field.qty {
+            display: block;
+          }
+
+          .box-tocart {
+            float: none;
+            margin-right: 0;
+          }
+        }
+        .product-item-actions {
+          float: none;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+  // Order
+  .order-items {
+    .table-order-items {
+      tbody {
+        tr {
+          & ~ tr {
+            margin-top: 20px;
+          }
+        }
+      }
+
+      tr {
+        strong {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+
+      .price-including-tax, .price-excluding-tax {
+        font-size: inherit;
+      }
+
+      .product-item-name {
+        margin-left: 0;
+        margin-right: 0;
+        width: 48%;
+      }
+
+      .item-options-container {
+        td {
+          > span {
+            margin-left: 0;
+            width:  48%;
+            display: inline-block;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m + 1) {
+
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+

@@ -1,0 +1,303 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@autocomplete__background-color: @color-white;
+@autocomplete__border: 1px solid @form-element-input__border-color;
+@autocomplete-item__border: 1px solid @color-gray90;
+@autocomplete-item__hover__color: @color-gray91;
+@autocomplete-item-amount__color: @color-gray60;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .header {
+        .block-search {
+            z-index: 4;
+        }
+    }
+    .block-search {
+        margin-bottom: 0;
+        position: relative;
+        width: 570px;
+        #search_mini_form { 
+            width: 100%;
+        }
+        .block {
+            &-title {
+                display: none;
+            }
+        }
+
+        .block-content {
+            margin-bottom: 0;
+        }
+
+        .label {
+            .lib-icon-font(
+            @_icon-font-content: @icon-search,
+            @_icon-font-size: 35px,
+            @_icon-font-line-height: 33px,
+            @_icon-font-color: @header-icons-color,
+            @_icon-font-color-hover: @header-icons-color-hover,
+            @_icon-font-color-active: @header-icons-color-hover,
+            @_icon-font-text-hide: true
+            );
+            display: none;
+            float: right;
+
+            &.active {
+                + .control {
+                    input {
+                        position: static;
+                        background: @color_black;
+                        color: @color_white;
+                    }
+                }
+            }
+            &:extend(.abs-visually-hidden-desktop all);
+        }
+
+        .action.search {
+            display: inline-block;
+            .lib-button-icon(
+            @_icon-font-content: @icon-search,
+            @_icon-font-text-hide: true,
+            @_icon-font-color: @header-icons-color
+            );
+            .lib-button-reset();
+            position: absolute;
+            right: 0px;
+            top: 0;
+            z-index: 1;
+            border-radius: 0;
+
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-gray20);
+                }
+            }
+            &:hover {
+                background: @color_red;
+                &:before {
+                    color: #fff;
+                }
+            }
+            background: @color_red;    
+            width: 45px;
+            height: 45px;
+            &:before {
+                color: #fff;
+            }  
+            &.disabled,
+              &[disabled] {
+                opacity: 1;
+            }      
+       }
+
+        .control {            
+            clear: both;            
+            border-top: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            left: -300%;
+            .lib-input-placeholder(@form-element-input-placeholder__color);         
+            transition: all 0.5s ease 0s;
+            margin: 0;
+            padding-right: 35px;
+            position: static;
+            &.input-text {
+                height: 45px;
+                border: 1px solid #092c4c;
+                &::placeholder {
+                    color: @secondary__color;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        .nested {
+            display: block;
+            padding-top: 5px;
+            position: absolute;
+        }
+    }
+    .search-autocomplete {
+        &:extend(.abs-add-box-sizing all);
+        display: none;
+        margin-top: -15px;
+        overflow: hidden;
+        position: absolute;
+        z-index: 3;
+
+        ul {
+            .lib-list-reset-styles();
+
+            li {
+                .lib-css(border-top, @autocomplete-item__border);
+                cursor: pointer;
+                margin: 0;
+                padding: @indent__xs @indent__xl @indent__xs @indent__s;
+                position: relative;
+                text-align: left;
+                white-space: normal;
+
+                &:not(:empty) {
+                    border-top: 0;
+                    .lib-css(border, @autocomplete__border);
+                    .lib-css(background, @autocomplete__background-color);
+                }
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                &:hover,
+                &.selected {
+                    .lib-css(background, @autocomplete-item__hover__color);
+                }
+
+                .amount {
+                    .lib-css(color, @autocomplete-item-amount__color);
+                    position: absolute;
+                    right: 7px;
+                    top: @indent__xs;
+                }
+            }
+        }
+    }
+
+    .form.search.advanced {
+        .fields.range {
+            .field {
+                &:first-child {
+                    position: relative;
+
+                    .control {
+                        padding-right: 25px;
+
+                        &:after {
+                            content: ' \2013 ';
+                            display: inline-block;
+                            position: absolute;
+                            right: 0;
+                            text-align: center;
+                            top: 6px;
+                            width: 25px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    position: relative;
+
+                    div.mage-error[generated] {
+                        left: 0;
+                        position: absolute;
+                        top: 32px;
+                    }
+                }
+
+                &.with-addon {
+                    .control {
+                        padding-right: 45px;
+                    }
+                }
+            }
+        }
+
+        .group.price {
+            .addon {
+                .addafter {
+                    background: none;
+                    border: 0;
+                    padding-top: 6px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .search.summary {
+        margin-bottom: @indent__s;
+    }
+}
+// Advanced Search 
+ .mst-searchautocomplete__wrapper {
+     .mst-searchautocomplete__index {
+         &.magento_catalog_product {
+             height: 300px;
+             overflow-y: scroll;
+         }
+     }
+ }
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block-search {
+        .block-content {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .block-search {
+        margin-top: @indent__s;       
+        width: 100%;
+        .control {           
+            width: 100%;
+        }
+    }
+}
+@media only screen and (max-width: @s-tab){
+    .block-search {
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+    }
+    .block-search {
+        order: 3;
+    }
+    .account-wishlist-links {
+        order: 2;
+    }
+}
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-tab + 1) {   
+    .block-search {
+        order: 2;
+    }
+    .account-wishlist-links {
+        order: 3;
+    }
+}  
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {   
+    ._keyfocus *:focus,
+             input:not([disabled]):focus,
+               textarea:not([disabled]):focus, 
+               select:not([disabled]):focus{
+                    box-shadow: none;
+    }
+    .search-autocomplete {
+        margin-top: 0;
+    }
+}
