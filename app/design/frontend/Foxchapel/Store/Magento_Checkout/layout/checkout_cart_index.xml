@@ -25,6 +25,13 @@
                 </argument>
             </action>
         </referenceBlock>
+          <referenceBlock  name="checkout.cart.summary.title">
+                                <arguments>
+                                    <argument translate="true" name="text" xsi:type="string">Order Summary</argument>
+                                    <argument name="tag" xsi:type="string">strong</argument>
+                                    <argument name="css_class" xsi:type="string">summary title</argument>
+                                </arguments>
+           </referenceBlock>
  
     </body>
 </page>
