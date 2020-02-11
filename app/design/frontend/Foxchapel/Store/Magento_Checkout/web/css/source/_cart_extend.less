@@ -65,6 +65,7 @@
 
                         &.item {
                             border: 1px solid @border_color;
+                            background: @color_white;
                             &:hover {
                                 // box-shadow: 0px 0px 5px 3px rgba(216, 221, 231, 0.5);
                                 // transition: all .5s ease 0s;
@@ -93,16 +94,16 @@
                                 margin-bottom: 15px;
                             }
 
-                            .product-image-container {
-                                max-width: 65px;
+                            .product-image-container {                                
                                 border: 1px solid #cecece;
-                                padding: 2px;
+                                padding: 10px;
                                 transition: all .5s ease 0s;
                                 min-height: auto;
                                 display: block;
                             }
 
                             .product-item-details {
+                                padding-top: 10px;
                                 padding-bottom: 0;
                             }
 
@@ -121,6 +122,10 @@
 
                             .actions-toolbar {
                                 text-align: center;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                position: relative;
                                 .action.towishlist,
                                 .action-edit,
                                 .action-delete{
@@ -144,24 +149,43 @@
                                 }
                                 .action-edit{
                                     &:before {
-                                        content: '\e90c';
+                                        font-family: 'foxchapel';
+                                        content: '\e90d';
                                     }
                                 }
                                 .action-delete{
                                     &:before {
-                                        content: '\e90b';
-                                        font-size: 12px;
+                                        content: '\e90c';
+                                        font-size: 11px;
                                     }
                                 }
                                 a{
                                     background: transparent;
                                     padding: 0 ;
-                                    margin: 0 10px 0 0;
+                                    margin: 0 20px 0 0;
+                                    border: 0;
+                                    font-weight: normal;                                    
+                                }
+                                >:last-child {
+                                    margin-right: 0;
                                 }
                             }
                         }
 
                         .col {
+                            &.item-actions {
+                                .action{
+                                    &.split {
+                                        .lib-icon-text-hide();
+                                        padding: 0;
+                                        &:before {
+                                            font-family: @icon-fox;
+                                            content: '\e900';
+                                            color: @secondary__color;
+                                        }
+                                    }
+                                }
+                            }
                             .control.qty {
                                 display: flex;
                                 justify-content: center;
@@ -188,7 +212,8 @@
                                     width: 40px;
                                     height: 40px;
                                     padding: 0;
-                                    color: #8893a5;
+                                    border-color: @border_color;
+                                    color: @secondary__color;
                                     cursor: pointer;
                                     font-size: 20px;
                                     border-radius: 0;
@@ -196,10 +221,10 @@
                                         box-shadow: none;
                                     }
                                     &.decreaseQty{
-                                        border-radius: 3px 0 0 3px;
+                                        border-radius: 0;
                                     }
                                     &.increaseQty{
-                                        border-radius: 0 3px 3px 0;
+                                        border-radius: 0;
                                     }
                                 }
                             }
@@ -212,19 +237,65 @@
                         }
 
                     }
+                .split {
+                    &.button {
+                        &.wishlist {
+                            width: auto;
+                            padding: 0;
+                            margin: 0;
+                            border: 0;
+                            display: flex;
+                            align-items: center;
+                            button {
+                                background: transparent;
+                                border: 0;
+                            }
+                            .action {
+                                &.toggle {
+                                     margin-right: 10px;
+                                     padding: 0;
+                                    &:after {
+                                        padding: 0;
+                                        color: @secondary__color;
+                                    }
+                                }
+                            }
+                            .items {
+                                &:after {
+                                    margin: initial;
+                                    left: 15px;
+                                }
+                                &:before {
+                                    margin: initial;
+                                    left: 16px;
+                                }
+                            }
+                        }
+                    }
+                }
 
                 }
 
                 &.actions {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                    text-align: left;
 
                     .action {
                         margin: 0;
                         &.continue {
+                            &::before{
+                                display: none;
+                            }
+                            &:active{
+                                box-shadow: none;
+                            }    
                             .lib-button();
                             padding-left: 10px;
+                        }
+                        &.clear {
+                            margin-left: 10px;
+                        }
+                        &.update {
+                            float: right;
                         }
                         &.update,
                         &.clear {
@@ -260,11 +331,12 @@
                 margin: 0;
                 text-align: center;
                 text-transform: uppercase;
-                background: @color_black;
-                padding: 15px 25px;
+                background: @color_black;                
                 color: #fff;
                 font-weight: bold;
-                font-size: 2rem;
+                font-size: 1.8rem;
+                border-radius:  0;
+                line-height: 51px;
             }
 
             .block.shipping,
@@ -388,12 +460,14 @@
                 .title{
                     border: 0;
                     padding: 0 33px 0 0;
+                    text-transform: uppercase;
                 }
                 .fieldset{
                     margin: 20px 0 0 0;
                     .field{
                         margin: 0 0 15px;
                         font-size: @font-size__base;
+                        color: @primary__color;
 
                         &:last-child{
                             margin: 0;
@@ -640,21 +714,29 @@
         .form-cart {
             width: 70%;
             padding-right: 2%;
-        }
-    }
-
-    .cart {
-        &.table-wrapper {
-            margin-bottom: 4rem;
             .cart {
-                thead {
-                    background: @color_black;
-                    border: 1px solid @color_black;
+                &.table-wrapper {
+                    margin-bottom: 4rem;
+                    .cart {
+                        thead {
+                            background: @color_black;
+                            border: 1px solid @color_black;
+                        }
+                        .item {
+                            .col{
+                                &.item {
+                                    padding: 15px 10px 15px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
+        
         }
     }
 
+   
 }
 
 
