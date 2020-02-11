@@ -103,24 +103,27 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
         $this->logger->info('Getting Orders for Acumen Integration started');
         foreach ($this->_storeManager->getStores() as $store) {
             $storeId           = $store->getId();
-            $emailSubject      = $this->_helperData->getGeneralConfig('email_subject', $storeId);
-            $emailSender       = $this->_helperData->getGeneralConfig('email_sender', $storeId);
+            $emailSubject      = $this->_helperData->getGeneralConfig('email_subject');
+            $emailSender       = $this->_helperData->getGeneralConfig('email_sender');
             $emailRecipients   = $this->getEmailRecipientList($storeId);
             $emailContentAsXml = $this->createOrdersXml($storeId);
 
-            $transport = $this->_transportBuilder->setTemplateIdentifier(
-                'acumen_integration_orders_xml_template'
-            )->setTemplateOptions(
-                ['area' => 'adminhtml', 'store' => $storeId]
-            )->setTemplateVars(
-                ['orderXml' => $emailContentAsXml]
-            )->setFrom(
-                ['email' => $emailSender, 'name' => 'Magento FoxChapel Site']
-            )->addTo(
-                $emailRecipients
-            )->getTransport();
+            foreach ($emailRecipients as $recipient) {
 
-            $transport->sendMessage();
+                // $transport = $this->_transportBuilder->setTemplateIdentifier(
+                //     'acumen_integration_orders_xml_template'
+                // )->setTemplateOptions(
+                //     ['area' => 'adminhtml', 'store' => $storeId]
+                // )->setTemplateVars(
+                //     ['orderXml' => $emailContentAsXml]
+                // )->setFrom(
+                //     ['email' => $emailSender, 'name' => 'Magento FoxChapel Site']
+                // )->addTo(
+                //     $recipient
+                // )->getTransport();
+
+                // $transport->sendMessage();
+            }
         }
         $this->logger->info($emailContentAsXml);
         $this->logger->info('Sending Orders XML for Acumen Integration completed');
@@ -139,7 +142,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
             ->addFieldToFilter('entity_id', array('gt' => $this->getLastIntegratedOrderId($storeId)))
             ->load();
 
-        if ($orderCollection) {
+        if (count($orderCollection) > 0) {
             $dom = $this->createXmlFile();
             $root = $dom->createElement('Orders');
 
@@ -206,19 +209,19 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
                 $this->appendXmlNode($dom, $orderNode, "", "RepVendorID");
                 $this->appendXmlNode($dom, $orderNode, $shipDesc, "ShipVIA");
                 $this->appendXmlNode($dom, $orderNode, $order['shipping_amount'], "ShippingCharge");
-                $orderNode->appendChild($this->appendOrderItems($orderId, $dom));
-                $orderNode->appendChild($this->appendCardInfo($orderId, $dom));
+                $orderNode->appendChild($this->appendOrderItems($dom));
+                $orderNode->appendChild($this->appendCardInfo($order, $dom));
                 $orderNode->appendChild($this->appendAddressInformation($billingAddress, $dom, 'BillToParty'));
                 $orderNode->appendChild($this->appendAddressInformation($shippingAddress, $dom, 'ShipToParty'));
                 $this->appendXmlNode($dom, $orderNode, "Website", "Source");
                 $this->appendXmlNode($dom, $orderNode, "Website", "ListCode");
                 
                 $root->appendChild($orderNode);
-                $this->_helperData->saveConfig('last_integrated_order_id', $storeId);
+                $this->_helperData->saveConfig('last_integrated_order_id', $orderId);
             }
             $dom->appendChild($root);
             $dom->appendChild($root);
-            $ordersCount = empty($orderList) ? 0 : explode(',', $orderList);
+            $ordersCount = empty($orderList) ? 0 : implode(',', $orderList);
             $this->logger->info('Orders sent to Acumen Integration: ' . $ordersCount . ' for storeId: ' . $storeId);
 
             return $dom->saveXML();
@@ -233,7 +236,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
      * 
      */
     protected function getLastIntegratedOrderId($storeId) {
-        $lastOrderId = $this->_helperData->getGeneralConfig('last_integrated_order_id', $storeId);
+        $lastOrderId = $this->_helperData->getGeneralConfig('last_integrated_order_id');
         
         return $lastOrderId ? $lastOrderId : 0;
     }
@@ -245,7 +248,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
      * @return Array
      */
     protected function getEmailRecipientList($storeId) {
-        $list = $this->_helperData->getGeneralConfig('email_recipients', $storeId);
+        $list = $this->_helperData->getGeneralConfig('email_recipients');
 
         return $list !== null ? explode(',', $list) : [];
     }
@@ -255,7 +258,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
      * @param $dom
      * 
      */
-    protected function appendOrderItems($orderId, $dom) {
+    protected function appendOrderItems($dom) {
         $items      = $this->_order->getAllVisibleItems();
         $lineNumber = 1;
         $itemsNode  = $dom->createElement('LineItems');
@@ -288,14 +291,16 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
      * @param $dom
      * 
      */
-    protected function appendCardInfo($orderId, $dom) {
+    protected function appendCardInfo($order, $dom) {
         $cardNode                 = $dom->createElement('CreditCardInfo');
         $paymentCode              = $this->_order->getPayment()->getMethodInstance()->getCode();
         $paymentPaypalPayerEmail  = $this->_order->getPayment()->getAdditionalInformation('paypal_payer_email');
         $paymentInfoAmountOrdered = $this->_order->getPayment()->getAmountOrdered();
         $paymentInfoLastTransId   = $this->_order->getPayment()->getLastTransId();
         $ccNumber                 = ($paymentCode == 'paypal_express') ? $paymentPaypalPayerEmail : '';
-        $ccTransactionDate        = $this->date('m/d/Y', strtotime($orderId['created_at']));
+        $this->logger->info($order['created_at']);
+        $ccTransactionDate        = date('m/d/Y', strtotime($order['created_at']));
+        
         $ccExpirationDate         = ($paymentCode == 'paypal_express') ? "0130" : '';
         $ccAuthorizationService   = ($paymentCode == 'authnetcim') ? "Authorize.net" : $paymentCode;
         $ccPreAuthorization       = "TRUE";
@@ -329,7 +334,8 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
      */
     protected function appendAddressInformation($address, $dom, $nodeName) {
         $addressNode = $dom->createElement($nodeName);
-        $this->appendXmlNode($dom, $addressNode, $address->getStreet(), 'PostalAddress1');
+        $postalAddress1 = is_array($address->getStreet()) ? implode(' ', $address->getStreet()) : $address->getStreet();
+        $this->appendXmlNode($dom, $addressNode, $postalAddress1, 'PostalAddress1');
         $this->appendXmlNode($dom, $addressNode, "", 'PostalAddress2');
         $this->appendXmlNode($dom, $addressNode, $address->getCity(), 'PostalTownCity');
         $this->appendXmlNode($dom, $addressNode, $address->getCountryId(), 'Country');

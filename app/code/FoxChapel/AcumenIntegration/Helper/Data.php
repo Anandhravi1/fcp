@@ -24,11 +24,10 @@ class Data extends AbstractHelper
      * get configuration value
      *
      * @param [string] $field    
-     * @param integer $storeId 
      *
      * @return void
      */
-    public function getConfigValue($field, $storeId = null)
+    private function getConfigValue($field)
     {
         return $this->scopeConfig->getValue(
             $field, \Magento\Store\Model\ScopeInterface::SCOPE_STORE
@@ -37,13 +36,12 @@ class Data extends AbstractHelper
 
     /**
      * @param string $path
-     * @param integer $storeId
      * 
      * @return void
      */
-    public function getGeneralConfig($path, $storeId = null)
+    public function getGeneralConfig($path)
     {
-        return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $storeId);
+        return $this->getConfigValue(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path);
     }
 
     /**
@@ -52,7 +50,7 @@ class Data extends AbstractHelper
      * 
      * @return $this
      */
-    private function saveConfig($path, $value)
+    public function saveConfig($path, $value)
     {
         $this->configWriter->save(self::XML_PATH_ACUMEN_INTEGRATION .'general/'. $path, $value);
         $this->reinitableConfig->reinit();
