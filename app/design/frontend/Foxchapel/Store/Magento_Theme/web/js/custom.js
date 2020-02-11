@@ -118,10 +118,9 @@ define(['jquery', 'domReady!', 'slick'], function($) {
         }
     });
 
-        //cart page wishlist click event
-        $('.form-cart .split.button.wishlist').click(function(){
-            $(this).toggleClass('active');
-        });
-
-   })
+    //cart page wishlist click event
+      $('.form-cart .split.button.wishlist').click(function(){
+          $(this).toggleClass('active');
+      });
+   });
 });
