@@ -86,6 +86,21 @@
                     background: -webkit-linear-gradient(90deg, rgba(234,0,1,1) 0%, rgba(234,0,1,1) 53%, rgba(178,0,2,1) 100%);
                     background: linear-gradient(90deg, rgba(234,0,1,1) 0%, rgba(234,0,1,1) 53%, rgba(178,0,2,1) 100%);
                     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ea0001",endColorstr="#b20002",GradientType=1);
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        .lib-css(background-image, url("@{baseDir}images/loader-bubble.gif"));
+                        background-size: cover;
+                        width: 64px;
+                        height: 64px;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        margin: auto;
+                    }
                  }
                 
                 .pagebuilder-collage-content {

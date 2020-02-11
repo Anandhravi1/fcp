@@ -117,5 +117,10 @@ define(['jquery', 'domReady!', 'slick'], function($) {
             _this.next('.block-content').slideUp('slow');
         }
     });
-   })
+
+    //cart page wishlist click event
+      $('.form-cart .split.button.wishlist').click(function(){
+          $(this).toggleClass('active');
+      });
+   });
 });
