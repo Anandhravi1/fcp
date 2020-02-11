@@ -194,11 +194,11 @@
     input[type="radio"] {
         &:checked + label {
             &:before {
-                background: @primary__color;
+                background: transparent;
                 content: '\2022';
                 text-align: center;
                 font-size: 25px;
-                line-height: 12px;
+                line-height: 10px;
             }
         }
         & + label {
@@ -206,8 +206,8 @@
                 width: 16px;
                 height: 16px;
                 line-height: 16px;
-                border: 1px solid @primary__color;
-                color: @color_white;
+                border: 2px solid @primary__color;
+                color: @primary__color;
                 content: '';
                 .br-radius(50%);
                 font-family: @icon-fox;
