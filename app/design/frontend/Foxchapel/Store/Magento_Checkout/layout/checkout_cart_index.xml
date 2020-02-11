@@ -35,5 +35,6 @@
                 <argument name="css_class" xsi:type="string">summary title</argument>
             </arguments>
         </referenceBlock>
+        <move element="checkout.cart.coupon" destination="cart.summary" after="checkout.cart.shipping" />
     </body>
 </page>
