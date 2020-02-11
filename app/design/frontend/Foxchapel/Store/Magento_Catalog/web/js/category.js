@@ -126,7 +126,7 @@ require([
                 slidesToScroll: 3,
                 responsive: [
                     {
-                        breakpoint: 1025,
+                        breakpoint: 1200,
                         settings: {
                             slidesToShow: 3,
                             slidesToScroll: 2

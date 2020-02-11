@@ -28,10 +28,14 @@ define(["jquery"], function($) {
             }
             return false;
         });
-
+        //collabsible layered nav open only one
+        $('body').on('beforeOpen', '.filter-options-item', function () {
+            $('.filter-options-item.active').collapsible('deactivate');
+        });
+        
         //layered navigation mobile close
         $(document).ready(function() {
-            $('.laynav-close').on('click', function() {
+            $('body').on('click', '.laynav-close', function() {
                 $('body').toggleClass('laynav-active');
             });
         });
