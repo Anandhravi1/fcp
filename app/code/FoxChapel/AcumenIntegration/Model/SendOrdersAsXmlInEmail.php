@@ -110,19 +110,19 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
 
             foreach ($emailRecipients as $recipient) {
 
-                // $transport = $this->_transportBuilder->setTemplateIdentifier(
-                //     'acumen_integration_orders_xml_template'
-                // )->setTemplateOptions(
-                //     ['area' => 'adminhtml', 'store' => $storeId]
-                // )->setTemplateVars(
-                //     ['orderXml' => $emailContentAsXml]
-                // )->setFrom(
-                //     ['email' => $emailSender, 'name' => 'Magento FoxChapel Site']
-                // )->addTo(
-                //     $recipient
-                // )->getTransport();
+                $transport = $this->_transportBuilder->setTemplateIdentifier(
+                    'acumen_integration_orders_xml_template'
+                )->setTemplateOptions(
+                    ['area' => 'adminhtml', 'store' => $storeId]
+                )->setTemplateVars(
+                    ['orderXml' => $emailContentAsXml]
+                )->setFrom(
+                    ['email' => $emailSender, 'name' => 'Magento FoxChapel Site']
+                )->addTo(
+                    $recipient
+                )->getTransport();
 
-                // $transport->sendMessage();
+                $transport->sendMessage();
             }
         }
         $this->logger->info($emailContentAsXml);
@@ -250,7 +250,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
     protected function getEmailRecipientList($storeId) {
         $list = $this->_helperData->getGeneralConfig('email_recipients');
 
-        return $list !== null ? explode(',', $list) : [];
+        return $list !== null ? array_map('trim', explode(',', $list)) : [];
     }
     /**
      * Append Order line items to Order element
