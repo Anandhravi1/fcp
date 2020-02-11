@@ -17,8 +17,8 @@
                 <height>300</height>
             </image>
             <image id="cart_page_product_thumbnail" type="small_image">
-                <width>110</width>
-                <height>160</height>
+                <width>100</width>
+                <height>100</height>
             </image>
             <image id="category_page_grid" type="small_image">
                 <width>240</width>
@@ -232,7 +232,7 @@
         <var name="breakpoints">
             <var name="mobile">
                 <var name="conditions">
-                    <var name="max-width">767px</var>
+                    <var name="max-width">992px</var>
                 </var>
                 <var name="options">
                     <var name="options">

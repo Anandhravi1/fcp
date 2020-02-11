@@ -31,13 +31,7 @@
             &:extend(.abs-reset-left-margin all);
         }        
     }
-    .wishlist-index-index {
-        .form-wishlist-items {
-            .product-reviews-summary {
-                // display: none;
-            }
-        }
-    }
+
     .product-info-main,
     .product-options-bottom,
     .block-bundle-summary {
@@ -55,6 +49,15 @@
                 .lib-icon-font-symbol(
                     @icon-wishlist-empty
                 );
+
+                &:before {
+                    color: #8a92a5;
+                }
+                &:hover {
+                    &:before {
+                        color: #8a92a5;
+                    }
+                }
             }
         }
     }

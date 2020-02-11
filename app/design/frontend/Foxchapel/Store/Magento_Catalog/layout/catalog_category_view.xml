@@ -11,5 +11,6 @@
 
         <move element="category.description" destination="content" before="-" />
         <move element="page.main.title" after="breadcrumbs" destination="page.top"/>
+        <referenceBlock name="paypal.partner.right.logo" remove="true" />
     </body>
 </page>
