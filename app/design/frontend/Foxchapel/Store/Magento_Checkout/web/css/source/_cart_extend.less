@@ -128,8 +128,7 @@
                                 .action.towishlist,
                                 .action-edit,
                                 .action-delete{
-                                    &:before {
-                                        content: '\e909';
+                                    &:before {                                        
                                         font-family: @icon-fox;
                                         color: @secondary__color;
                                         font-size: 13px;
@@ -191,8 +190,7 @@
                                 align-items: center;
                                 text-align: left;
                                 
-                                .input-text {
-                                    color: #000;
+                                .input-text {                                    
                                     margin-top: 0;
                                     border-radius: 0;
                                     width: 52px;
@@ -843,10 +841,13 @@
                                 display: inline-block;
                             }
 
-                            &.item {
-                                padding: 15px;
+                            &.item {                               
                                 width: 100%;
                             }
+                            &:not(:last-child) {
+                                padding-bottom: 0 ;
+                            }
+                        
                         }
 
                         .product-item-photo {
@@ -918,17 +919,32 @@
             }
         }
     }  
-    .cart-container {
-        .cart-summary {
-            .block.shipping,.cart-totals,.block.discount,.checkout-methods-items{                
-                    padding: 1.5rem 2rem 0;                
-            }
-            .checkout-methods-items {
-                padding-bottom: 1.5rem;                
-            }
-
-        } 
-    }     
+    .column.main {
+        .cart-container {
+      
+            .cart-summary {
+                .block.shipping,.cart-totals,.block.discount,.checkout-methods-items{                
+                        padding: 1.5rem 2rem 0;                
+                }
+                .checkout-methods-items {
+                    padding-bottom: 1.5rem;                
+                }
+                .block {
+                    >.title {
+                        strong {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+                .totals {
+                    font-size: 13px;
+                    .grand {
+                        font-size: 17px;
+                    }
+                }
+            } 
+        }     
+    }      
     
         .cart-summary {
             .block.shipping,
@@ -937,8 +953,15 @@
             .checkout-methods-items{
                 padding: 2rem 1.5rem 0;
             }
+            
         }
-
+        .split{
+            &.button{
+                &.wishlist {
+                    display: none !important;
+                }
+            }
+        }
 
 
     }
