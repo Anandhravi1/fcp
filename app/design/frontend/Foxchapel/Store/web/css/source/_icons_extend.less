@@ -5,10 +5,10 @@
 
 @font-face {
   font-family: 'foxchapel';
-  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc');
-  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc#iefix') format('embedded-opentype'),
-  url('@{baseDir}fonts/foxchapel.ttf?n6ojgc') format('truetype'),
-  url('@{baseDir}fonts/foxchapel.woff?n6ojgc') format('woff'),
+  src:  url('@{baseDir}fonts/foxchapel.eot?ltcf43');
+  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc#ltcf43') format('embedded-opentype'),
+  url('@{baseDir}fonts/foxchapel.ttf?ltcf43') format('truetype'),
+  url('@{baseDir}fonts/foxchapel.woff?ltcf43') format('woff'),
   url('@{baseDir}fonts/foxchapel.svg?n6ojgc#foxchapel') format('svg');
   font-weight: normal;
   font-style: normal;
@@ -29,6 +29,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-chevron-left:before {
+  content: "\e904";
+}
+.icon-chevron-right:before {
+  content: "\e906";
+}
+.icon-close:before {
+  content: "\e915";
+}
+.icon-mail:before {
+  content: "\e912";
+}
 .icon-share:before {
   content: "\e911";
 }
@@ -38,23 +50,23 @@
 .icon-compare:before {
   content: "\e90b";
 }
-.icon-instagram:before {
-  content: "\e90e";
+.icon-pencil:before {
+  content: "\e916";
+}
+.icon-eye-hidden:before {
+  content: "\e913";
+}
+.icon-eye:before {
+  content: "\e914";
+}
+.icon-support:before {
+  content: "\e902";
 }
 .icon-check:before {
   content: "\e910";
 }
 .icon-edit:before {
   content: "\e90d";
-}
-.icon-eye-slash:before {
-  content: "\e904";
-}
-.icon-eye:before {
-  content: "\e906";
-}
-.icon-headphones:before {
-  content: "\e902";
 }
 .icon-twitter:before {
   content: "\e90a";
@@ -68,6 +80,9 @@
 .icon-pinterest:before {
   content: "\e907";
 }
+.icon-instagram:before {
+  content: "\e90e";
+}
 .icon-wishlist:before {
   content: "\e900";
 }
@@ -80,26 +95,28 @@
 .icon-search:before {
   content: "\e905";
 }
-.icon-close:before {
-  content: "\e90c";
-}
 
 @icon-fox: 'foxchapel';
-@share: '\e911';
-@check: '\e910';
-@arrow-up-right: '\e90f';
-@instagram: '\e90e';
-@edit: '\e90d';
-@eye-slash: '\e904';
-@eye: '\e906';
-@headphones: '\e902';
-@twitter: '\e90a';
-@facebook: '\e909';
-@feed: '\e908';
-@pinterest: '\e907';
-@compare: '\e90b';
-@wishlist: '\e900';
-@user: '\e901';
-@cart: '\e903';
+
 @search: '\e905';
-@close: '\e90c';
+@cart: '\e903';
+@user: '\e901';
+@wishlist: '\e900';
+@instagram: '\e90e';
+@pinterest: '\e907';
+@feed: '\e908';
+@facebook: '\e909';
+@twitter: '\e90a';
+@pencil: '\e90d';
+@check: '\e910';
+@headphones: '\e902';
+@eye: "\e914";
+@eye-hidden: "\e913";
+@edit: "\e916";
+@compare: '\e90b';
+@arrow-up-right: '\e90f';
+@share: '\e911';
+@mail: "\e912";
+@close: "\e915";
+@chevron-right: "\e906";
+@chevron-left: "\e904";
