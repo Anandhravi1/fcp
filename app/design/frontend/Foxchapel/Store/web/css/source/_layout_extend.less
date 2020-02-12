@@ -1,0 +1,41 @@
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-desk-m) {
+  .navigation,
+  .page-header .header.panel,
+  .header.content,
+  .footer.content,
+  .page-wrapper > .widget,
+  .page-wrapper > .page-bottom,
+  .block.category.event,
+  .top-container,
+  .page-main,
+  .container {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @layout__max-width;
+    padding-left: @layout-indent__width;
+    padding-right: @layout-indent__width;
+    width: auto;
+  }
+}
+
+
+//
+//  mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @s-desk-lg) {
+
+}
