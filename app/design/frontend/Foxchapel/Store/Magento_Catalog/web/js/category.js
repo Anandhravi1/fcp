@@ -68,7 +68,7 @@ require([
                         }
                     },
                     {
-                        breakpoint: 640,
+                        breakpoint: 768,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
@@ -97,14 +97,14 @@ require([
                         }
                     },
                     {
-                        breakpoint: 640,
+                        breakpoint: 992,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 1
                         }
                     },
                     {
-                        breakpoint: 480,
+                        breakpoint: 768,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
