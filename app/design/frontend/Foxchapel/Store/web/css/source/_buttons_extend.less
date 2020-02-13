@@ -1,5 +1,17 @@
 
-  .lib-button() {
+.lib-button-link() {
+  padding: 0;
+  background: transparent;
+  color: @primary__color;
+  border: none;
+  text-decoration: underline;
+  &:hover {
+    background: transparent;
+  }
+
+}
+
+.lib-button() {
     .lib-button-primary();
     border-radius: 0;
     font-size: 13px;
@@ -41,7 +53,7 @@
       }
 
       &.select {
-        .lib-button-sm();
+        .lib-button-link();
       }
     }
   }
