@@ -43,8 +43,10 @@
 
         <referenceContainer name="product.info.social">
             <block name="product.share" template="Magento_Catalog::product/view/share.phtml" after="-" />
-        </referenceContainer>    
+        </referenceContainer>
 
+        <move element="product.info.mailto" destination="product.info.addto" after="-"/>
         <move element="product.share" destination="product.info.addto" after="-"/>
+
     </body>
 </page>
