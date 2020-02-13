@@ -146,15 +146,15 @@
                                     }
                                 }
                                 .action-edit{
-                                    &:before {
-                                        font-family: 'foxchapel';
-                                        content: '\e90d';
+                                    &:before {                                        
+                                        content: @edit;
+                                        font-size: 15px;
                                     }
                                 }
                                 .action-delete{
                                     &:before {
-                                        content: '\e90c';
-                                        font-size: 11px;
+                                        content: @close;
+                                        font-size: 18px;
                                     }
                                 }
                                 a{
@@ -357,8 +357,7 @@
 
             .totals {
                 margin-bottom: 0;
-                font-size: 15px;
-                text-transform: uppercase;
+                font-size: 15px;                
                 th, td {
                     border: none;
                     padding: 4px;
@@ -366,6 +365,11 @@
 
                 .grand {
                     font-size: 20px;
+                    text-transform: uppercase;
+                    th,td {
+                        padding-top: 20px;
+                        color: @color_black;
+                    }
                 }
 
                 &.sub,
@@ -449,8 +453,11 @@
                         padding: 0;
 
                         &:before {
-                            content: '\e900';
+                            content: '\e906';
                             font-family: @icon-fox;
+                            font-size: 15px;
+                            font-weight: normal;
+                            line-height: normal;
                         }
 
                         span {
