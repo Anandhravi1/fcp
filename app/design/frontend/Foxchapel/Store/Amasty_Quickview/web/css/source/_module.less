@@ -4,14 +4,19 @@
 //  */
 
 & when (@media-common = true) {
-    .amquickview-fancybox-wrapper {
+    .amasty-quickview {        
             .product-social-links {
                 display: none;
             }           
             .product-info-wrap {
                 .product-info-inner {
-                    .product-info-main,.product-media {
-                        width: auto;
+                    .product-info-main {
+                        width: 40%;
+                    }
+                    .product{
+                        &.media {
+                        width: 57%;
+                        }
                     }
                     .field{
                         &.qty {
@@ -21,4 +26,21 @@
                 }
             }
     }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .amasty-quickview {       
+               
+        .product-info-wrap {
+            .product-info-inner {
+                .product-info-main {
+                    width: 100%;
+                }
+                .product{
+                    &.media {
+                    width: 100%;
+                    }
+                }                
+            }
+        }
+}
 }
