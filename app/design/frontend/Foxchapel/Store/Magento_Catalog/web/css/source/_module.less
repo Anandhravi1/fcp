@@ -537,7 +537,8 @@
 
     //Page with filter
 
-    .page-with-filter {
+    .page-with-filter,
+    .catalog-category-view {
         &.page-layout-2columns-left {
             .lib-css(background-image, url("@{baseDir}images/bg.jpg"));
 
@@ -1098,7 +1099,14 @@
     
 
     .block-compare {
-        padding: 0 15px;
+        background-color: @color-white;
+        padding: 15px 15px 0 15px;
+
+        &:first-child {
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+            margin-bottom: 0;
+            padding-bottom: 15px;
+        }
 
         .block-title {
             &:extend(.abs-block-title all);
@@ -1183,4 +1191,28 @@
             }
         } 
     }   
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    //shared wishlist
+    .wishlist-shared-index {
+        .table {
+            &.wishlist {
+                tr {
+                    border-bottom: 1px solid @border_color;
+                }
+                .col{
+                    &.product {
+                        .product {
+                            display: block;
+                        }
+                    }
+                    &.actions{
+                        &:before {
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -186,10 +186,9 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-  .account {
-    background: red;
-    .order-detail-items {
-      .table-order-items {
+  .account {    
+    .order-details-items {
+      .table-order-items {        
         .product-item-name,.items-qty,.price-excluding-tax {
           margin-left: -2px;
         }
@@ -222,7 +221,7 @@
       .price-including-tax, .price-excluding-tax {
         font-size: inherit;
         .price {
-          font-weight: noraml;
+          font-weight: normal;
         }
       }
 
