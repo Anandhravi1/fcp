@@ -116,7 +116,7 @@ require([
         });
     }
 
-    if($('.products-wrapper .product-items')) {
+    if($('.products-wrapper .product-items .product-item') > 3) {
         $(".products-wrapper .product-items").each(function () {
             $(this).slick({
                 infinite: true,

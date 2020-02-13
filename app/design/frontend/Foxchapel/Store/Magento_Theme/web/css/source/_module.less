@@ -177,7 +177,10 @@
                             color: @color_black;
                             cursor: pointer;
                             line-height: normal;
-                            display: block;
+
+                            &:not(.compare) {
+                                display: block;
+                            }
                         }
                     }
                 }
