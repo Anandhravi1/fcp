@@ -23,6 +23,18 @@
                     <comment>This value must be ,that need to be hidden from breadcrumb.</comment>
                 </field>
             </group>
+            <group id="category_customurlrewrite" translate="label" type="text" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom Category URL Rewrites</label>
+                <field id="hide_category" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Custom URL Rewrites</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="category_id" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Specific Category Id</label>
+                    <validate>validate-digits</validate>
+                    <comment>This value must be Category ID,that need to be hidden from url.</comment>
+                </field>
+                </group>
         </section>
     </system>
 </config>
