@@ -28,12 +28,13 @@
 
     .opc-block-summary {
         &:extend(.abs-add-box-sizing all);
-        .lib-css(background, @color-white);
+        .lib-css(background, #f2f5f8);
+        border: 1px solid #c2c2c2;
         margin: 0 0 @indent__base;
 
         > .title {
             .lib-css(background, #141414);
-            padding: 10px;
+            padding: 14px;
             font-weight: @font-weight__bold;
             font-size: 16px;
             color: @color-white;
@@ -54,6 +55,38 @@
             }
         }
 
+        table.table-totals {
+            tr {
+                th.mark {
+                    font-weight: @font-weight__bold;
+                    padding-left: 25px;
+
+                    strong {
+                        font-weight: @font-weight__bold;
+                    }
+                }
+                td {
+                    &.amount{
+                    padding-right: 25px;
+                    }
+                }
+                &.grand {
+                    td {
+                        &.amount{
+                        padding-right: 25px;
+                        }
+                    }
+                }
+                th,
+                td,
+                span,
+                strong,
+                a {
+                    font-weight: @font-weight__bold;
+                }
+            }
+        }
+        
         .discount.coupon {
             display: none;
         }
@@ -67,7 +100,7 @@
                     padding-top: 0;
 
                     strong {
-                        font-weight: @font-weight__regular;
+                        font-weight: @font-weight__bold;
                     }
                 }
             }
@@ -83,10 +116,9 @@
 
         //  Block title
         .items-in-cart {
-            padding: 20px 45px;
+            padding: 20px 25px;
 
             > .title {
-                border-bottom: @border-width__base solid @border-color__base;
                 .lib-css(padding, @indent__s @indent__xl @indent__s 0);
                 cursor: pointer;
                 .lib-icon-font(
@@ -129,6 +161,9 @@
                     &:extend(.abs-product-options-list all);
                     &:extend(.abs-add-clearfix all);
                 }
+            }
+            .content.minicart-items {
+                border-top: @border-width__base solid @border-color__base;
             }
         }
 

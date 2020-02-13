@@ -32,6 +32,38 @@
             margin-left: 0;
             margin-right: 0;
         }
+        .minicart-wrapper {
+            button.action.showcart {
+                border-radius: 4px;
+    
+                &:before {
+                    color: @color-white;
+                }
+            }
+        }
+        .modal-inner-wrap {
+            .action-close {
+                margin: 5px;
+
+                &:before {
+                    color: @fox-red;
+                }
+            }
+        }
+        .payment-method {
+            div#paypal-express-in-context-button {
+                margin-left: 0;
+                max-width: 300px;
+            }
+            button.action.action-edit-address {
+                background: transparent;
+                color: inherit;
+                padding: 5px 15px 5px 0;
+                border: 0;
+                text-transform: capitalize;
+                text-decoration: underline;
+            }
+        }
     }
 
     .checkout-container {
@@ -48,6 +80,7 @@
 
         .step-title {
             &:extend(.abs-checkout-title all);
+            margin-bottom: @indent__m;
         }
 
         .step-content {
