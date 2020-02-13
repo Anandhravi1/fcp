@@ -2,15 +2,14 @@
  * Custom JS
  */
 
- require([
+require([
     'jquery',
     'domReady!',
     'slick'
 ], function ($) {
     'use strict';
-
-    $(".best-seller ol.product-items").each(function() {
-        $(this).slick({
+    // best seller slick
+    $(".best-seller ol.product-items").slick({
             infinite: true,
             speed: 300,
             lazyLoad: true,
@@ -18,21 +17,7 @@
             slidesToScroll: 2,
             responsive: [
                 {
-                    breakpoint: 1300,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 900,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
+                    breakpoint: 1201,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1
@@ -47,13 +32,8 @@
                 }
                 
             ]
-        });
     });
-
-
-
-
-
+    // featured products slick
     if($('.full-carousel.sticky-foot').length) {
         $(".full-carousel ol.product-items").each(function() {
             $(this).slick({
@@ -115,7 +95,7 @@
                 scrollTop: $("h3.featured").offset().top - 50
             }, 200);
         });
-
+        // sticky navigation for featured products
         $(window).scroll(function(){
                 var sticky_foot = $(".full-carousel.sticky-foot");
                 var win = $(window);
