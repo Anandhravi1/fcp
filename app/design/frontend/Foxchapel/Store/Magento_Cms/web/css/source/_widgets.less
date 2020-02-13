@@ -88,6 +88,10 @@
                     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ea0001",endColorstr="#b20002",GradientType=1);
                     position: relative;
 
+                    @media only screen and (max-width: @screen__m) {
+                        min-height: 250px;
+                    }
+
                     &:before {
                         content: '';
                         .lib-css(background-image, url("@{baseDir}images/loader-bubble.gif"));

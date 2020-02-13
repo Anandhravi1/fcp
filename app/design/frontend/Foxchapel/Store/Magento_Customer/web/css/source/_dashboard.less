@@ -185,6 +185,20 @@
   }
 }
 
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .account {    
+    .order-details-items {
+      .table-order-items {        
+        .product-item-name,.items-qty,.price-excluding-tax {
+          margin-left: -2px;
+        }
+      }
+
+    }
+  }
+
+
+}
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
   // Order
   .order-items {
@@ -206,6 +220,9 @@
 
       .price-including-tax, .price-excluding-tax {
         font-size: inherit;
+        .price {
+          font-weight: normal;
+        }
       }
 
       .product-item-name {
