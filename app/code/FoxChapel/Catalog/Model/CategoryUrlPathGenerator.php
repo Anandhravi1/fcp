@@ -14,11 +14,13 @@ class CategoryUrlPathGenerator extends Magento_CategoryUrlPathGenerator
         }
         $path = $category->getUrlPath();
         if ($path !== null && !$category->dataHasChangedFor('url_key') && !$category->dataHasChangedFor('parent_id')) {
+            /** Custom code starts here - To remove the L2 category path from the url */
             if($this->scopeConfig->getValue('catalog/category_customurlrewrite/hide_category', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
                 $categoryId = $this->scopeConfig->getValue('catalog/category_customurlrewrite/category_id', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
                 $parentCategory = $this->categoryRepository->get($categoryId, $category->getStoreId());
                 $path = str_replace($parentCategory->getUrlPath()."/","",$path);
             }
+            /** Custom code ends here*/
             return $path;
         }
         $path = $category->getUrlKey();
