@@ -75,7 +75,16 @@
         }
 
         .mst-searchautocomplete__close {
-            display: none;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: bold;
+            color: #999;
+            font-size: 1.6rem;
+            padding: 1rem;
+            line-height: 1rem;
+            cursor: pointer;
         }
 
         ul {
@@ -415,18 +424,5 @@
 //    Mobile
 //--------------------------------------
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-    .mst-searchautocomplete__autocomplete {
-        .mst-searchautocomplete__close {
-            display: block;
-            position: absolute;
-            right: 0;
-            top: 0;
-            font-weight: bold;
-            color: #999;
-            font-size: 1.6rem;
-            padding: 1rem;
-            line-height: 1rem;
-            cursor: pointer;
-        }
-    }
+   
 }

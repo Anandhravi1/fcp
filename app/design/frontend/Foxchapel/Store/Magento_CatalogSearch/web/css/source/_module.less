@@ -250,11 +250,15 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-    .block-search {
-        .block-content {
-            margin-bottom: 0;
+    .header {
+        .block-search {
+            z-index: auto;
+            .block-content {
+                margin-bottom: 0;
+            }    
         }
     }
+  
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {

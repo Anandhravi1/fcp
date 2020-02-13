@@ -2,17 +2,16 @@
 //  Common
 //  _____________________________________________
 
-& when (@media-common = true) {
-
-  .block {
-    &-compare {
-      padding: @layout-indent__width - 5px;
-      border-top: 5px solid @color_red;
-      box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
-    }
-  }
+& when (@media-common = true) {  
 
   .account {
+    .block {
+      &-compare {
+        padding: @layout-indent__width - 5px;
+        border-top: 5px solid @color_red;
+        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.08);
+      }
+    }
     .page-title-wrapper {
       .page-title {
         margin-top: 20px;

@@ -4,6 +4,7 @@
 
 & when (@media-common = true) {
 
+  
 
   .qty() {
     .flex();
@@ -341,6 +342,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
 
       .product.attribute.sku {
         color: @primary__color;
@@ -900,6 +902,19 @@
   }
 
   .product {
+    &-info-main {
+      .product {
+        &.attribute{
+          &.sku {
+            .flex-width(100%);
+            padding: 10px 0;
+          }
+        }
+        &-reviews-summary {
+          .flex-width(100%);
+        }
+      }
+    }
     &.data {
       &.items {
         > .item {
@@ -956,6 +971,15 @@
         }
         &-info-main {
           width: 52%;
+          .product-addto-links {
+            >a.action{
+              &.share {
+                .addthis_inline_share_toolbox {
+                  right: -100%;
+                }
+              }
+            }
+          }
         }
       }
     }
