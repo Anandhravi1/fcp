@@ -319,9 +319,20 @@
     }
 
     &.media {
-      .fotorama__nav__frame {
+      .fotorama__wrap {
+        .fotorama__shadows--bottom,
+        .fotorama__shadows--top,
+        .fotorama__shadows--left,
+        .fotorama__shadows--right {
+          &:before,
+          &:after {
+            background: none;
+          }
+        }
+
 
       }
+
     }
 
     &-info-main {
@@ -329,8 +340,15 @@
         .page-title {
           text-transform: uppercase;
           font-size: 2.8rem;
-          font-weight: bold;
+          font-weight: 500;
           color: @color_red;
+        }
+      }
+
+      .subtitle {
+        h2 {
+          font-weight: bold;
+          margin: 10px 0;
         }
       }
 
