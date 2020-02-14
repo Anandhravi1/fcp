@@ -319,9 +319,26 @@
     }
 
     &.media {
-      .fotorama__nav__frame {
+      .gallery-placeholder {
+        margin-bottom: 40px;
+      }
+      iframe {
+        width: 100%;
+      }
+      .fotorama__wrap {
+        .fotorama__shadows--bottom,
+        .fotorama__shadows--top,
+        .fotorama__shadows--left,
+        .fotorama__shadows--right {
+          &:before,
+          &:after {
+            background: none;
+          }
+        }
+
 
       }
+
     }
 
     &-info-main {
@@ -329,7 +346,15 @@
         .page-title {
           text-transform: uppercase;
           font-size: 2.8rem;
+          font-weight: 500;
+          color: @color_red;
+        }
+      }
+
+      .subtitle {
+        h2 {
           font-weight: bold;
+          margin: 10px 0;
         }
       }
 
@@ -526,6 +551,16 @@
                 .flex();
                 align-items: center;
 
+                .items {
+                  &:before {
+                    margin: initial;
+                    left: 17px;
+                  }
+                  &:after{
+                    margin: initial;
+                    left: 16px;
+                  }
+                }
 
                 &:hover {
                   border-color: @color_red;
@@ -617,6 +652,7 @@
                   vertical-align: middle;
                   line-height: normal;
                   color: inherit;
+                  font-size: 1.5rem;
                 }
                 &.towishlist {
                   &:before {
@@ -632,7 +668,7 @@
                 &.mailto {
                   &:before {
                     content: @mail;
-                    font-size: 1.3rem;
+                    font-size: 1.6rem;
                   }
                 }
 

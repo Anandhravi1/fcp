@@ -16,9 +16,11 @@
 
         <referenceContainer name="product.info.main">
             <container name="product-sku-ratings" htmlClass="product-sku-ratings" htmlTag="div" after="product.info.price"/>
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.subtitle" template="Magento_Catalog::product/view/subtitle.phtml" after="page.main.title" />
         </referenceContainer>
 
         <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.subtitle" destination="product.info.main" after="page.main.title"/>
         <move element="product.info.media" destination="product-info-inner" before="-"/>
         <move element="product.info.main" destination="product-info-inner" after="product.info.media" />
 
@@ -29,13 +31,35 @@
 
         <move element="product.info.overview" destination="product.info.main" after="product-sku-ratings"/>
 
+        <referenceContainer name="product.info.media">
+            <block class="Magento\Catalog\Block\Product\View" name="product.preview" template="Magento_Catalog::product/view/details/preview.phtml" after='product.info.media.image' />
+        </referenceContainer>
+                
         <referenceBlock name="product.info.details">
-            <block class="Magento\Catalog\Block\Product\View" name="product.preview" template="Magento_Catalog::product/view/details/preview.phtml" group="detailed_info">
+            <block class="Magento\Catalog\Block\Product\View" name="product.author.tab" template="Magento_Catalog::product/view/details/author.phtml" group="detailed_info">
                 <arguments>
-                    <argument translate="true" name="title" xsi:type="string">Preview</argument>
-                    <argument name="class" xsi:type="string">preview-tab</argument>
+                    <argument translate="true" name="title" xsi:type="string">Author</argument>
+                    <argument name="class" xsi:type="string">author-tab</argument>
+                      <argument name="sort_order" xsi:type="string">40</argument>
                 </arguments>
             </block>
+            <block class="Magento\Catalog\Block\Product\View" name="product.editorial.tab" template="Magento_Catalog::product/view/details/editorial.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Editorial Reviews</argument>
+                    <argument name="class" xsi:type="string">editorial-tab</argument>
+                    <argument name="sort_order" xsi:type="string">50</argument>
+                </arguments>
+            </block>    
+        </referenceBlock>
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Details</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Description</argument>
+            </arguments>
         </referenceBlock>
         <referenceContainer name="content">
             <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.upsell" after="-"/>
