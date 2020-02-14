@@ -58,7 +58,7 @@ require([
                         }
                     },
                     {
-                        breakpoint: 768,
+                        breakpoint: 640,
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
