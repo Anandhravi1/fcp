@@ -6,6 +6,7 @@ use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 use Magento\Sales\Model\OrderFactory;
 use Magento\Sales\Model\Order;
 use FoxChapel\AcumenIntegration\Helper\Data;
+use FoxChapel\AcumenIntegration\Model\TransactionAuthCode;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Payment\Model\Config;
@@ -46,6 +47,11 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
     protected $_date;
 
     /**
+     * @var \FoxChapel\AcumenIntegration\Model\TransactionAuthCode
+     */
+    private $_authCodeCollection;
+
+    /**
      * @var \Magento\Payment\Model\Config
      */
     protected $paymentConfig;
@@ -67,6 +73,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
      * @param OrderFactory $orderFactory
      * @param Order $order
      * @param Data $helperData
+     * @param TransactionAuthCode $transactionAuthCode
      * @param DateTime $date
      * @param Config $paymentConfig
      * @param TransportBuilder $transportBuilder
@@ -78,6 +85,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
         OrderFactory $orderFactory,
         Order $order,
         Data $helperData,
+        TransactionAuthCode $transactionAuthCode,
         DateTime $date,
         Config $paymentConfig,
         TransportBuilder $transportBuilder,
@@ -88,6 +96,7 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
         $this->_orderFactory           = $orderFactory;
         $this->_order                  = $order;
         $this->_helperData             = $helperData;
+        $this->_authCodeCollection     = $transactionAuthCode;
         $this->_date                   = $date;
         $this->_paymentConfig          = $paymentConfig;
         $this->_transportBuilder       = $transportBuilder;
@@ -298,24 +307,22 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
         $paymentInfoAmountOrdered = $this->_order->getPayment()->getAmountOrdered();
         $paymentInfoLastTransId   = $this->_order->getPayment()->getLastTransId();
         $ccNumber                 = ($paymentCode == 'paypal_express') ? $paymentPaypalPayerEmail : '';
-        $this->logger->info($order['created_at']);
         $ccTransactionDate        = date('m/d/Y', strtotime($order['created_at']));
-        
         $ccExpirationDate         = ($paymentCode == 'paypal_express') ? "0130" : '';
         $ccAuthorizationService   = ($paymentCode == 'authnetcim') ? "Authorize.net" : $paymentCode;
         $ccPreAuthorization       = "TRUE";
         $sType                    = $this->_order->getPayment()->getCcType();
         $sName                    = $this->getCCTypeName($sType);
         $ccType                   = ($paymentCode == 'paypal_express') ? "PayPal" : $sName;
-        // TODO: Need to develop custom module
-        // $creditCardInformation = Mage::getModel('creatuity_cardinformation/card')
-        //                           ->getCollection()
-        //                           ->addFieldToFilter('order_id', $this->_order['increment_id'])
-        //                           ->getFirstItem();
+        $creditCardInformation    = $this->_authCodeCollection->create(); 
+        $creditCardInformation->getCollection()
+                              ->addFieldToFilter('order_id', $this->_order['increment_id'])
+                              ->getFirstItem();
+
         $this->appendXmlNode($dom, $cardNode, $ccNumber, 'CCNumber');
         $this->appendXmlNode($dom, $cardNode, $ccTransactionDate, 'CCTransactionDate');
         $this->appendXmlNode($dom, $cardNode, $ccExpirationDate, 'CCExpirationDate');
-        // $this->appendXmlNode($dom, $cardNode, $creditCardInformation['authorization_code'], 'CCAuthorizationNumber');
+        $this->appendXmlNode($dom, $cardNode, $creditCardInformation['authorization_code'], 'CCAuthorizationNumber');
         $this->appendXmlNode($dom, $cardNode, $ccAuthorizationService, 'CCAuthorizationService');
         $this->appendXmlNode($dom, $cardNode, $ccPreAuthorization, 'CCPreAuthorization');
         $this->appendXmlNode($dom, $cardNode, $paymentInfoLastTransId, 'CCTransRefNumber');
