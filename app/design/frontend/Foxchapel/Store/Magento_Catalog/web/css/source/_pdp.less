@@ -319,6 +319,12 @@
     }
 
     &.media {
+      .gallery-placeholder {
+        margin-bottom: 40px;
+      }
+      iframe {
+        width: 100%;
+      }
       .fotorama__wrap {
         .fotorama__shadows--bottom,
         .fotorama__shadows--top,
@@ -545,6 +551,16 @@
                 .flex();
                 align-items: center;
 
+                .items {
+                  &:before {
+                    margin: initial;
+                    left: 17px;
+                  }
+                  &:after{
+                    margin: initial;
+                    left: 16px;
+                  }
+                }
 
                 &:hover {
                   border-color: @color_red;
