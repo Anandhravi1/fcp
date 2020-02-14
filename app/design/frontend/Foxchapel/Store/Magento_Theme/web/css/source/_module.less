@@ -577,7 +577,12 @@
             }
         }
     }
-
+    //cms page  
+      .cms-page-view {
+          p {
+              color: inherit;
+          }
+      }      
     //
     //  Widgets
     //  ---------------------------------------------
@@ -685,6 +690,12 @@
         display: block !important;
     }
     }  
+    //sales-guest-form 
+    .sales-guest-form,.contact-index-index {
+        .actions-toolbar {
+            margin-left: 0 !important;
+        }     
+    }
    
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @s-tab) {
@@ -921,6 +932,13 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .page-main {
+        >.page-title-wrapper {
+            .page-title {
+                font-size: 2.2rem;
+            }
+        }
+    }
     .page-header {
         .header {
             &.content {
