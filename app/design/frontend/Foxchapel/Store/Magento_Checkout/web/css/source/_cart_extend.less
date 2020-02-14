@@ -4,8 +4,7 @@
 
 & when (@media-common = true) {
 
-    .cart-empty {
-        margin-top: 30px;
+    .cart-empty {       
         a {
             color: @primary__color;
         }
@@ -30,9 +29,9 @@
                 padding: 0 @layout-indent__width;
 
             }
-            .cart-container {
+            .cart-container,.cart-empty {
                 margin-top: 30px;
-            }
+            }             
         }
 
         .form-cart {
@@ -260,14 +259,7 @@
                                 }
                             }
                             .items {
-                                &:after {
-                                    margin: initial;
-                                    left: 15px;
-                                }
-                                &:before {
-                                    margin: initial;
-                                    left: 16px;
-                                }
+                                left: -80px;
                                 >li {
                                     border-bottom: 0;
                                 }
@@ -517,15 +509,6 @@
             }
 
             .checkout-methods-items{
-                button{
-                    background-color: @color_red;
-                    border-color: @color_red;
-                    &:hover{
-                        background-color: @color_black;
-                        border-color: @color_black;
-                    }
-                }
-
                 .item {
                     & + item {
                         display: none;
