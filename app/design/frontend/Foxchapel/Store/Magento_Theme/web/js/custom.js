@@ -40,6 +40,11 @@ define(['jquery', 'domReady!', 'slick'], function($) {
             $('body').toggleClass('laynav-active');
         });
 
+    //Message close 
+    $('body').on('click', '.page-main .page.messages .message', function () {
+        $(this).css('display', 'none');
+    });
+
     //Identifying if user is on mobile browser or not
     var isMobile = {
         Android: function() {
