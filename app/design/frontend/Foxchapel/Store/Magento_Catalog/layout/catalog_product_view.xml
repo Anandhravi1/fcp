@@ -40,14 +40,14 @@
                 <arguments>
                     <argument translate="true" name="title" xsi:type="string">Author</argument>
                     <argument name="class" xsi:type="string">author-tab</argument>
-                      <argument name="sort_order" xsi:type="string">30</argument>
+                      <argument name="sort_order" xsi:type="string">40</argument>
                 </arguments>
             </block>
             <block class="Magento\Catalog\Block\Product\View" name="product.editorial.tab" template="Magento_Catalog::product/view/details/editorial.phtml" group="detailed_info">
                 <arguments>
                     <argument translate="true" name="title" xsi:type="string">Editorial Reviews</argument>
                     <argument name="class" xsi:type="string">editorial-tab</argument>
-                    <argument name="sort_order" xsi:type="string">40</argument>
+                    <argument name="sort_order" xsi:type="string">50</argument>
                 </arguments>
             </block>    
         </referenceBlock>

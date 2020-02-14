@@ -1,3 +1,8 @@
+<?php $product = $block->getProduct(); ?>
 <div class="product subtitle">
 <h2><?= $block->escapeHtml($block->getProduct()->getSubtitle()); ?></h2>
 </div>
+<?php $author = $product->getAttributeText('fox_attr_author'); ?>
+<?php if ($author) : ?>
+Author - <a href="#"><?= $block->escapeHtml($author); ?></a>
+<?php endif; ?>
