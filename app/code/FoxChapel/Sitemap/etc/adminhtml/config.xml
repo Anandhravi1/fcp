@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Set the default store config values
+ *
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sitemapConfig>
+            <html_sitemap_page>
+                <showCms>1</showCms>
+                <showAccount>1</showAccount>
+                <showDefaultContactLink>1</showDefaultContactLink>
+                <showCategories>1</showCategories>
+            </html_sitemap_page>
+        </sitemapConfig>
+    </default>
+</config>

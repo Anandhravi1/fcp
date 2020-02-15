@@ -1,0 +1,97 @@
+<?php
+/**
+ * SiteMap Main Page
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<h2 class="site-map-header">Our Main Site Pages</h2>
+<ul class="sitemap">
+    <?php
+    $url = $block->getBaseUrl();
+    if (!empty($block->getStoreConfigValues()->getGeneralConfig('showCms'))) {
+        $cmsPageCollection = $block->getCreareCMSPages();
+        foreach ($cmsPageCollection as $cmsPage) {
+            $title = !empty($cmsPage->getContentHeading())
+                    ? $cmsPage->getContentHeading()
+                    : $cmsPage->getTitle();
+            if ($cmsPage['identifier'] == "home") { ?>
+                <li><a href="<?php echo $block->escapeHtml($url); ?>" title='<?php echo $block->escapeHtml($title) ?>'>
+                    <?php echo $block->escapeHtml($title) ?></a></li>
+            <?php } else { ?>
+                <li><a href='<?php echo $block->escapeHtml($url).$block->escapeHtml($cmsPage['identifier']) ?>' title='<?php echo $block->escapeHtml($title); ?>'>
+                    <?php echo $block->escapeHtml($title) ?></a></li>
+            <?php } ?>
+
+        <?php   }
+    }
+    ?>
+    <?php if (!empty($block->getStoreConfigValues()->getGeneralConfig('showDefaultContactLink'))) { ?>
+        <li><a href="/contacts" title="Contact"><?php echo $block->escapeHtml('Contact') ?></a></li>
+    <?php } ?>
+    <?php if (!empty($block->getStoreConfigValues()->getGeneralConfig('showAccount'))) { ?>
+        <?php
+        if ($block->isUserLoggedIn() == true) {
+            echo '<li><a href="/customer/account/index/" title="' . __('Account') . '">' . __('Account') . '</a></li>';
+            echo '<li><a href="/customer/account/logout/" title="' . __('Log Out') . '">' . __('Log Out') . '</a></li>';
+        } else {
+            echo '<li><a href="/customer/account/login" title="' . __('Register/Log In') . '">' . __('Register/Log In') . '</a></li>';
+        }
+        ?>
+        <li><a href="/catalogsearch/advanced" title="<?php echo $block->escapeHtml('Advanced Search') ?>"><?php echo $block->escapeHtml('Advanced Search') ?></a></li>
+    <?php } ?>
+</ul>
+
+<?php
+if (!empty($block->getStoreConfigValues()->getGeneralConfig('showCategories'))) {
+    $categories = $block->getStoreCategories(true, false, true);
+    $categoryHelper = $block->getCategoryHelper();
+    ?>
+
+<h2 class="site-map-header">Our Categories</h2>
+    <ul class="sitemap">
+        <?php
+        foreach ($categories as $category):
+            if (!$category->getIsActive()) {
+                continue;
+            }
+            ?>
+            <li><a href="<?php echo $categoryHelper->getCategoryUrl($category) ?>"><?php echo $category->getName() ?></a></li>
+            <?php
+            $category = $block->getCategories($category->getId());
+            $childrenCategories = $category->getChildrenCategories();
+            if (!empty($childrenCategories)) :
+                ?>
+                <ul>
+                    <?php
+                    foreach ($childrenCategories as $childrenCategory):
+                        $_nextSubCategories = $block->getCategories($childrenCategory->getId())->getChildrenCategories();
+                        if (!$childrenCategory->getIsActive()) {
+                            continue;
+                        }
+                        ?>
+                        <li><a href="<?php echo $categoryHelper->getCategoryUrl($childrenCategory) ?>"><?php echo $childrenCategory->getName() ?></a>
+                            <?php if (!empty($_nextSubCategories) > 0) : ?>
+                                <ul>
+                                    <?php foreach ($_nextSubCategories as $_nextsubcat): ?>
+                                        <li>
+                                            <a href="<?php echo $categoryHelper->getCategoryUrl($_nextsubcat) ?>"
+                                               title="<?php echo $_nextsubcat->getName() ?> - <?php echo $_nextsubcat->getName() ?>">
+                                                <?php echo $_nextsubcat->getName() ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+
+                        </li>
+                        <?php
+                    endforeach;
+                    ?>
+                </ul>
+                <?php
+            endif;
+        endforeach;
+        ?>
+    </ul>
+<?php } ?>

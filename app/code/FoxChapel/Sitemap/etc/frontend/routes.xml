@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Create a sitemap route
+ *
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="sitemap" frontName="sitemap">
+            <module name="FoxChapel_Sitemap" />
+        </route>
+    </router>
+</config>
