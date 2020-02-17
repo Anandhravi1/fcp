@@ -1,1 +1,5 @@
-Author Information
+<?php $attributeCode = 'about_author'; ?>
+<?php $blockIdentifier = $block->getProduct()->getData($attributeCode); ?>
+<?php if($blockIdentifier): ?>
+    <?php echo $blockIdentifier; ?>
+<?php endif; ?>
