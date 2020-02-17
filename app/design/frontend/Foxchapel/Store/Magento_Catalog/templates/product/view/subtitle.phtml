@@ -2,7 +2,7 @@
 <div class="product subtitle">
 <h2><?= $block->escapeHtml($block->getProduct()->getSubtitle()); ?></h2>
 </div>
-<?php $author = $product->getAttributeText('fox_attr_author'); ?>
+<?php $author = $product->getData('author_hotlink'); ?>
 <?php if ($author) : ?>
-Author - <a href="#"><?= $block->escapeHtml($author); ?></a>
+Author - <a href="#"><?= $author; ?></a>
 <?php endif; ?>
