@@ -314,10 +314,9 @@ class SendOrdersAsXmlInEmail extends \Magento\Framework\Model\AbstractModel
         $sType                    = $this->_order->getPayment()->getCcType();
         $sName                    = $this->getCCTypeName($sType);
         $ccType                   = ($paymentCode == 'paypal_express') ? "PayPal" : $sName;
-        $creditCardInformation    = $this->_authCodeCollection->create(); 
-        $creditCardInformation->getCollection()
-                              ->addFieldToFilter('order_id', $this->_order['increment_id'])
-                              ->getFirstItem();
+        $creditCardInformation    =  $this->_authCodeCollection->getCollection()
+                                        ->addFieldToFilter('order_id', $this->_order['increment_id'])
+                                        ->getFirstItem();
 
         $this->appendXmlNode($dom, $cardNode, $ccNumber, 'CCNumber');
         $this->appendXmlNode($dom, $cardNode, $ccTransactionDate, 'CCTransactionDate');

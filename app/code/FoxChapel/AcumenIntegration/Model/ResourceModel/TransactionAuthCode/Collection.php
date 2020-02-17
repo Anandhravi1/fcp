@@ -2,7 +2,9 @@
 
 namespace FoxChapel\AcumenIntegration\Model\ResourceModel\TransactionAuthCode;
 
-class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
+class Collection extends AbstractCollection
 {
 	protected function _construct()
 	{

@@ -9,7 +9,7 @@ class AuthorizeResponse
     /**
      * @var transactionAuthCode
      */
-    private $transactionAuthCode;
+    protected $transactionAuthCode;
 
     public function __construct(
         TransactionAuthCode $transactionAuthCode
@@ -20,15 +20,14 @@ class AuthorizeResponse
     public function afterAuthorize(\ParadoxLabs\TokenBase\Model\AbstractMethod $subject, $result, \Magento\Payment\Model\InfoInterface $payment)
     {
         $lastResponse = $result->gateway()->getLastResponse();
-        $authCode = $this->transactionAuthCode->create();
-        $authCode->setData(
-            [
-                'order_id' => $payment->getOrder()->getIncrementId(),
-                'card_type' => $payment->getOrder()->getPayment()->getCcType(),
-                'authorization_code' => $lastResponse["transactionResponse"]['authCode']
-            ]
+
+        $data = array(
+            'order_id' => $payment->getOrder()->getIncrementId(),
+            'card_type' => $payment->getOrder()->getPayment()->getCcType(),
+            'authorization_code' => $lastResponse["transactionResponse"]['authCode']
         );
-        $authCode->save();
+        $this->transactionAuthCode->setData($data);
+        $this->transactionAuthCode->save();
         
         return $result;
     }
