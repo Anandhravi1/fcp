@@ -242,12 +242,17 @@
       .lib-clearfix();
 
       .bundle-options-container {
+        background: fadeOut(@smoke_background, 80%);
         margin: 0;
         .lib-clearfix();
 
         .product-options-wrapper {
+          padding: 30px;
           width: 100%;
           float: none;
+          #customizeTitle {
+            margin-top: 0;
+          }
         }
 
         .fieldset {
@@ -261,7 +266,8 @@
         }
 
         .block-bundle-summary {
-          background: fadeOut(@smoke_background, 80%);
+          background: transparent;
+          padding: 30px;
           > .title {
             margin-bottom: 20px;
             > strong {
@@ -472,6 +478,7 @@
       .box-tocart {
         width: 100%;
         margin-bottom: 30px;
+        position: relative;
         .fieldset {
           .actions {
           }
