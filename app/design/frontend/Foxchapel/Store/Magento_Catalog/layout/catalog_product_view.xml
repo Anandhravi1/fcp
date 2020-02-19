@@ -12,8 +12,9 @@
             <container name="product-info-wrap" htmlClass="product-info-wrap" htmlTag="div" before="-">
                 <container name="product-info-inner" htmlClass="product-info-inner" htmlTag="div"/>
             </container>
+            <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.upsell" after="-"/>
         </referenceContainer>
-
+        
         <referenceContainer name="product.info.main">
             <container name="product-sku-ratings" htmlClass="product-sku-ratings" htmlTag="div" after="product.info.price"/>
             <block class="Magento\Catalog\Block\Product\View" name="product.info.subtitle" template="Magento_Catalog::product/view/subtitle.phtml" after="page.main.title" />
@@ -23,7 +24,7 @@
         <move element="product.info.subtitle" destination="product.info.main" after="page.main.title"/>
         <move element="product.info.media" destination="product-info-inner" before="-"/>
         <move element="product.info.main" destination="product-info-inner" after="product.info.media" />
-
+        <move element="amasty.banners.lite.top" destination="product-info-inner" before="-" />
         <move element="bundle.options.container" destination="product-info-inner" after="-"/>
 
         <move element="product.info.review" destination="product-sku-ratings" after="-"/>
@@ -63,9 +64,6 @@
                 <argument translate="true" name="title" xsi:type="string">Description</argument>
             </arguments>
         </referenceBlock>
-        <referenceContainer name="content">
-            <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.upsell" after="-"/>
-        </referenceContainer>
 
         <referenceContainer name="product.info.social">
             <block name="product.share" template="Magento_Catalog::product/view/share.phtml" after="-" />

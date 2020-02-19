@@ -63,7 +63,9 @@
         }
 
         .shipping-address-items {
+            .flex();
             font-size: 0;
+            justify-content: flex-start;
         }
 
         .shipping-address-item {
@@ -73,8 +75,8 @@
             .lib-css(margin, @checkout-shipping-item__margin);
             .lib-css(padding, 20px 35px 80px 20px);
             .lib-css(transition, @checkout-shipping-item__transition);
-            .lib-css(width, ~"calc(50% - 20px)");
-            display: inline-block;
+            .flex-width(48%);
+            margin: 0 1% 20px;
             font-size: @font-size__base;
             position: relative;
             vertical-align: top;
@@ -110,11 +112,6 @@
                 }
                 &.action-select-shipping-item {
                     right: 10px;
-                }
-            }
-            @media screen and (min-width: 641px) and (max-width: 1023px) {
-                &:nth-child(even) {
-                    margin-left: 20px;
                 }
             }
         }
@@ -222,7 +219,8 @@
 
         .shipping-address-item {
             .lib-css(border-bottom, 1px solid @checkout-shipping-item-before__border-color);
-            .lib-css(margin, @checkout-shipping-item-mobile__margin);
+            .flex-width(100%);
+            margin: 0 0 20px;
             width: 100%;
 
             &.selected-item {
@@ -301,12 +299,7 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .opc-wrapper {
         .shipping-address-item {
-            .lib-css(width, ~"calc(33.3333% - 13.33px)");
-
-            &:nth-child(3n + 2) {
-                margin: 0 20px
-            }
-
+            .flex-width(31%);
             &.selected-item {
                 &:before {
                     display: none;
