@@ -9,6 +9,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">    
     <body>     
-        <attribute name="class" value="amasty-quickview" />       
+        <attribute name="class" value="amasty-quickview" />
+        <referenceBlock name="product.info.details" remove="true" />
+        <referenceBlock name="amasty.quickview.upsell" remove="true"/>
+        <referenceBlock name="catalog.product.related" remove="true"/>
     </body>
 </page>
