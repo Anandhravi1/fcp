@@ -206,6 +206,26 @@
     .cart-container {
         .form-cart {
             &:extend(.abs-shopping-cart-items all);
+
+            .field.qty {
+                position: relative;
+
+                @media only screen and (max-width: (@screen__m - 1)) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            div.mage-error[generated] {
+                .abs;
+                bottom: -24px;
+                left: 0;
+                white-space: nowrap;
+
+                @media only screen and (max-width: (@screen__m - 1)) {
+                    bottom: -23px;
+                    left: -65px;
+                }
+            }
         }
 
         .checkout-methods-items {
