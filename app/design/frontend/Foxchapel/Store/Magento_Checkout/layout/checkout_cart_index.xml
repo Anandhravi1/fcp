@@ -35,6 +35,9 @@
                 <argument name="css_class" xsi:type="string">summary title</argument>
             </arguments>
         </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Amasty\Quickview\Block\Config" name="amasty.quickview.crossell" after="-"/>
+        </referenceContainer>
         <move element="checkout.cart.coupon" destination="cart.summary" after="checkout.cart.shipping" />
     </body>
 </page>
