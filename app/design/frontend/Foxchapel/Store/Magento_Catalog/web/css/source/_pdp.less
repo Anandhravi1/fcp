@@ -319,15 +319,12 @@
     &-info-inner {
       .lib-clearfix();
       max-width: @layout__max-width;
-      padding: 0 @layout-indent__width;
-      margin: 20px auto 50px;
+      padding: 0 @indent__s;
+      margin: 20px auto;
       width: 98%;
     }
 
     &.media {
-      .gallery-placeholder {
-        margin-bottom: 40px;
-      }
       iframe {
         width: 100%;
       }
@@ -374,6 +371,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      padding: 0 @indent__s;
 
       .product.attribute.sku {
         color: @primary__color;
@@ -479,10 +477,6 @@
         width: 100%;
         margin-bottom: 30px;
         position: relative;
-        .fieldset {
-          .actions {
-          }
-        }
       }
 
       .product {
@@ -535,7 +529,11 @@
           .flex();
           align-items: center;
           width: auto;
-          margin-bottom: 20px;
+          padding-bottom: 50px;
+
+          & + div[data-role='am-banners-lite'] {
+            margin-top: 60px;
+          }
 
           .product-addto-links {
             margin: 0;
@@ -550,13 +548,14 @@
               position: relative;
 
               &.split {
-                width: 55px;
+                width: 75px;
                 height: 55px;
-                .br-radius(50%);
+                .br-radius(35px);
                 border: 1px solid @secondary__color;
                 margin-right: 15px;
                 .flex();
                 align-items: center;
+                padding: 0 10px;
 
                 .items {
                   &:before {
@@ -572,7 +571,7 @@
                 &:hover {
                   border-color: @color_red;
 
-                  .action {
+                  .action:not(.new) {
                     color: @color_red;
 
                     &:after {
@@ -696,8 +695,9 @@
                     padding: 8px;
                     right: 0;
                     min-width: 175px;
-                    top: 70px;
+                    top: 60px;
                     visibility: hidden;
+
                     .at-share-btn-elements {
                       .flex();
                       justify-content: space-between;
@@ -793,6 +793,13 @@
             &.primary {
               .br-radius(0);
             }
+          }
+        }
+        .amreview-description {
+          .amreview-readmore {
+            cursor: pointer;
+            padding-left: 10px;
+            text-decoration: underline;
           }
         }
       }
@@ -1011,6 +1018,7 @@
       .product {
         &.media {
           width: 45%;
+          margin-bottom: 0;
         }
         &-info-main {
           width: 52%;
@@ -1137,6 +1145,10 @@
             }
           }
         }
+      }
+
+      .amreview-add-new .amreview-label {
+        max-width: 185px;
       }
      }
     }

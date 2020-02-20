@@ -34,13 +34,20 @@
         }
 
         .tabs-navigation {
+            .abs;
+            .full-width;
+            .trans-dur-5;
+            background: #ebebeb;
+            box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.2);
+            bottom: 0;
             opacity: 0;
+            z-index: 99;
         }
       
     }
 
     //messages 
-    .page-main {
+    #maincontent {
         .page.messages {
             bottom: 0;
             left: 0;
@@ -95,6 +102,17 @@
         }
     }
 
+    //modal
+
+    .modal-popup {
+        .modal-inner-wrap {
+            .modal-footer {
+                button {
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
     //IE dropdown arrow removal
     .ie {
         select::-ms-expand {
@@ -210,6 +228,7 @@
     .full-carousel {
         background-color: @color-white;
         max-height: 600px;
+        position: relative;
 
         .tabs-content {
             opacity: 0;
@@ -225,7 +244,6 @@
         }
         
         &.ui-tabs{
-            position: relative;
     
             .ui-tabs-panel{
                 padding: 0 !important;
@@ -244,13 +262,6 @@
             }
             
             .tabs-navigation {
-                .abs;
-                .full-width;
-                .trans-dur-5;
-                background: #ebebeb;
-                box-shadow: 0px 4px 6px 1px rgba(0, 0, 0, 0.2);
-                bottom: 0;
-                z-index: 99;
 
                 @media only screen and (max-width: (@screen__m - 1)) {
                     position: absolute !important;

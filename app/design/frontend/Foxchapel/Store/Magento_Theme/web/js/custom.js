@@ -41,7 +41,7 @@ define(['jquery', 'domReady!', 'slick'], function($) {
         });
 
     //Message close 
-    $('body').on('click', '.page-main .page.messages .message', function () {
+    $('body').on('click', '#maincontent .page.messages .message', function () {
         $(this).css('display', 'none');
     });
 
