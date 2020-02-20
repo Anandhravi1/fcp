@@ -5,11 +5,11 @@
 
 @font-face {
   font-family: 'foxchapel';
-  src:  url('@{baseDir}fonts/foxchapel.eot?r800u4');
-  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc#r800u4') format('embedded-opentype'),
-  url('@{baseDir}fonts/foxchapel.ttf?r800u4') format('truetype'),
-  url('@{baseDir}fonts/foxchapel.woff?r800u4') format('woff'),
-  url('@{baseDir}fonts/foxchapel.svg?r800u4#foxchapel') format('svg');
+  src:  url('@{baseDir}fonts/foxchapel.eot?ewg8ud');
+  src:  url('@{baseDir}fonts/foxchapel.eot?n6ojgc#ewg8ud') format('embedded-opentype'),
+  url('@{baseDir}fonts/foxchapel.ttf?ewg8ud') format('truetype'),
+  url('@{baseDir}fonts/foxchapel.woff?ewg8ud') format('woff'),
+  url('@{baseDir}fonts/foxchapel.svg?ewg8ud#foxchapel') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -30,6 +30,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-youtube:before {
+  content: "\e917";
+}
 .icon-circle:before {
   content: "\e90c";
 }
@@ -101,7 +104,7 @@
 }
 
 @icon-fox: 'foxchapel';
-
+@youtube: "\e917";
 @circle: "\e90c";
 @search: '\e905';
 @cart: '\e903';

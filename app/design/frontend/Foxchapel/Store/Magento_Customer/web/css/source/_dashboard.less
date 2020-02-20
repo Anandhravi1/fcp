@@ -46,7 +46,7 @@
         }
       }
     }
-
+  
     .form-address-edit,
     .manage-payment-method,
     .form-newsletter-manage,
@@ -146,7 +146,18 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m + 1) {
+  .account.page-layout-2columns-left {
+    .sidebar-main,
+    .sidebar-additional,.column.main {
+        width: 100%;
+    }     
+}
   .account {
+    .account-nav {
+      .title {
+        .lib-visually-hidden-reset();
+      }       
+    }
     .products-grid{
       &.wishlist {
         .product-item {
@@ -183,6 +194,60 @@
         }
       }
     }
+    .page-main {      
+      position: relative;
+      .column{
+        &.main {
+          order: 2;
+        }
+      }
+      .sidebar-main {
+        order: 1;
+      }
+      .page-title-wrapper {
+        .page-title {
+          margin-top: 30px;
+        }
+      }
+    }    
+    &-nav {
+      &.block {      
+        .title {
+          &.account-nav {
+              position: relative;
+              cursor: pointer;
+              padding: 15px;
+              padding-left: 20px;
+              border: 1px solid @border_color;
+              background: @color_white;
+              border-top: 5px solid #ce181f;
+              &:after {
+                position: absolute;
+                content: '\e622';
+                font-family: 'icons-blank-theme';
+                right: 7px;                
+                color: #141414;
+                font-size: 42px;
+                line-height: 0.5;
+              }
+              +.content.account-nav {
+                display: none;
+                background: @primary_background_color;
+                box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.08);
+                border-top: 0;
+              }
+            &.active {
+              &:after {
+                transform:rotateX(-180deg);
+              }
+              +.content.account-nav {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -197,8 +262,6 @@
 
     }
   }
-
-
 }
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
   // Order
@@ -257,7 +320,15 @@
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m + 1) {
-
+  .account.page-layout-2columns-left {
+          .sidebar-main,
+         .sidebar-additional {
+               width: 22.3%;
+         }  
+           .column.main {
+              width: 77.7%;
+          }
+       }
 }
 
 
