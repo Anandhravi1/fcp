@@ -29,7 +29,13 @@
             margin-bottom: @indent__s;
         }
     }
-
+    .toolbar-products {               
+        +.products {
+            +.toolbar-products {
+                display: none;
+            }
+        }
+    }
     .block-content {
         &.filter-content {
             @media only screen and (max-width: (@screen__m - 1)) {
