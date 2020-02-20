@@ -77,7 +77,19 @@
             }
         }
     }
+    //multi shipping checkout 
 
+    .multishipping-checkout-shipping {
+        .choice:not(.review-field-rating) input[type="radio"] {
+            position: static;
+            visibility: visible;
+        }
+        .block-content {
+            > .box {
+                padding-top: 15px;
+            }
+        }
+    }
     .checkout-container {
         &:extend(.abs-add-clearfix all);
         .lib-css(margin, 0 0 @checkout-wrapper__margin);
