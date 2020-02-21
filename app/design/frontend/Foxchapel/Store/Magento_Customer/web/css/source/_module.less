@@ -402,11 +402,21 @@
         .sidebar-additional {
             margin: 0;
         }
+        
+        .table-wrapper {
+            .rating-summary {
+                display: inline;
+            }
 
-        .table-order-items {
             tbody > tr {
                 margin-bottom: 20px;
                 border-bottom: 2px solid #ddd;
+            }
+
+            td {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
     }
