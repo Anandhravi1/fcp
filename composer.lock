@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2dbbc0c9f804b2928eb20477a643e9df",
+    "content-hash": "da7de361430070879dbc72e06685b9a3",
     "packages": [
         {
             "name": "amasty/advanced-review",
@@ -19225,32 +19225,6 @@
             "license": [
                 "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
             ]
-        },
-        {
-            "name": "wyomind/cronscheduler",
-            "version": "1.8.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.wyomind.com/wyomind-cronscheduler-1.8.3.zip"
-            },
-            "require": {
-                "magento/framework": ">=100.0.0",
-                "php": "~5.5.0|~5.6.0|>=7.0.0",
-                "wyomind/core": ">=4.5.2"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Wyomind\\CronScheduler\\": ""
-                }
-            },
-            "license": [
-                "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
-            ],
-            "description": "Cron Scheduler is a toolbox that makes visible and comprehensible the cron tasks that run in the background of your Magento 2 website. This extension helps to monitor cron jobs and provides many features that help to prevent errors."
         },
         {
             "name": "wyomind/datafeedmanager",
