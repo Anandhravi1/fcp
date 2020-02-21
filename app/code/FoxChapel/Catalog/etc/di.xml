@@ -5,4 +5,5 @@
     <preference for="Magento\Catalog\CustomerData\CompareProducts" type="FoxChapel\Catalog\CustomerData\CompareProducts" />
     <preference for="Magento\Catalog\Helper\Data" type="FoxChapel\Catalog\Helper\Data"/>
     <preference for="Magento\CatalogUrlRewrite\Model\CategoryUrlPathGenerator" type="FoxChapel\Catalog\Model\CategoryUrlPathGenerator"/>
+    <preference for="Magento\MessageQueue\Console\StartConsumerCommand" type="FoxChapel\Catalog\Console\StartConsumerCommand"/>
 </config>
