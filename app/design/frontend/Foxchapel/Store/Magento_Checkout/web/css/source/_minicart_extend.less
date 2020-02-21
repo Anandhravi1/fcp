@@ -62,7 +62,9 @@
       }
     }
     .subtotal {
-      display: flex;
+      @media only screen and (min-width: @screen__m) {
+        display: flex;
+      }
       justify-content: flex-end;
       margin-top: 20px;
       .label {
