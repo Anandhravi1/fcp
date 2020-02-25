@@ -38,8 +38,7 @@ require([
     });
 
     if($('.category-slider')) {
-        $(".category-slider .items").each(function () {
-            $(this).slick({
+        $(".category-slider .items").slick({
                 infinite: true,
                 speed: 300,
                 lazyLoad: true,
@@ -76,18 +75,16 @@ require([
                     }
 
                 ]
-            });
         });
     }
 
     if($('.category-products-slider .product-items')) {
-        $(".category-products-slider .product-items").each(function () {
-            $(this).slick({
+        $(".category-products-slider .product-items").slick({
                 infinite: true,
                 speed: 300,
                 lazyLoad: true,
                 slidesToShow: 4,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
                 responsive: [
                     {
                         breakpoint: 1025,
@@ -112,45 +109,40 @@ require([
                     }
 
                 ]
-            });
         });
     }
 
     if($('.products-wrapper .product-items .product-item').length > 3) {
-        $(".products-wrapper .product-items").each(function () {
-            $(this).slick({
-                infinite: true,
-                speed: 300,
-                lazyLoad: true,
-                slidesToShow: 4,
-                slidesToScroll: 3,
-                responsive: [
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 840,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 640,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
+        $(".products-wrapper .product-items").slick({
+            infinite: true,
+            speed: 300,
+            lazyLoad: true,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2
                     }
+                },
+                {
+                    breakpoint: 840,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
 
-                ]
-            });
+            ]
         });
     }
-
-
 });
