@@ -8,15 +8,15 @@
     "packages": [
         {
             "name": "amasty/advanced-review",
-            "version": "1.13.1",
+            "version": "1.13.2",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/advanced-review-1.13.1-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/advanced-review-1.13.2-ee.zip"
             },
             "require": {
-                "amasty/aminvisiblecaptcha": ">=2.2.1",
-                "amasty/base": ">=1.9.7",
-                "amasty/cron-schedule-list": ">=1.0.4",
+                "amasty/aminvisiblecaptcha": ">=2.2.2",
+                "amasty/base": ">=1.9.10",
+                "amasty/cron-schedule-list": ">=1.0.5",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "suggest": {
@@ -138,10 +138,10 @@
         },
         {
             "name": "amasty/meta",
-            "version": "1.1.12",
+            "version": "1.1.13",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/meta-1.1.12-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/meta-1.1.13-ee.zip"
             },
             "require": {
                 "amasty/base": ">=1.9.10",
@@ -244,7 +244,7 @@
                 "url": "https://composer.amasty.com/enterprise/packages/module-google-rich-snippets-1.4.6-ee.zip"
             },
             "require": {
-                "amasty/base": ">=1.9.7",
+                "amasty/base": ">=1.9.10",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
@@ -269,7 +269,7 @@
                 "url": "https://composer.amasty.com/enterprise/packages/module-loyalty-program-2.7.10-ee.zip"
             },
             "require": {
-                "amasty/base": ">=1.9.7",
+                "amasty/base": ">=1.9.10",
                 "amasty/module-special-promo-pro": ">=2.7.9",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
@@ -289,15 +289,15 @@
         },
         {
             "name": "amasty/module-seo-toolkit",
-            "version": "1.16.7",
+            "version": "1.16.9",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/module-seo-toolkit-1.16.7-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/module-seo-toolkit-1.16.9-ee.zip"
             },
             "require": {
                 "amasty/base": ">=1.9.10",
                 "amasty/html-sitemap": ">=1.2.3",
-                "amasty/meta": ">=1.1.12",
+                "amasty/meta": ">=1.1.13",
                 "amasty/module-cross-linking": ">=1.1.2",
                 "amasty/module-google-rich-snippets": ">=1.4.6",
                 "amasty/module-unique-product-url": ">=1.0.18",
@@ -375,14 +375,14 @@
         },
         {
             "name": "amasty/module-special-promo-pro",
-            "version": "2.7.10",
+            "version": "2.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/module-special-promo-pro-2.7.10-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/module-special-promo-pro-2.8.1-ee.zip"
             },
             "require": {
-                "amasty/base": ">=1.9.7",
-                "amasty/module-special-promo": ">=2.7.12",
+                "amasty/base": ">=1.9.10",
+                "amasty/module-special-promo": ">=2.7.14",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
@@ -401,13 +401,13 @@
         },
         {
             "name": "amasty/module-unique-product-url",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/enterprise/packages/module-unique-product-url-1.0.18-ee.zip"
+                "url": "https://composer.amasty.com/enterprise/packages/module-unique-product-url-1.0.19-ee.zip"
             },
             "require": {
-                "amasty/base": ">=1.9.7",
+                "amasty/base": ">=1.9.10",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
@@ -508,7 +508,7 @@
                 "url": "https://composer.amasty.com/enterprise/packages/shiprules-2.6.4-ee.zip"
             },
             "require": {
-                "amasty/base": ">=1.9.7",
+                "amasty/base": ">=1.9.10",
                 "amasty/module-shippingarea": ">=1.0.3",
                 "amasty/system-common-rules": ">=2.4.8",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -538,8 +538,8 @@
                 "url": "https://composer.amasty.com/enterprise/packages/social-login-1.5.2-ee.zip"
             },
             "require": {
-                "amasty/aminvisiblecaptcha": ">=2.2.1",
-                "amasty/base": ">=1.9.7",
+                "amasty/aminvisiblecaptcha": ">=2.2.2",
+                "amasty/base": ">=1.9.10",
                 "hybridauth/hybridauth": "^2.15.1",
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
@@ -1982,16 +1982,16 @@
         },
         {
             "name": "fastly/magento2",
-            "version": "1.2.128",
+            "version": "1.2.129",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fastly/fastly-magento2.git",
-                "reference": "af7a082ef8822c90af9df2c77c8d5ecaf0941bb5"
+                "reference": "814aa71e7648205f0848aa24d8080b312620b24d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fastly/fastly-magento2/zipball/af7a082ef8822c90af9df2c77c8d5ecaf0941bb5",
-                "reference": "af7a082ef8822c90af9df2c77c8d5ecaf0941bb5",
+                "url": "https://api.github.com/repos/fastly/fastly-magento2/zipball/814aa71e7648205f0848aa24d8080b312620b24d",
+                "reference": "814aa71e7648205f0848aa24d8080b312620b24d",
                 "shasum": ""
             },
             "require": {
@@ -2016,7 +2016,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Fastly CDN Module for Magento 2.x",
-            "time": "2020-02-14T16:04:40+00:00"
+            "time": "2020-02-18T16:14:25+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -2822,38 +2822,6 @@
             "license": [
                 "Apache-2.0"
             ],
-            "authors": [
-                {
-                    "name": "Joe Constant",
-                    "email": "joe.constant@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Fei Chen",
-                    "email": "fei.chen@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Dario Kassler",
-                    "email": "dario.kassler@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Jason Grim",
-                    "email": "jason.grim@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Kenny Gilles",
-                    "email": "kenny.gilles@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Markus Simon",
-                    "email": "markus.simon2@klarna.com",
-                    "role": "Developer"
-                }
-            ],
             "description": "Klarna Core Magento 2 Extension"
         },
         {
@@ -2909,38 +2877,6 @@
             "license": [
                 "Apache-2.0"
             ],
-            "authors": [
-                {
-                    "name": "Joe Constant",
-                    "email": "joe.constant@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Fei Chen",
-                    "email": "fei.chen@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Dario Kassler",
-                    "email": "dario.kassler@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Jason Grim",
-                    "email": "jason.grim@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Kenny Gilles",
-                    "email": "kenny.gilles@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Markus Simon",
-                    "email": "markus.simon2@klarna.com",
-                    "role": "Developer"
-                }
-            ],
             "description": "Klarna Payments Magento 2 Extension"
         },
         {
@@ -2989,38 +2925,6 @@
             },
             "license": [
                 "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Joe Constant",
-                    "email": "joe.constant@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Fei Chen",
-                    "email": "fei.chen@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Dario Kassler",
-                    "email": "dario.kassler@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Jason Grim",
-                    "email": "jason.grim@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Kenny Gilles",
-                    "email": "kenny.gilles@klarna.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Markus Simon",
-                    "email": "markus.simon2@klarna.com",
-                    "role": "Developer"
-                }
             ],
             "description": "Klarna Order Management Magento 2 Extension"
         },
@@ -15926,11 +15830,11 @@
         },
         {
             "name": "mirasvit/module-search",
-            "version": "1.0.140",
+            "version": "1.0.141",
             "dist": {
                 "type": "tar",
-                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-1.0.140-ad34cc.tar",
-                "reference": "fb0d8695908fcd2d7312068001af03728bd6eb21"
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-1.0.141-ca2876.tar",
+                "reference": "1834c7d918deddedbd53a003817ccec1221c26dc"
             },
             "require": {
                 "magento/framework": "100.1.*|100.2.*|101.0.*|102.0.*",
@@ -15952,7 +15856,7 @@
                 "proprietary"
             ],
             "description": "Search",
-            "time": "2020-02-13T10:28:47+00:00"
+            "time": "2020-02-18T12:24:15+00:00"
         },
         {
             "name": "mirasvit/module-search-autocomplete",
@@ -16064,11 +15968,11 @@
         },
         {
             "name": "mirasvit/module-search-mysql",
-            "version": "1.0.36",
+            "version": "1.0.37",
             "dist": {
                 "type": "tar",
-                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-mysql-1.0.36-26a5f7.tar",
-                "reference": "81d03bbccac2c2042ceb31e8e73aeb66e76ea2c3"
+                "url": "https://packages.mirasvit.com/45840:3T76OASKDG/downloads/mirasvit-module-search-mysql-1.0.37-69fa40.tar",
+                "reference": "21bc3bdb18cac5079dffefa81ee3284aa1f7eac5"
             },
             "require": {
                 "magento/framework": "100.1.*|100.2.*|101.0.*|102.0.*"
@@ -16086,7 +15990,7 @@
                 "proprietary"
             ],
             "description": "Search Mysql",
-            "time": "2019-11-11T12:51:13+00:00"
+            "time": "2020-02-18T11:04:37+00:00"
         },
         {
             "name": "mirasvit/module-search-report",
@@ -16221,12 +16125,6 @@
             "license": [
                 "OSL-3.0"
             ],
-            "authors": [
-                {
-                    "name": "Riccardo Tempesta",
-                    "email": "riccardo.tempesta@magespecialist.it"
-                }
-            ],
             "description": "Google reCaptcha integration for Magento2"
         },
         {
@@ -16257,12 +16155,6 @@
             },
             "license": [
                 "OSL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Riccardo Tempesta",
-                    "email": "riccardo.tempesta@magespecialist.it"
-                }
             ],
             "description": "Two Factor Authentication module for Magento2"
         },
@@ -16863,16 +16755,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.23",
+            "version": "2.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "c78eb5058d5bb1a183133c36d4ba5b6675dfa099"
+                "reference": "c18159618ed7cd7ff721ac1a8fec7860a475d2f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c78eb5058d5bb1a183133c36d4ba5b6675dfa099",
-                "reference": "c78eb5058d5bb1a183133c36d4ba5b6675dfa099",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c18159618ed7cd7ff721ac1a8fec7860a475d2f0",
+                "reference": "c18159618ed7cd7ff721ac1a8fec7860a475d2f0",
                 "shasum": ""
             },
             "require": {
@@ -16951,7 +16843,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2019-09-17T03:41:22+00:00"
+            "time": "2020-02-25T04:16:50+00:00"
         },
         {
             "name": "psr/container",
@@ -17247,17 +17139,17 @@
             ],
             "authors": [
                 {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                },
+                {
                     "name": "Marijn Huizendveld",
                     "email": "marijn.huizendveld@gmail.com"
                 },
                 {
                     "name": "Thibaud Fabre",
                     "email": "thibaud@aztech.io"
-                },
-                {
-                    "name": "Ben Ramsey",
-                    "email": "ben@benramsey.com",
-                    "homepage": "https://benramsey.com"
                 }
             ],
             "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
@@ -18863,14 +18755,6 @@
             "license": [
                 "OSL-3.0"
             ],
-            "authors": [
-                {
-                    "name": "Christoph Aßmann",
-                    "email": "christoph.assmann@netresearch.de",
-                    "homepage": "https://www.netresearch.de/",
-                    "role": "Developer"
-                }
-            ],
             "description": "Temando multi-carrier shipping extension for Magento 2"
         },
         {
@@ -19050,14 +18934,6 @@
             "license": [
                 "proprietary"
             ],
-            "authors": [
-                {
-                    "name": "Mediotype",
-                    "email": "diveinto@mediotype.com",
-                    "homepage": "http://www.mediotype.com/",
-                    "role": "Development Company"
-                }
-            ],
             "description": "Vertex Tax Links for Magento 2",
             "homepage": "http://go.vertexsmb.com/magento_cbe",
             "keywords": [
@@ -19223,7 +19099,7 @@
                 }
             },
             "license": [
-                "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
+                "Commercial License - Copyright 2020  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
             ]
         },
         {
@@ -19248,7 +19124,7 @@
                 }
             },
             "license": [
-                "Commercial License - Copyright 2016  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
+                "Commercial License - Copyright 2020  - WYOMIND  - Purchasing any product (Software) from the  wyomind.com web-site means buyer agree to the following statements (see LICENSE.TXT)"
             ],
             "description": "Export your products from your Magento website into csv, txt and xml data feeds for any shopping engine or market place! This extension includes all Google Shopping features and 19 sample templates. "
         },
