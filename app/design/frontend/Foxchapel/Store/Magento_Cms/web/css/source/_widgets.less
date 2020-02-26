@@ -42,7 +42,10 @@
                     text-overflow: ellipsis;
                     display: -webkit-box;
                     -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;                
+                    -webkit-box-orient: vertical;  
+                    span {
+                        font-size: 48px !important;
+                    }              
                     & ~ h2:empty{
                         display: none
                     }
@@ -324,7 +327,7 @@
                 [data-element="content"]{
                     display: initial;                    
                 }
-                h2 {
+                h1,h2,h3,h4,h5,h6 {
                     flex: 0 0 100%;
                     max-width: 100%;
                     color: @color_white;
@@ -332,6 +335,9 @@
                     font-size: 35px !important;
                     max-width: 500px;
                     display: block;
+                    span {
+                        font-size: 35px !important;
+                    }
                    
                 }
                 p {
@@ -377,7 +383,12 @@
                     font-size: 24px !important;
                     line-height: 30px;
                     max-width: 500px;
-                    display: block;                    
+                    display: block; 
+                    min-height: 80px;
+                     
+                    span {
+                        font-size: 24px !important;
+                    }                  
                 }
                 p {
                     max-height: 250px;
