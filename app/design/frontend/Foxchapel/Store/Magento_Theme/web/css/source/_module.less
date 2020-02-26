@@ -87,7 +87,7 @@
       &.nav-sections,.navigation {
            background: @color_black;
         }
-}
+    }
     .display-content-item(@display,@content,@item) {
         display:@display;
         justify-content: @content;
@@ -581,6 +581,53 @@
       .cms-page-view {
           p {
               color: inherit;
+          }
+
+          .page-title {
+            color: @fox-red;
+          }
+          h2,
+          h3,
+          h4,
+          h5 {
+              color: @fox-red;
+              font-size: 18px;
+              font-weight: @font-weight__bold;
+              padding: 10px 0;
+              text-transform: uppercase;
+          }
+          .column.main {
+            a {
+                color: @color_black;
+                text-decoration: underline;
+            }
+            ul {
+                list-style: none;
+                margin: 20px 0 0 0;
+                padding: 0;
+                
+                li {
+                    display: block;
+                    margin-bottom: 10px;
+                    max-width: 200px;
+                }
+
+                a {
+                    background-color: @fox-red;
+                    border-radius: 4px;
+                    color: @color-white;
+                    display: block;
+                    overflow: hidden;
+                    text-decoration: none;
+                    padding: 10px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    &:hover {
+                        background-color: @color_black;
+                    }
+                }
+            }
           }
       }      
     //
